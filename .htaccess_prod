@@ -1,0 +1,62 @@
+allow from all
+Options +FollowSymlinks
+RewriteEngine On
+RewriteCond %{SERVER_PORT} 80
+RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1 [R=301,L]
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^admin.*$ admin/index.php [QSA,L]
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^(.*)$ index.php [QSA,L]
+
+AddType image/svg+xml .svg
+
+# BEGIN cPanel-generated php ini directives, do not edit
+# Manual editing of this file may result in unexpected behavior.
+# To make changes to this file, use the cPanel MultiPHP INI Editor (Home >> Software >> MultiPHP INI Editor)
+# For more information, read our documentation (https://go.cpanel.net/EA4ModifyINI)
+<IfModule php7_module>
+#   php_value date.timezone "America/Argentina/Buenos_Aires"
+</IfModule>
+<IfModule lsapi_module>
+#   php_value date.timezone "America/Argentina/Buenos_Aires"
+</IfModule>
+# END cPanel-generated php ini directives, do not edit
+
+RewriteEngine On 
+ErrorDocument 403 https://www.didacticosdelsur.com.ar/
+RewriteCond %{HTTP_HOST} ^didacticosdelsur\.com\.ar$ [OR]
+RewriteCond %{HTTP_HOST} ^www\.didacticosdelsur\.com\.ar$
+RewriteRule ^(.*)$ "https\:\/\/www\.didacticosdelsur\.com\/$1" [R=302,L]
+
+AddType image/webp .webp
+
+# BEGIN Expire headers  
+<IfModule mod_expires.c>  
+  # Turn on the module.
+  ExpiresActive on
+  # Set the default expiry times.
+  ExpiresDefault "access plus 2 days"
+  ExpiresByType image/jpg "access plus 4 months"
+  ExpiresByType image/svg+xml "access plus 4 months"
+  ExpiresByType image/gif "access plus 4 months"
+  ExpiresByType image/jpeg "access plus 4 months"
+  ExpiresByType image/webp "access plus 4 months"
+  ExpiresByType image/png "access plus 4 months"
+  ExpiresByType text/css "access plus 1 day"
+  ExpiresByType text/javascript "access plus 1 day"
+  ExpiresByType application/javascript "access plus 1 day"
+  ExpiresByType application/x-shockwave-flash "access plus 4 months"
+  ExpiresByType image/ico "access plus 4 months"
+  ExpiresByType image/x-icon "access plus 4 months"
+  ExpiresByType text/html "access plus 600 seconds"
+</IfModule>  
+# END Expire headers
+
+# php -- BEGIN cPanel-generated handler, do not edit
+# Set the “ea-php74” package as the default “PHP” programming language.
+<IfModule mime_module>
+  AddHandler application/x-httpd-ea-php74___lsphp .php .php7 .phtml
+</IfModule>
+# php -- END cPanel-generated handler, do not edit
