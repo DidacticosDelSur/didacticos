@@ -1,0 +1,356 @@
+<!doctype html>
+<!--[if lt IE 7]>
+<html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
+<!--[if IE 7]>
+<html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
+<!--[if IE 8]>
+<html class="no-js lt-ie9" lang=""> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="en">
+<!--<![endif]-->
+
+<head><meta charset="gb18030">
+    
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Didacticos - Admin</title>
+    <meta name="description" content="Didacticos administrator">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="{base_url}assets/images/favicon.png" type="image/x-icon" sizes="196x196"/>
+    <link rel="apple-touch-icon" href="{base_url}apple-icon.png">
+    <link rel="shortcut icon" href="{base_url}favicon.ico">
+
+
+    <link rel="stylesheet" href="{base_url}vendors/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{base_url}vendors/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="{base_url}vendors/themify-icons/css/themify-icons.css">
+    <link rel="stylesheet" href="{base_url}vendors/flag-icon-css/css/flag-icon.min.css">
+    <link rel="stylesheet" href="{base_url}vendors/selectFX/css/cs-skin-elastic.css">
+
+    <link rel="stylesheet" href="{base_url}vendors/chosen/chosen.min.css">
+    <link rel="stylesheet" href="{base_url}assets/css/style.css">
+
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800' rel='stylesheet' type='text/css'>
+
+</head>
+
+<body>
+
+
+<!-- Left Panel -->
+
+{panel}
+
+<!-- Left Panel -->
+
+<!-- Right Panel -->
+
+<div id="right-panel" class="right-panel">
+
+    <div class="breadcrumbs">
+        <div class="col-sm-4">
+            <div class="page-header float-left">
+                <div class="page-title">
+                    <h1>Pedido</h1>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-8">
+            <div class="page-header float-right">
+                <div class="page-title">
+                    <ol class="breadcrumb text-right">
+                        <li class="active">{user}</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="content mt-3">
+        <!-- content inicio -->
+
+        <div class="col-lg-12">
+            <div class="card">
+                <form action="{base_url}guardar_pedido" method="post" enctype="multipart/form-data"
+                      class="form-horizontal">
+                    <div class="card-header" style="display: flex;justify-content: space-between;">
+                        <strong>Datos del Pedido</strong>
+                        <a target="_blank" href="{base_url}imprimir_pedido/{id}" class="btn btn-secondary btn-sm"><i class="fa fa-print"  aria-hidden="true" style="margin:5px"></i></a>
+                    </div>
+
+                    <div class="card-body card-block">
+
+                        <div class="row form-group">
+                            <div class="col col-md-3">
+                                <label for="id" class=" form-control-label">
+                                     Pedido #
+                                </label>
+                            </div>
+                            <div class="col-12 col-md-9">
+                                <label for="id" id="idlabel" name="idlabel">{id}</label>
+                                <input id="id" name="id" value="{id}" class="form-control" style="height: 0; width: 0; border: none; padding: 0; margin: 0;"/>
+                            </div>
+                        </div>
+                        <div class="row form-group">
+                            <div class="col col-md-3">
+                                <label for="fecha" class=" form-control-label">
+                                    Fecha del pedido
+                                </label>
+                            </div>
+                            <div class="col-12 col-md-9">
+                                <label id="fechalabel" name="fecha" value="{fecha}"  placeholder="fecha" >{fecha}</label>
+                                <input id="fecha" name="fecha" value="{fecha}" style="display: none;"/>
+                            </div>
+                        </div>
+
+                        <div class="row form-group">
+                            <div class="col col-md-3">
+                                <label for="estado" class=" form-control-label">
+                                    Estado del pedido
+                                </label>
+                            </div>
+                            <div class="col-12 col-md-9">
+                                <select name="estado" id="estado" class="form-control" {disabled}>
+                                    <option value="Nuevo" {check_nuevo}>Nuevo</option>
+                                    <option value="En proceso" {check_enproceso}>En proceso</option>
+                                    <option value="Finalizado" {check_finalizado}>Finalizado</option>
+                                    <option value="Cancelado" {check_cancelado}>Cancelado</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="row form-group">
+                            <div class="col col-md-3">
+                                <label for="direccion" class=" form-control-label">
+                                    Dirección de envío
+                                </label>
+                            </div>
+                            <div class="col-12 col-md-9">
+                                <input type="text" id="direccion" name="direccion" value="{direccion}"
+                                       placeholder="Dirección de envio" class="form-control validate[required]" />
+                            </div>
+                        </div>
+                        <div class="row form-group">
+                            <div class="col col-md-3">
+                                <label for="total" class=" form-control-label">
+                                    Total del pedido</label></div>
+                            <div class="col-12 col-md-9">
+                                <label id="totallabel" name="total" value="{total}" >$ {total}</label>
+                                <input id="total" name="total" value="{total_unformatted}" style="display: none;"/>
+                            </div>
+                        </div>
+                        <div class="row form-group">
+                            <div class="col col-md-3"><label for="cliente" class=" form-control-label">Cliente</label>
+                            </div>
+                            <div class="col-12 col-md-9">
+                                <a id="cliente" style="border-bottom: 1px solid" href="{base_url}editar_cliente/{id_cliente}">
+                                    <strong>{cliente} ({tango})</strong>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="row form-group">
+                            <div class="col col-md-3">
+                                <label for="total" class=" form-control-label">
+                                    Observaciones</label></div>
+                            <div class="col-12 col-md-9">
+                                {observaciones}
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="content mt-3">
+                        <div class="col-lg-12">
+                            <div class="card">
+                                <div class="card-header">
+                                    <strong>Libros </strong>
+                                    <span style="font-size: 14px;color:#6c757d;">{client_discount_books}</span>
+                                    <a href="{base_url}agregar_producto_pedido/{id}/libro" class="btn btn-outline-primary btn-sm {clases}" {admin}
+                                       style="float: right"><i class="fa fa-plus"></i>&nbsp; Agregar producto</a>
+                                </div>
+                                <table id="bootstrap-data-table-export" class="table table-condensed table-bordered">
+                                    <thead>
+                                    <tr>
+                                        <th>Código</th>
+                                        <th>Cantidad</th>
+                                        <th scope="col">Nombre</th>
+                                        <th style="min-width: 120px;">PVP</th>
+                                        <th>Descuento</th>
+                                        <th style="min-width: 120px;">Precio a pagar</th>
+                                        <th scope="col" class="{clases}" {admin}>Acciones</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                        <!-- BEGIN libros -->
+                                            {producto_libro}
+                                        <!-- END libros -->
+                                    </tbody>
+                                </table>
+                                <div style="width: 100%;text-align: end; padding: 8px;box-sizing: border-box;">
+                                    <span style="font-weight: bold;">Total Libros</span>
+                                    <span style="font-weight: bold;">${subtotal_libro}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="content mt-3">
+                        <div class="col-lg-12">
+                            <div class="card">
+                                <div class="card-header">
+                                    <strong>Didácticos </strong>
+                                    <span style="font-size: 14px;color:#6c757d;">{client_discount_games}</span>
+                                    <a href="{base_url}agregar_producto_pedido/{id}/juego" class="btn btn-outline-primary btn-sm {clases}" {admin}
+                                       style="float: right"><i class="fa fa-plus"></i>&nbsp; Agregar producto</a>
+                                </div>
+                                <table id="bootstrap-data-table-export-juego" class="table table-striped table-bordered">
+                                    <thead>
+                                    <tr>
+                                        <th>Código</th>
+                                        <th>Cantidad</th>
+                                        <th scope="col">Nombre</th>
+                                        <th style="min-width: 120px;">Precio</th>
+                                        <th>Descuento</th>
+                                        <th style="min-width: 120px;">Precio a pagar</th>
+                                        <th scope="col" class="{clases}" {admin}>Acciones</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <!-- BEGIN juegos_ -->
+                                        {producto_juego}
+                                    <!-- END juegos_ -->
+                                    </tbody>
+                                </table>
+                                <div style="width: 100%;text-align: end; padding: 8px;box-sizing: border-box;">
+                                    <span style="font-weight: bold;">Total Juegos</span>
+                                    <span style="font-weight: bold;">${subtotal_juegos}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="content mt-3">
+                        <div class="col-lg-12">
+                            <div class="card">
+                                <div class="card-header">
+                                    <strong>Juguetes </strong>
+                                    <span style="font-size: 14px;color:#6c757d;">{client_discount_toys}</span>
+                                    <a href="{base_url}agregar_producto_pedido/{id}/juguete" class="btn btn-outline-primary btn-sm {clases}" {admin}
+                                       style="float: right"><i class="fa fa-plus"></i>&nbsp; Agregar producto</a>
+                                </div>
+                                <table id="bootstrap-data-table-export-juguete" class="table table-striped table-bordered">
+                                    <thead>
+                                    <tr>
+                                        <th>Código</th>
+                                        <th>Cantidad</th>
+                                        <th scope="col">Nombre</th>
+                                        <th style="min-width: 120px;">Precio</th>
+                                        <th>Descuento</th>
+                                        <th style="min-width: 120px;">Precio a pagar</th>
+                                        <th scope="col" class="{clases}" {admin}>Acciones</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <!-- BEGIN juguetes_ -->
+                                        {producto_juguete}
+                                    <!-- END juguetes_ -->
+                                    </tbody>
+                                </table>
+                                <div style="width: 100%;text-align: end; padding: 8px;box-sizing: border-box;">
+                                    <span style="font-weight: bold;">Total Juguetes</span>
+                                    <span style="font-weight: bold;">${subtotal_juguetes}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="content mt-3">
+                        <div class="col-lg-12">
+                            <div class="card">
+                                <div class="card-header">
+                                    <strong>Escolar </strong>
+                                    <span style="font-size: 14px;color:#6c757d;">{client_discount_schools}</span>
+                                    <a href="{base_url}agregar_producto_pedido/{id}/escolar" class="btn btn-outline-primary btn-sm {clases}" {admin}
+                                       style="float: right"><i class="fa fa-plus"></i>&nbsp; Agregar producto</a>
+                                </div>
+                                <table id="bootstrap-data-table-export-escolar" class="table table-striped table-bordered">
+                                    <thead>
+                                    <tr>
+                                        <th>Código</th>
+                                        <th>Cantidad</th>
+                                        <th scope="col">Nombre</th>
+                                        <th style="min-width: 120px;">Precio</th>
+                                        <th>Descuento</th>
+                                        <th style="min-width: 120px;">Precio a pagar</th>
+                                        <th scope="col" class="{clases}" {admin}>Acciones</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <!-- BEGIN escolares_ -->
+                                        {producto_escolar}
+                                    <!-- END escolares_ -->
+                                    </tbody>
+                                </table>
+                                <div style="width: 100%;text-align: end; padding: 8px;box-sizing: border-box;">
+                                    <span style="font-weight: bold;">Total Escolar</span>
+                                    <span style="font-weight: bold;">${subtotal_escolares}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div  class="card-footer">
+                        <button {hide}id="btn-back"  type="back" class="btn btn-outline-secondary btn-sm ml-2 " href="{base_url}listar_pedidos" formnovalidate>
+                            <i class="fa fa-arrow-left"></i> Volver </button>
+                        <div {change} id="oculto" style="display: none">
+                            <button  type="submit" class="btn btn-primary btn-sm ml-2">
+                                <i class="fa fa-dot-circle-o"></i> Guardar
+                            </button>
+                            <button  href="{base_url}listar_pedidos" class="btn btn-danger btn-sm ml-2" formnovalidate>
+                                <i class="fa fa-ban"></i> Cancelar
+                            </button>
+                            <strong class="w-100">Pedido actualizado, pendiente en guardar</strong>  
+                        </div>
+                        
+                    </div>
+                    
+                </form>
+            </div>
+
+        </div>
+
+    </div> <!-- .content -->
+
+</div>
+
+<!-- Right Panel -->
+
+<script src="{base_url}vendors/jquery/dist/jquery.min.js"></script>
+<script src="{base_url}vendors/popper.js/dist/umd/popper.min.js"></script>
+
+<script src="{base_url}vendors/jquery-validation/dist/jquery.validate.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validation-unobtrusive/3.2.11/jquery.validate.unobtrusive.min.js"></script>
+
+<script src="{base_url}vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="{base_url}assets/js/main.js"></script>
+<script>
+
+    
+    document.querySelector('#estado').addEventListener('change', () =>{
+        document.querySelector('#oculto').style.display = 'inline-block';
+        document.querySelector("#btn-back").style.display ="none";
+    });
+    document.querySelector('#direccion').addEventListener('change', () =>{
+        document.querySelector('#oculto').style.display = 'inline-block';
+        document.querySelector("#btn-back").style.display ="none";
+    });
+    document.querySelector('#total').addEventListener('change', () =>{
+        document.querySelector('#oculto').style.display = 'inline-block';
+        document.querySelector("#btn-back").style.display ="none";
+    });
+
+</script>
+{footer_scripts}
+</body>
+
+</html>

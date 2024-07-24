@@ -1,0 +1,56 @@
+.btn-group {
+    width: 100%;
+}
+.multiselect.dropdown-toggle.btn {
+    background: white;
+    display: block;
+    width: 100%;
+    height: calc(2.25rem + 2px);
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    position: relative;
+}
+.multiselect.dropdown-toggle.btn>span{
+    text-align: left;
+    width: 95%;
+    display: block;
+}
+.dropdown-toggle::after {
+    display: inline-block;
+    width: 0;
+    right: 8px;
+    top: 17px;
+    position: absolute;
+    height: 0;
+    margin-left: .255em;
+    vertical-align: .255em;
+    content: "";
+    border-top: .3em solid;
+    border-right: .3em solid transparent;
+    border-bottom: 0;
+    border-left: .3em solid transparent;
+}
+ul.multiselect-container.dropdown-menu.show{
+    
+    width: 100%;
+    top: 38px!important;
+}
+ul.multiselect-container.dropdown-menu.show li.active {
+    background-color: #f1f1f1;
+}
+div.dropdown-menu.open.show{
+    margin: 0;
+    padding: 1px;
+}
+span.caret{
+    display: none;
+}
+.dropdown-toggle::after {
+    position: absolute;
+    top:15px;
+}

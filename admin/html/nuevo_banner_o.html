@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>
+<html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
+<!--[if IE 7]>
+<html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
+<!--[if IE 8]>
+<html class="no-js lt-ie9" lang=""> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="en">
+  <!--<![endif]-->
+
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Didacticos - Admin</title>
+    <meta name="description" content="Didacticos administrator" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      href="{base_url}js/dropzone/dropzone.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+
+    <link
+      rel="icon"
+      href="{base_url}assets/images/favicon.png"
+      type="image/x-icon"
+      sizes="196x196"
+    />
+    <link rel="apple-touch-icon" href="{base_url}apple-icon.png" />
+    <link rel="shortcut icon" href="{base_url}favicon.ico" />
+
+    <link
+      rel="stylesheet"
+      href="{base_url}vendors/bootstrap/dist/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="{base_url}vendors/font-awesome/css/font-awesome.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="{base_url}vendors/themify-icons/css/themify-icons.css"
+    />
+    <link
+      rel="stylesheet"
+      href="{base_url}vendors/flag-icon-css/css/flag-icon.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="{base_url}vendors/selectFX/css/cs-skin-elastic.css"
+    />
+
+    <link rel="stylesheet" href="{base_url}vendors/chosen/chosen.min.css" />
+    <link rel="stylesheet" href="{base_url}assets/css/style.css" />
+    <link rel="stylesheet" href="{base_url}assets/css/croppie.css" />
+
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800"
+      rel="stylesheet"
+      type="text/css"
+    />
+  </head>
+
+  <body>
+    <!-- Left Panel -->
+
+    {panel}
+
+    <!-- Left Panel -->
+
+    <!-- Right Panel -->
+
+    <div id="right-panel" class="right-panel">
+      <div class="breadcrumbs">
+        <div class="col-sm-4">
+          <div class="page-header float-left">
+            <div class="page-title">
+              <h1>Banner</h1>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-8">
+          <div class="page-header float-right">
+            <div class="page-title">
+              <ol class="breadcrumb text-right">
+                <li class="active">{user}</li>
+              </ol>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="content mt-3">
+        <!-- content inicio -->
+
+        <div class="col-lg-12">
+          <div class="card">
+            <form action="{base_url}guardar_banner" class="form-horizontal" enctype="multipart/form-data" id="myform" method="POST"></form>
+              <div class="card-header">
+                <strong>Datos Banner</strong>
+              </div>
+
+              <div class="card-body card-block">
+                <div class="row form-group">
+                  <div class="col col-md-3">
+                    <label class="form-control-label"> Url </label>
+                  </div>
+                  <div class="col-12 col-md-9">
+                    <input
+                      type="text"
+                      name="url"
+                      value="{url}"
+                      placeholder="Escriba aquí la url del banner"
+                      class="form-control validate[required]"
+                    />
+                  </div>
+                </div>
+                <div class="row form-group">
+                  <div class="col col-md-3">
+                    <label class="form-control-label"> Imagen Desktop</label>
+                  </div>
+                  <div class="col-12 col-md-9">
+                    <img
+                      id="img-banner"
+                      {show_banner}
+                      src="{base_url}/assets/images/banners/{imagen_desktop}"
+                      alt=""
+                    />
+                    <div class="clearfix"></div>
+                    <button
+                      type="button"
+                      id="eliminar-banner"
+                      class="btn btn-danger bnt-sm"
+                      {show_remove_banner}
+                    >
+                      Eliminar banner
+                    </button>
+                    <input 
+                      class="form-control validate[required]"
+                      type="file" 
+                      name="upload[desk]" 
+                      accept="image/jpeg, image/png" 
+                      id="upload-desk" 
+                      placeholder="Escriba aquí el nombre del producto"
+                    >
+                  </div>
+                </div>
+                <div class="row form-group">
+                  <div class="col col-md-3">
+                      <label class=" form-control-label" for="text-input-descripcion">
+                          Descripción del producto
+                      </label>
+                  </div>
+                  <div class="col-12 col-md-9">
+                      <textarea class="form-control validate[required]" id="text-input-descripcion" name="descripcion_producto" placeholder="Escriba aquí la descripción del producto..." rows="5">{descripcion_producto}</textarea>
+                  </div>
+              </div>
+                <div class="row form-group">
+                  <div id="croppie-editor" class="croppie-editor d-none">
+                    <div id="croppie-field"></div>
+                    <div class="mx-0 text-center">
+                        <button class="btn btn-sm btn-primary rounded-0" id="upload-desk-btn" type="button">Recortar Imagen</button>
+                    </div>
+                  </div>
+                </div>
+                <div class="row form-group">
+                  <div class="col col-md-3">
+                    <label class="form-control-label"> Imagen Celular</label>
+                  </div>
+                  <div class="col-12 col-md-9">
+                    <img
+                      id="img-banner"
+                      {show_banner}
+                      src="{base_url}/assets/images/banners/{imagen_mobile}"
+                      alt=""
+                    />
+                    <div class="clearfix"></div>
+                    <button
+                      type="button"
+                      id="eliminar-banner"
+                      class="btn btn-danger bnt-sm"
+                      {show_remove_banner}
+                    >
+                      Eliminar banner
+                    </button>
+                    <input class="form-control" type="file" name="upload[mobile]" accept="image/jpeg, image/png" id="upload-mobile">
+                  </div>
+                </div>
+                <div class="row form-group">
+                  <div id="croppie-editor-mobile" class="croppie-editor d-none">
+                    <div id="croppie-field-mobile"></div>
+                    <div class="mx-0 text-center">
+                        <button class="btn btn-sm btn-primary rounded-0" id="upload-mobile-btn" type="button">Recortar Imagen</button>
+                    </div>
+                  </div>
+                </div>
+                <!-- -->
+               <!--<div class="row form-group">
+                  <div class="col col-md-3">
+                    <label class="form-control-label" for="myDrop">
+                      Cargar imágen 
+                    </label>
+                  </div>
+                  <div class="col-12 col-md-9">
+                    <div class="dropzone dz-clickable" id="myDrop">
+                      <div
+                        class="dz-default dz-message"
+                        data-dz-message=""
+                      ></div>
+                    </div>
+                  </div>
+                </div>
+                  -->
+              </div>
+              <div class="card-footer">
+                <input name="id_banner" value="{id_banner}" type="hidden" />
+                <button type="submit" class="btn btn-primary">
+                  <i class="fa fa-dot-circle-o"></i> Guardar
+                </button>
+                <a
+                  type="reset"
+                  class="btn btn-danger bnt-sm"
+                  href="{base_url}banners"
+                >
+                  <i class="fa fa-ban"></i> Cancelar
+                </a>
+              </div>
+              <div id="msg">
+              <div class="card">
+                <div class="card-header">
+                  <strong> Imágenes del Banner </strong>
+                </div>
+                <div class="card-body" style="overflow-y: scroll">
+                  <div class="card-columns">
+                    <!-- BEGIN pictures 
+                    <div class="card">
+                      <div style="text-align: center; margin-bottom: 10px">
+                        <input
+                          class="portada"
+                          style="zoom: 1.5; margin-top: 10px"
+                          type="radio"
+                          rel="portada"
+                          name="portada"
+                          value="{id_media}"
+                          {checked}
+                        />
+                        <label
+                          style="position: relative; top: -4px"
+                          for="portada"
+                          >Elegir como foto de portada</label
+                        >
+                      </div>
+                      <img class="img-thumbnail" src="{path}" />
+                      <div class="card-body">
+                        <a
+                          class="btn btn-block btn-danger"
+                          href="javascript:void(0);"
+                          onclick="javascript:eliminar_foto({id_media})"
+                        >
+                          <i class="fa fa-trash"> </i>
+                        </a>
+                      </div>
+                    </div>-->
+                    <!-- END pictures -->
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <!-- .content -->
+    </div>
+
+    <!-- Right Panel -->
+
+    <script src="{base_url}vendors/jquery/dist/jquery.min.js"></script>
+    <script src="{base_url}vendors/popper.js/dist/umd/popper.min.js"></script>
+
+    <script src="{base_url}vendors/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validation-unobtrusive/3.2.11/jquery.validate.unobtrusive.min.js"></script>
+
+    <script src="{base_url}vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="{base_url}assets/js/main.js"></script>
+
+    <script>
+      jQuery("#eliminar-banner").on("click", function () {
+        if (confirm("¿Está seguro?")) {
+          jQuery("#banner").val("");
+          jQuery("#img-banner").remove();
+        }
+      });
+    </script>
+
+    <script
+      src="https://cdn.tiny.cloud/1/6gb0ga9gd23512enc8wybdktryv4qhgojvzdtxi442zsf3e5/tinymce/6/tinymce.min.js"
+      referrerpolicy="origin"
+    ></script>
+    <script src="{base_url}js/croppie.js"></script>
+    <script>
+      tinymce.init({
+        selector: "textarea#descripcion",
+        height: 200,
+        plugins: "link autolink lists",
+        toolbar:
+          "undo redo | bold italic link | bullist numlist outdent indent | removeformat",
+        statusbar: false,
+        menubar: false,
+      });
+    </script>
+    <script type="text/javascript">
+      var opts = {
+        enableExif: true,
+        viewport: {
+            width: 1660,
+            height: 500
+        },
+        boundary: { width: 1700, height: 550 },
+      };
+      var $croppie = new Croppie(document.getElementById('croppie-field'), opts);
+      var optsM = {
+          enableExif: true,
+          viewport: {
+              width: 500,
+              height: 150
+          },
+          boundary: { width: 600, height: 300 },
+        };
+      var $croppieM = new Croppie(document.getElementById('croppie-field-mobile'), optsM);
+
+      jQuery(document).ready(function($){
+        var img_desk_name;
+        var img_mobile_name;
+        $('#upload-desk').on('change', function(e){
+          var reader = new FileReader();
+          img_desk_name = e.target.files[0].name;
+          reader.onload = function (e) {
+            $croppie.bind({
+              url: e.target.result
+            });
+            $('#croppie-editor').removeClass('d-none')
+          }
+          reader.readAsDataURL(this.files[0]);
+        })
+        
+        $('#upload-mobile').on('change', function(e){
+          var reader = new FileReader();
+          img_mobile_name = e.target.files[0].name;
+          reader.onload = function (e) {
+            $croppieM.bind({
+              url: e.target.result
+            });
+            $('#croppie-editor-mobile').removeClass('d-none')
+          }
+          reader.readAsDataURL(this.files[0]);
+        })
+   
+        $('#upload-desk-btn').click(function(){
+          $croppie.result({
+            type:'base64',
+            format: 'png'
+          }).then((imgBase64)=>{
+            $.ajax({
+              url:'{base_url}includes/functions/save_image.php',
+              method:'POST',
+              data: { 'img' : imgBase64, 'fname' : img_desk_name, 'tipo':'desk' },
+              dataType: 'json',
+               error: err => {
+                console.error(err)
+              }, /**/
+              success: function(response){
+                if(response.status == 'success'){
+                  alert("La imagen se recorto correctamente.")
+                  //location.reload()
+                }else{
+                  console.error(response)
+                }
+              }
+            })
+          })
+        })
+
+        $('#upload-mobile-btn').click(function(){
+          $croppieM.result({
+            type:'base64',
+            format: 'png'
+          }).then((imgBase64)=>{
+            $.ajax({
+              url:'{base_url}includes/functions/save_image.php',
+              method:'POST',
+              data: { 'img' : imgBase64, 'fname' : img_mobile_name, 'tipo':'mobile' },
+              dataType: 'json',
+               error: err => {
+                console.error(err)
+              }, /**/
+              success: function(response){
+                if(response.status == 'success'){
+                  alert("La imagen se recorto correctamente.")
+                  //location.reload()
+                }else{
+                  console.error(response)
+                }
+              }
+            })
+          })
+        })
+      })
+    </script>
+    {footer_scripts}
+
+  </body>
+</html>

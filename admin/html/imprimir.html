@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>
+<html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
+<!--[if IE 7]>
+<html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
+<!--[if IE 8]>
+<html class="no-js lt-ie9" lang=""> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="en">
+  <!--<![endif]-->
+
+  <head>
+    <meta charset="gb18030" />
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Didacticos - Admin</title>
+    <meta name="description" content="Didacticos administrator" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="icon"
+      href="{base_url}assets/images/favicon.png"
+      type="image/x-icon"
+      sizes="196x196"
+    />
+    <link rel="apple-touch-icon" href="{base_url}apple-icon.png" />
+    <link rel="shortcut icon" href="{base_url}favicon.ico" />
+
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800"
+      rel="stylesheet"
+      type="text/css"
+    />
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Roboto", sans-serif;
+      }
+      @media screen {
+        .container {
+          display: flex;
+          flex-direction: column;
+          width: 100vw;
+          height: 100vh;
+          justify-content: start;
+          align-items: center;
+        }
+      }
+      .actions {
+        width: 100%;
+        text-align: end;
+        margin: 10px;
+        padding-right: 20px;
+      }
+      .order {
+        width: 90%;
+        border: solid 1px gray;
+        padding: 25px;
+      }
+      .header {
+        display: flex;
+        justify-content: space-between;
+        margin: 0 0 50px 0;
+      }
+      .logo {
+        max-width: 170px;
+        align-self: center;
+      }
+      .box {
+        padding: 5px 20px 20px 20px;
+        border: 1px solid gray;
+        margin-bottom: 25px;
+      }
+      p.label {
+        font-weight: 100;
+        font-size: 15px;
+        color: #5d5d5d;
+        margin-top: 15px;
+        text-transform: uppercase;
+        width: 49%;
+        display: inline-block;
+      }
+      .value {
+        font-weight: 700;
+        font-size: 18px;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+      table,
+      th,
+      td {
+        border: 1px solid gray;
+      }
+      th {
+        background-color: #5555;
+        color: white;
+      }
+      td {
+        padding: 0 10px;
+      }
+      tr td.right {
+        text-align: right;
+      }
+      button {
+        color: #fff;
+        background-color: #007bff;
+        border-color: #007bff;
+        padding: 0.25rem 0.5rem;
+        font-size: 0.875rem;
+        line-height: 1.5;
+        box-shadow: none;
+        outline: 0 !important;
+        border: none;
+        cursor: pointer;
+      }
+      button#back {
+        background-color: #ff3d57;
+      }
+
+      @media print {
+        .actions {
+          display: none;
+        }
+        .container {
+          width: 100%;
+          align-items: center;
+          margin: 0 auto;
+        }
+        .order {
+          width: 100%;
+          padding: 10px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="actions">
+        <button class="back" id="back">CERRAR</button>
+        <button class="back" id="print">IMPRIMIR</button>
+      </div>
+      <div class="order">
+        <div class="header">
+          <img
+            class="logo"
+            src="https://didacticosdelsur.com/assets/images/logo.png"
+            alt=""
+          />
+
+          <h1>Orden de Pedido #{id}</h1>
+        </div>
+        <div class="box">
+          <p class="label">
+            Cliente:
+            <span class="value">{apellido}, {nombre} ({tango_id})</span>
+          </p>
+          <p class="label">
+            Localidad:
+            <span class="value">{direccion}, {ciudad} - {provincia}</span>
+          </p>
+          <p class="label">Viajante: <span class="value">{vendedor}</span></p>
+          <p class="label">Fecha: <span class="value">{fecha}</span></p>
+          <p class="label">
+            Observaciones: <span class="value">{observaciones}</span>
+          </p>
+          <p class="label">Descuentos: {cadena}</p>
+        </div>
+        <table class="default" id="tableBody">
+          <thead>
+            <tr>
+              <th>Cantidad</th>
+              <th>SKU</th>
+              <th>Producto</th>
+              <th>Observaciones</th>
+              <th>Descuento</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </div>
+  </body>
+  <script>
+    function getDiscount(element) {
+      let desc = "";
+      if (parseInt(descuentos[element["tipo"]]) > 0) {
+        desc = descuentos[element["tipo"]] + "% (" + element["tipo"] + ")";
+        if (parseInt(element["descuento"]) > 0) {
+          desc = desc + " + " + element["descuento"] + "% desc.";
+        }
+      } else {
+        if (parseInt(element["descuento"]) > 0) {
+          desc = element["descuento"] + "%.";
+        }
+      }
+      return desc;
+    }
+
+    function jsonToArray(det) {
+      const res_array = [];
+      for (let i in det) {
+        res_array.push(det[i]);
+      }
+      return res_array;
+    }
+
+    let tbodyRef = document
+      .getElementById("tableBody")
+      .getElementsByTagName("tbody")[0];
+    let id = "{id}";
+
+    if (id != null) {
+      let url = "{base_url}detalle_pedido/{id}";
+      fetch(url)
+        .then((response) => response.json())
+        .then((data) => {
+          console.log(typeof data, data.detalle);
+          let datos = !Array.isArray(data)
+            ? data.detalle
+            : JSON.parse(data["detalle"]);
+          descuentos = data["descuentos"];
+          keys = Object.keys(datos);
+          keys.forEach((element) => {
+            if (Array.isArray(datos[element])) {
+              elementos = datos[element];
+            } else {
+              elementos = jsonToArray(datos[element]);
+            }
+            console.log(element, elementos);
+            elementos.forEach((dato) => {
+              if (dato != null && dato["id"] != undefined) {
+                var newRow = document.createElement("tr");
+
+                observaciones = dato["observaciones"]
+                  ? decodeURI(dato["observaciones"])
+                  : "";
+
+                discount = getDiscount(dato);
+
+                marca = dato["marca"] ? " | " + dato["marca"] : "";
+
+                newRow.innerHTML =
+                  "<td class='right'>" +
+                  dato["cantidad"] +
+                  "</td><td>" +
+                  dato["sku"] +
+                  "</td><td>" +
+                  dato["nombre"] +
+                  marca +
+                  "</td><td>" +
+                  observaciones +
+                  "</td><td class='right'>" +
+                  discount +
+                  "</td>";
+                tbodyRef.appendChild(newRow);
+              }
+            });
+          });
+        });
+    }
+  </script>
+  <script>
+    document.querySelector("#back").addEventListener("click", () => {
+      window.close();
+    });
+    document.querySelector("#print").addEventListener("click", () => {
+      window.print();
+    });
+  </script>
+</html>

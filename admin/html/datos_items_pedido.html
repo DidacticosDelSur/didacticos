@@ -1,0 +1,118 @@
+<!-- BEGIN items -->
+<tr>
+  <td style="width: 50px">{sku}</td>
+  <td style="width: 50px">
+    <input
+      type="number"
+      id="cantidad_{tipo}{id}"
+      name="cantidad_{tipo}"
+      value="{cantidad}"
+      class="form-control"
+      min="1"
+      required
+    />
+  </td>
+  <td style="width: 300px">
+    {nombre}<br />
+    {observaciones}
+  </td>
+  <td>
+    <label id="precio{id}" name="precio_{tipo}" value="{precio}"
+      >$ {precio}</label
+    >
+  </td>
+  <td>
+    <label id="descuento{id}" name="descuento_{tipo}" value="{descuento}"
+      >{descuento} %</label
+    >
+  </td>
+  <td>
+    <label id="total{id}" name="total_precio_{tipo}" value="{total_precio}"
+      >$ {total_precio}</label
+    >
+  </td>
+  <td {admin} class="{clases}">
+    <a
+      href="{base_url}eliminar_producto_pedido/{id}"
+      class="btn btn-lg btn-link {clases}"
+      {admin}
+    >
+      <i class="fa fa-trash-o"></i>
+    </a>
+  </td>
+</tr>
+<script>
+  function round(num, decimales = 2) {
+    var signo = num >= 0 ? 1 : -1;
+    num = num * signo;
+    if (decimales === 0)
+      //con 0 decimales
+      return signo * Math.round(num);
+    // round(x * 10 ^ decimales)
+    num = num.toString().split("e");
+    num = Math.round(
+      +(num[0] + "e" + (num[1] ? +num[1] + decimales : decimales))
+    );
+    // x * 10 ^ (-decimales)
+    num = num.toString().split("e");
+    return signo * (num[0] + "e" + (num[1] ? +num[1] - decimales : -decimales));
+  }
+  document.getElementById("cantidad_{tipo}{id}").onchange = () => {
+    document.querySelector(".card-footer").style.display = "inherit";
+    let cantidad = "cantidad_{tipo}{id}";
+    let total = "total{id}";
+    let precio = "precio{id}";
+    let descuento = "descuento{id}";
+    if (document.getElementById("cantidad_{tipo}{id}").value > 0) {
+      let input_total = document.getElementById(total);
+      let input_cant = document.getElementById(cantidad);
+      let input_precio = document.getElementById(precio);
+      let input_descuento = document.getElementById(descuento);
+
+      input_total.value = round(
+        (input_precio.value -
+          (input_precio.value / 100) * input_descuento.value) *
+          input_cant.value
+      );
+      input_total.innerHTML = round(
+        (input_precio.value -
+          (input_precio.value / 100) * input_descuento.value) *
+          input_cant.value
+      );
+      window.location.href =
+        "{base_url}actualizar_pedido_actual/" +
+        { id } +
+        "/" +
+        document.getElementById(cantidad).value;
+    }
+  };
+
+  document.getElementById("cantidad_{tipo}{id}").onchange = () => {
+    let cantidad = "cantidad_{tipo}{id}";
+    let descuento = "descuento{id}";
+    let total = "total{id}";
+    let precio = "precio{id}";
+    let input_cant = jQuery("#" + cantidad).val();
+    if (input_cant > 0) {
+      let input_total = jQuery("#" + total);
+      let input_precio = jQuery("#" + precio).attr("value");
+      let input_descuento = jQuery("#" + descuento).attr("value");
+
+      input_total.attr(
+        "value",
+        round(
+          (input_precio - (input_precio / 100) * input_descuento) * input_cant
+        )
+      );
+      input_total.html(
+        "$ " +
+          round(
+            (input_precio - (input_precio / 100) * input_descuento) * input_cant
+          ).toFixed(2)
+      );
+      window.location.href =
+        "{base_url}actualizar_pedido_actual/{id}/" + input_cant;
+    }
+  };
+</script>
+<!-- END items -->

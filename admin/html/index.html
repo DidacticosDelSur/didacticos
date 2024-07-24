@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>
+<html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
+<!--[if IE 7]>
+<html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
+<!--[if IE 8]>
+<html class="no-js lt-ie9" lang=""> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="en">
+  <!--<![endif]-->
+
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Didacticos - Admin</title>
+    <meta name="description" content="Didacticos administrator" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="icon"
+      href="{base_url}assets/images/favicon.png"
+      type="image/x-icon"
+      sizes="196x196"
+    />
+    <link rel="apple-touch-icon" href="{base_url}apple-icon.png" />
+    <link rel="shortcut icon" href="{base_url}favicon.ico" />
+
+    <link
+      rel="stylesheet"
+      href="{base_url}vendors/bootstrap/dist/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="{base_url}vendors/font-awesome/css/font-awesome.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="{base_url}vendors/themify-icons/css/themify-icons.css"
+    />
+    <link
+      rel="stylesheet"
+      href="{base_url}vendors/flag-icon-css/css/flag-icon.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="{base_url}vendors/selectFX/css/cs-skin-elastic.css"
+    />
+
+    <link rel="stylesheet" href="{base_url}assets/css/style.css" />
+
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800"
+      rel="stylesheet"
+      type="text/css"
+    />
+  </head>
+
+  <body>
+    <!-- Left Panel -->
+
+    {panel}
+
+    <!-- Left Panel -->
+
+    <!-- Right Panel -->
+
+    <div id="right-panel" class="right-panel">
+      <div class="breadcrumbs">
+        <div class="col-sm-4">
+          <div class="page-header float-left">
+            <div class="page-title">
+              <h1>Estadísticas</h1>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-8">
+          <div class="page-header float-right">
+            <div class="page-title">
+              <ol class="breadcrumb text-right">
+                <li class="active">{user}</li>
+              </ol>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="content mt-3">
+        <div class="col-xl-3 col-lg-6">
+          <div class="card">
+            <div class="card-body">
+              <div class="stat-widget-one">
+                <div class="stat-icon dib">
+                  <i class="ti-money text-success border-success"></i>
+                </div>
+                <div class="stat-content dib">
+                  <div class="stat-text">Total pedidos nuevos</div>
+                  <div class="stat-digit">{pedidos}</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-xl-3 col-lg-6">
+          <div class="card">
+            <div class="card-body">
+              <div class="stat-widget-one">
+                <div class="stat-icon dib">
+                  <i class="ti-user text-primary border-primary"></i>
+                </div>
+                <div class="stat-content dib">
+                  <div class="stat-text">Total clientes</div>
+                  <div class="stat-digit">
+                    {clientes} <span class="stat-text">{clientes_pend}</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-xl-3 col-lg-6">
+          <div class="card">
+            <div class="card-body">
+              <div class="stat-widget-one">
+                <div class="stat-icon dib">
+                  <i class="ti-layout-grid2 text-warning border-warning"></i>
+                </div>
+                <div class="stat-content dib">
+                  <div class="stat-text">Total productos</div>
+                  <div class="stat-digit">
+                    {productos}
+                    <span class="stat-text"
+                      >disponibles: {productos_disponibles}</span
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-xl-3 col-lg-6" {admin}>
+          <div class="card">
+            <div class="card-body">
+              <div class="stat-widget-one">
+                <div class="stat-icon dib">
+                  <i class="ti-truck text-primary border-primary"></i>
+                </div>
+                <div class="stat-content dib">
+                  <div class="stat-text">Total vendedores</div>
+                  <div class="stat-digit">{vendedores}</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-sm-12 d-none" {admin}>
+          <div class="card">
+            <div class="card-body">
+              <div class="stat-widget-one">
+                <!--<div class="stat-icon dib"><i class="ti-credit-card text-success border-success"></i></div>-->
+                <div class="stat-content">
+                  <div class="h6">Clientes que más compraron</div>
+                  <table class="table w-100">
+                    <thead>
+                      <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Cliente</th>
+                        <th scope="col">Monto total</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <!-- BEGIN compras -->
+                      <tr>
+                        <th scope="row">{ranking}</th>
+                        <td>{name}</td>
+                        <td>\${amount}</td>
+                      </tr>
+                      <!-- END compras -->
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-sm-12" {admin}>
+          <div class="card">
+            <div class="card-body">
+              <div class="stat-widget-one">
+                <!--<div class="stat-icon dib"><i class="ti-credit-card text-success border-success"></i></div>-->
+                <div class="stat-content">
+                  <div class="h6">Últimos conectados</div>
+                  <table class="table w-100">
+                    <thead>
+                      <tr>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Ciudad</th>
+                        <th scope="col">Fecha</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <!-- BEGIN conectados -->
+                      <tr>
+                        <td {is_seller}>{name} {ip}</td>
+                        <td style="font-size: 12px">{ciudad}</td>
+                        <td style="font-size: 12px">{fecha}</td>
+                      </tr>
+                      <!-- END conectados -->
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-sm-12" {admin}>
+          <div class="card">
+            <div class="card-body">
+              <div class="stat-widget-one">
+                <!-- <div class="stat-icon dib">
+                  <i class="ti-credit-card text-success border-success"></i>
+                </div> -->
+                <div class="stat-content">
+                  <div class="h6">Carritos</div>
+                  <table class="table w-100">
+                    <thead>
+                      <tr>
+                        <th scope="col">Cliente</th>
+                        <th scope="col">Ciudad</th>
+
+                        <th scope="col">Últ. Act.</th>
+
+                        <th scope="col"></th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <!-- BEGIN carritos -->
+                      <tr>
+                        <td style="font-size: 12px">{name}</td>
+                        <td style="font-size: 12px">{ciudad}</td>
+
+                        <td style="font-size: 12px">{fecha}</td>
+                        <td style="font-size: 12px">
+                          <a
+                            href="{base_url}ver_carrito/{id_carrito}"
+                            title="Ver"
+                            class="btn btn-primary btn-sm {hidden}"
+                            style="margin-right: 5px"
+                            >Ver Carrito</a
+                          >
+                        </td>
+                      </tr>
+                      <!-- END carritos -->
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- .content -->
+    </div>
+
+    <!-- Right Panel -->
+
+    <script src="{base_url}vendors/jquery/dist/jquery.min.js"></script>
+    <script src="{base_url}vendors/popper.js/dist/umd/popper.min.js"></script>
+    <script src="{base_url}vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="{base_url}assets/js/main.js"></script>
+
+    <!-- Right Panel -->
+    <script src="{base_url}vendors/jquery/dist/jquery.min.js"></script>
+    <script src="{base_url}vendors/popper.js/dist/umd/popper.min.js"></script>
+    <script src="{base_url}assets/js/main.js"></script>
+  </body>
+</html>

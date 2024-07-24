@@ -1,0 +1,55 @@
+<tr>
+    <td style="width: 50px">
+        {sku}
+    </td>
+    <td style="width: 50px">
+        <input type="number" id="cantidad_juego{id_juego}" name="cantidad_juego" value="{cantidad_juego}" class="form-control" min="1" required>
+    </td>
+    <td style="width: 300px">
+        {nombre_juego}<br>
+        {observaciones}
+    </td>
+    <td >
+        <label id="precio{id_juego}" name="precio_juego" value="{precio_juego}">$ {precio_juego}</label>
+    </td>
+    <td >
+        <label id="descuento{id_juego}" name="descuento_juego" value="{descuento_juego}"> {descuento_juego} %</label>
+    </td>
+    <td>
+        <label id="total{id_juego}" name="total_precio_juego" value="{total_precio_juego}">$ {total_precio_juego}</label>
+    </td>
+    <td {admin} class="{clases}">
+        <a href="{base_url}eliminar_producto_pedido/{id_juego}" class="btn btn-lg btn-link {clases}" {admin}>
+            <i class="fa fa-trash-o"></i>
+        </a>
+    </td>
+</tr>
+<script>
+    function round(num, decimales = 2) {
+        var signo = (num >= 0 ? 1 : -1);
+        num = num * signo;
+        if (decimales === 0) //con 0 decimales
+            return signo * Math.round(num);
+        // round(x * 10 ^ decimales)
+        num = num.toString().split('e');
+        num = Math.round(+(num[0] + 'e' + (num[1] ? (+num[1] + decimales) : decimales)));
+        // x * 10 ^ (-decimales)
+        num = num.toString().split('e');
+        return signo * (num[0] + 'e' + (num[1] ? (+num[1] - decimales) : -decimales));
+    }
+    document.getElementById('cantidad_juego'+{id_juego}).onchange = () => {
+        let cantidad_juego = 'cantidad_juego'+{id_juego};
+        let descuento_juego= 'descuento'+{id_juego};
+        let total = 'total'+{id_juego};
+        let precio = 'precio'+{id_juego};
+        let input_cant = jQuery('#' + cantidad_juego).val();
+        if ( input_cant > 0 ) {
+            let input_total = jQuery('#' + total);
+            let input_precio = jQuery('#' + precio).attr('value');
+            let input_descuento = jQuery('#' + descuento_juego).attr('value');
+            input_total.attr('value', round((input_precio - (input_precio / 100 * input_descuento ))* input_cant ));
+            input_total.html('$ ' + round((input_precio - (input_precio / 100 * input_descuento ))* input_cant ).toFixed(2));
+            window.location.href = "{base_url}actualizar_pedido_actual/"+{id_juego}+"/"+input_cant;
+            }
+    };
+</script>

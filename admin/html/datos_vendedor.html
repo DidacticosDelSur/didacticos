@@ -1,0 +1,176 @@
+<!doctype html>
+<!--[if lt IE 7]>
+<html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
+<!--[if IE 7]>
+<html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
+<!--[if IE 8]>
+<html class="no-js lt-ie9" lang=""> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="en">
+<!--<![endif]-->
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Didacticos - Admin</title>
+    <meta name="description" content="Didacticos administrator">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="{base_url}assets/images/favicon.png" type="image/x-icon" sizes="196x196"/>
+    <link rel="apple-touch-icon" href="{base_url}apple-icon.png">
+    <link rel="shortcut icon" href="{base_url}favicon.ico">
+
+
+    <link rel="stylesheet" href="{base_url}vendors/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{base_url}vendors/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="{base_url}vendors/themify-icons/css/themify-icons.css">
+    <link rel="stylesheet" href="{base_url}vendors/flag-icon-css/css/flag-icon.min.css">
+    <link rel="stylesheet" href="{base_url}vendors/selectFX/css/cs-skin-elastic.css">
+
+    <link rel="stylesheet" href="{base_url}vendors/chosen/chosen.min.css">
+    <link rel="stylesheet" href="{base_url}assets/css/style.css">
+
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800' rel='stylesheet' type='text/css'>
+
+</head>
+
+<body>
+
+    <!-- Left Panel -->
+
+    {panel}
+
+    <!-- Left Panel -->
+
+    <!-- Right Panel -->
+
+    <div id="right-panel" class="right-panel">
+
+        <div class="breadcrumbs">
+            <div class="col-sm-4">
+                <div class="page-header float-left">
+                    <div class="page-title">
+                        <h1>Vendedor</h1>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-8">
+                <div class="page-header float-right">
+                    <div class="page-title">
+                        <ol class="breadcrumb text-right">
+                            <li class="active">{user}</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="content mt-3">
+            <!-- content inicio -->
+
+            <div class="col-lg-12">
+                <div class="card">
+                    <form action="{base_url}guardar_vendedor" method="post" enctype="multipart/form-data"
+                          class="form-horizontal">
+                        <div class="card-header">
+                            <strong>Datos del Vendedor</strong>
+                        </div>
+
+                        <div class="card-body card-block">
+
+                            <div class="row form-group">
+                                <div class="col col-md-3">
+                                    <label for="codigo_vendedor" class=" form-control-label">
+                                        Código vendedor
+                                    </label>
+                                </div>
+                                <div class="col-12 col-md-9">
+                                    <input type="text" id="codigo_vendedor" {readonly} name="codigo_vendedor" value="{codigo_vendedor}" placeholder="Código del vendedor" class="form-control validate[required]" />
+                                </div>
+                            </div>
+
+                            <div class="row form-group">
+                                <div class="col col-md-3">
+                                    <label for="nombre" class=" form-control-label">
+                                        Nombre
+                                    </label>
+                                </div>
+                                <div class="col-12 col-md-9">
+                                    <input type="text" id="nombre" {readonly} name="nombre" value="{nombre}" placeholder="Nombre del vendedor" class="form-control validate[required]" />
+                                </div>
+                            </div>
+                            <div class="row form-group">
+                                <div class="col col-md-3">
+                                    <label for="apellido" class=" form-control-label">
+                                        Apellido
+                                    </label>
+                                </div>
+                                <div class="col-12 col-md-9">
+                                    <input type="text" id="apellido" {readonly} name="apellido" value="{apellido}" placeholder="Apellido del vendedor" class="form-control validate[required]" />
+                                </div>
+                            </div>
+                            <div class="row form-group">
+                                <div class="col col-md-3">
+                                    <label for="email" class=" form-control-label">
+                                        Email
+                                    </label>
+                                </div>
+                                <div class="col-12 col-md-9">
+                                    <input type="text" id="email" {readonly} name="email" value="{email}" placeholder="E-mail" class="form-control validate[required, custom[email]]" />
+                                </div>
+                            </div>
+
+                            <div class="row form-group">
+                                <div class="col col-md-3">
+                                    <label for="password" {ocultar_boton} class=" form-control-label">
+                                        Contraseña
+                                    </label>
+                                </div>
+                                <div class="col-12 col-md-9">
+                                    <input type="text" id="password" {ocultar_boton} name="password" placeholder="Escriba aquí la contraseña" class="form-control validate[minSize[8]]" />
+                                </div>
+                            </div>
+
+                            <div class="row form-group">
+                                <div class="col col-md-3">
+                                    <label for="telefono" class=" form-control-label">Teléfono</label>
+                                </div>
+                                <div class="col-12 col-md-9">
+                                    <input type="text" {readonly} id="telefono" name="telefono" value="{telefono}"
+                                           placeholder="Teléfono del vendedor" class="form-control validate[required, custom[phone]]" />
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="card-footer">
+                            <input name="id_vendedor" value="{id_vendedor}" type="hidden"/>
+                            <button type="submit" class="btn btn-primary btn-sm" {ocultar_boton}>
+                                <i class="fa fa-dot-circle-o"></i> Guardar
+                            </button>
+                            <a {ocultar_boton} type="reset" class="btn btn-danger btn-sm"
+                               href="{base_url}listado_vendedores">
+                                <i class="fa fa-ban"></i> Cancelar </a>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+
+        </div> <!-- .content -->
+    </div>
+
+    <!-- Right Panel -->
+
+    <script src="{base_url}vendors/jquery/dist/jquery.min.js"></script>
+    <script src="{base_url}vendors/popper.js/dist/umd/popper.min.js"></script>
+
+    <script src="{base_url}vendors/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validation-unobtrusive/3.2.11/jquery.validate.unobtrusive.min.js"></script>
+
+    <script src="{base_url}vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="{base_url}assets/js/main.js"></script>
+
+{footer_scripts}
+</body>
+
+</html>

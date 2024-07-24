@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>
+<html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
+<!--[if IE 7]>
+<html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
+<!--[if IE 8]>
+<html class="no-js lt-ie9" lang=""> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="en">
+  <!--<![endif]-->
+
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Didacticos - Admin</title>
+    <meta name="description" content="Didacticos administrator" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="icon"
+      href="{base_url}assets/images/favicon.png"
+      type="image/x-icon"
+      sizes="196x196"
+    />
+    <link rel="apple-touch-icon" href="{base_url}apple-icon.png" />
+    <link rel="shortcut icon" href="{base_url}favicon.ico" />
+
+    <link
+      rel="stylesheet"
+      href="{base_url}vendors/bootstrap/dist/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="{base_url}vendors/font-awesome/css/font-awesome.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="{base_url}vendors/themify-icons/css/themify-icons.css"
+    />
+    <link
+      rel="stylesheet"
+      href="{base_url}vendors/flag-icon-css/css/flag-icon.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="{base_url}vendors/selectFX/css/cs-skin-elastic.css"
+    />
+
+    <link rel="stylesheet" href="{base_url}vendors/chosen/chosen.min.css" />
+    <link rel="stylesheet" href="{base_url}assets/css/style.css" />
+
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800"
+      rel="stylesheet"
+      type="text/css"
+    />
+  </head>
+
+  <body>
+    <!-- Left Panel -->
+
+    {panel}
+
+    <!-- Left Panel -->
+
+    <!-- Right Panel -->
+
+    <div id="right-panel" class="right-panel">
+      <div class="breadcrumbs">
+        <div class="col-sm-4">
+          <div class="page-header float-left">
+            <div class="page-title">
+              <h1>Cliente</h1>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-8">
+          <div class="page-header float-right">
+            <div class="page-title">
+              <ol class="breadcrumb text-right">
+                <li class="active">{user}</li>
+              </ol>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="content mt-3">
+        <!-- content inicio -->
+
+        <div class="col-lg-12">
+          <div class="card">
+            <form
+              action="{base_url}guardar_cliente"
+              method="post"
+              enctype="multipart/form-data"
+              class="form-horizontal"
+            >
+              <div class="card-header">
+                <strong>Datos del Cliente</strong>
+              </div>
+
+              <div class="card-body card-block">
+                <div class="row form-group">
+                  <div class="col col-md-12">
+                    <div class="text-danger"><strong>{error}</strong></div>
+                  </div>
+                </div>
+                <div class="row form-group">
+                  <div class="col col-md-3">
+                    <label for="tango" class="form-control-label">
+                      Nro Tango (0 para nuevos)
+                    </label>
+                  </div>
+                  <div class="col-12 col-md-9">
+                    <input
+                      type="text"
+                      id="tango"
+                      {readonly}
+                      name="tango"
+                      value="{tango}"
+                      placeholder="Número de Tango"
+                      class="form-control validate[required]"
+                    />
+                  </div>
+                </div>
+                <div class="row form-group">
+                  <div class="col col-md-3">
+                    <label for="nombre" class="form-control-label">
+                      Nombre
+                    </label>
+                  </div>
+                  <div class="col-12 col-md-9">
+                    <input
+                      type="text"
+                      id="nombre"
+                      name="nombre"
+                      value="{nombre}"
+                      class="form-control validate[required]"
+                      placeholder="Nombre del cliente"
+                    />
+                  </div>
+                </div>
+                <div class="row form-group">
+                  <div class="col col-md-3">
+                    <label for="apellido" class="form-control-label">
+                      Apellido
+                    </label>
+                  </div>
+                  <div class="col-12 col-md-9">
+                    <input
+                      type="text"
+                      id="apellido"
+                      name="apellido"
+                      value="{apellido}"
+                      class="form-control validate[required]"
+                      placeholder="Apellido del cliente"
+                    />
+                  </div>
+                </div>
+                <div class="row form-group">
+                  <div class="col col-md-3">
+                    <label for="telefono" class="form-control-label">
+                      Teléfono
+                    </label>
+                  </div>
+                  <div class="col-12 col-md-9">
+                    <input
+                      type="tel"
+                      id="telefono"
+                      name="telefono"
+                      value="{telefono}"
+                      minlength="10"
+                      maxlength="16"
+                      size="16"
+                      class="form-control validate[required, custom[phone]]"
+                      placeholder="Teléfono del cliente"
+                    />
+                  </div>
+                </div>
+
+                <div class="row form-group">
+                  <div class="col col-md-3">
+                    <label for="email" class="form-control-label">
+                      Email
+                    </label>
+                  </div>
+                  <div class="col-12 col-md-9">
+                    <input
+                      type="text"
+                      id="email"
+                      name="email"
+                      value="{email}"
+                      class="form-control validate[required, custom[email]]"
+                      placeholder="E-mail del cliente"
+                      autocomplete="off"
+                    />
+                  </div>
+                </div>
+                <!-- TBC comment add new feature-->
+                <div class="row form-group">
+                  <div class="col col-md-3">
+                    <label for="password" class="form-control-label">
+                      Contraseña
+                    </label>
+                  </div>
+                  <div class="col-12 col-md-9">
+                    <input
+                      type="text"
+                      id="password"
+                      name="password"
+                      placeholder="Escriba aquí la contraseña"
+                      class="form-control validate[minSize[8]]"
+                      autocomplete="off"
+                    />
+                  </div>
+                </div>
+
+                <div class="row form-group">
+                  <div class="col col-md-3">
+                    <label for="vendedor_id" class="form-control-label"
+                      >Vendedor</label
+                    >
+                  </div>
+
+                  <div class="col-12 col-md-9">
+                    <select
+                      name="vendedor_id"
+                      id="vendedor_id"
+                      class="form-control validate[required]"
+                      {readonly}
+                    >
+                      <option value="">Seleccione el vendedor</option>
+                      <!-- BEGIN vendedores -->
+                      <option value="{id}" {selected}>
+                        {nombre_vendedor} {apellido_vendedor}
+                      </option>
+                      <!-- END vendedores -->
+                    </select>
+                  </div>
+                </div>
+                <div class="row form-group">
+                  <div class="col col-md-3">
+                    <label for="provincia" class="form-control-label"
+                      >Provincia</label
+                    >
+                  </div>
+                  <div class="col-12 col-md-9">
+                    <!-- TBC comment hay que editar de donde lo llaman para que si esta seleccionada alguna provincia lo setee-->
+                    <select
+                      id="provincia"
+                      name="provincia"
+                      class="select-provincia form-control validate[required]"
+                      onchange="setCiudad()"
+                    >
+                      <option value="">Provincia...</option>
+                      <!-- BEGIN provincias -->
+                      <option value="{id}" {selected}>
+                        {nombre_provincia}
+                      </option>
+                      <!-- END provincias -->
+                    </select>
+                  </div>
+                </div>
+                <div class="row form-group">
+                  <div class="col col-md-3">
+                    <label for="ciudad" class="form-control-label"
+                      >Ciudad</label
+                    >
+                  </div>
+
+                  <div class="col-12 col-md-9">
+                    <select
+                      id="ciudad"
+                      name="ciudad"
+                      class="select-ciudad form-control validate[required]"
+                    >
+                      <!-- BEGIN localidades -->
+                      <option value="{id}" {selected}>
+                        {nombre_localidad}
+                      </option>
+                      <!-- END localidades -->
+                    </select>
+                  </div>
+                </div>
+
+                <!-- BEGIN descuentos -->
+                <div class="row form-group">
+                  <div class="col col-md-3">
+                    <label for="descuento" class="form-control-label">
+                      Descuento en {categoria}
+                    </label>
+                  </div>
+                  <div class="col-12 col-md-9">
+                    <input
+                      type="number"
+                      min="0"
+                      max="100"
+                      {readonly}
+                      id="descuento_{tipo}"
+                      name="descuento_{tipo}"
+                      value="{descuento}"
+                      placeholder="Descuento en {categoria}"
+                      class="form-control validate[required, custom[onlyNumberSp]]"
+                    />
+                  </div>
+                </div>
+                <!-- END descuentos -->
+
+                <div class="row form-group">
+                  <div class="col col-md-3">
+                    <label class="form-control-label">Usuario Verificado</label>
+                  </div>
+                  <div class="col col-md-9">
+                    <div class="form-check-inline form-check">
+                      <input
+                        id="verificado"
+                        value="{verificado}"
+                        style="display: none"
+                      />
+                      <label
+                        for="activo-radio1"
+                        class="form-check-label"
+                        style="margin-right: 10px"
+                      >
+                        <input
+                          type="radio"
+                          id="activo-radio1"
+                          {readonly_check}
+                          name="activo"
+                          value="1"
+                          class="form-check-input"
+                        />Si
+                      </label>
+                      <label for="activo-radio2" class="form-check-label">
+                        <input
+                          type="radio"
+                          id="activo-radio2"
+                          {readonly_check}
+                          name="activo"
+                          value="0"
+                          class="form-check-input"
+                        />No
+                      </label>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row form-group">
+                  <div class="col col-md-3">
+                    <label class="form-control-label">Observaciones</label>
+                  </div>
+                  <div class="col col-md-9">
+                    <textarea
+                      class="form-control"
+                      id=""
+                      name="observaciones"
+                      placeholder="Escriba aquí las observaciones del cliente..."
+                      rows="10"
+                    >
+{observaciones}</textarea
+                    >
+                  </div>
+                </div>
+              </div>
+
+              <div class="card-footer">
+                <input name="id_cliente" value="{id_cliente}" type="hidden" />
+                <button type="submit" class="btn btn-primary btn-sm">
+                  <i class="fa fa-dot-circle-o"></i> Guardar
+                </button>
+                <a
+                  type="reset"
+                  class="btn btn-danger btn-sm"
+                  href="{base_url}listado_clientes"
+                >
+                  <i class="fa fa-ban"></i> Cancelar
+                </a>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <!-- .content -->
+    </div>
+
+    <!-- Right Panel -->
+
+    <script src="{base_url}vendors/jquery/dist/jquery.min.js"></script>
+    <script src="{base_url}vendors/popper.js/dist/umd/popper.min.js"></script>
+    <script src="{base_url}vendors/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validation-unobtrusive/3.2.11/jquery.validate.unobtrusive.min.js"></script>
+
+    <script src="{base_url}vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="{base_url}assets/js/main.js"></script>
+    <script type="text/javascript">
+      function setCiudad() {
+        jQuery("#ciudad").empty();
+        jQuery("#ciudad").append("<option id='cargando'>Cargando...</option>");
+        jQuery.get(
+          "{base_url}ciudades/" +
+            jQuery("#provincia option:selected").attr("value"),
+          function (data) {
+            jQuery("#cargando").remove();
+            jQuery("#ciudad").append('<option value="">Ciudad...</option>');
+            let datos = JSON.parse(data);
+            for (let i = 0; i < datos.length; i++) {
+              jQuery("#ciudad").append(
+                "<option value='" +
+                  datos[i]["id"] +
+                  "'>" +
+                  datos[i]["nombre"] +
+                  "</option>"
+              );
+            }
+          }
+        );
+      }
+      let verificado = document.querySelector("#verificado").value;
+
+      if (verificado == 1) {
+        document
+          .getElementById("activo-radio1")
+          .setAttribute("checked", "checked");
+      } else {
+        document
+          .getElementById("activo-radio2")
+          .setAttribute("checked", "checked");
+      }
+    </script>
+
+    {footer_scripts}
+  </body>
+</html>

@@ -1,0 +1,105 @@
+<link rel="stylesheet" href="{base_url}assets/css/icons.css" />
+<aside id="left-panel" class="left-panel">
+  <nav class="navbar navbar-expand-sm navbar-default">
+    <div class="navbar-header">
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#main-menu"
+        aria-controls="main-menu"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <i class="fa fa-bars"></i>
+      </button>
+      <a
+        class="navbar-brand"
+        href="{base_url}mostrar_inicio"
+        style="border: none; margin-top: 25px"
+      >
+        <img src="{base_url}images/logo.png" alt="Logo" />
+      </a>
+      <a class="navbar-brand hidden"
+        ><img src="{base_url}images/logo.png" alt="Logo"
+      /></a>
+    </div>
+
+    <div id="main-menu" class="main-menu collapse navbar-collapse">
+      <ul class="nav navbar-nav">
+        <h3 class="menu-title">Inicio</h3>
+        <!-- /.menu-title -->
+        <li class="menu-item-has-children dropdown">
+          <a href="{base_url}mostrar_inicio">
+            <i class="menu-icon fa fa-dashboard"></i>
+            Estadísticas
+          </a>
+          <a href="{base_url}listar_pedidos?estado=Nuevo">
+            <i class="menu-icon fa fa-dollar"></i>Pedidos</a
+          >
+          <a href="{base_url}listar_anuncios">
+            <i class="menu-icon fa fa-envelope"></i>Anuncios</a
+          >
+        </li>
+
+        <h3 class="menu-title" {admin}>Catálogo</h3>
+        <!-- /.menu-title -->
+        <li class="menu-item-has-children dropdown" {admin}>
+          <a href="{base_url}productos?estado=Disponible"
+            ><i class="menu-icon fa fa-book"></i>Listado de productos</a
+          >
+          <a href="{base_url}listar_tipo_categorias"
+            ><span class="menu-icon icon-category"></span>Tipo de categorías</a
+          >
+          <a href="{base_url}listar_categorias"
+            ><i class="menu-icon fa fa-bookmark"></i>Listado de categorías</a
+          >
+          <a href="{base_url}listar_marcas"
+            ><i class="menu-icon fa fa-copyright"></i>Listado de marcas</a
+          >
+          <a href="{base_url}listar_tags"
+            ><i class="menu-icon fa fa-tags"></i>Listado de etiquetas</a
+          >
+          <a href="{base_url}listar_rango_edades"
+            ><i class="menu-icon fa fa-users"></i>Listado de edades</a
+          >
+          <a href="{base_url}listar_busquedas"
+            ><i class="menu-icon fa fa-search"></i>Listado de busquedas</a
+          >
+        </li>
+
+        <h3 class="menu-title">Usuarios</h3>
+        <!-- /.menu-title -->
+        <li class="menu-item-has-children dropdown">
+          <a href="{base_url}listado_clientes">
+            <i class="menu-icon fa fa-user-circle"></i>Clientes</a
+          >
+          <a href="{base_url}newsletter" {admin}>
+            <i class="menu-icon fa fa-envelope"></i>Newsletter</a
+          >
+          <a href="{base_url}listado_vendedores" {admin}>
+            <i class="menu-icon fa fa-truck"></i>Vendedores</a
+          >
+          <a href="{base_url}opciones" {admin}>
+            <i class="menu-icon fa fa-cog"></i>Opciones</a
+          >
+        </li>
+        <h3 class="menu-title">Diseño</h3>
+        <li class="menu-item-has-children dropdown">
+          <a href="{base_url}banners">
+            <span class="menu-icon icon-carousel"></span>Carousel</a
+          >
+        </li>
+        <h3 class="menu-title">Sesion</h3>
+        <!-- /.menu-title -->
+        <li class="menu-item-has-children dropdown">
+          <a href="{base_url}logout">
+            <i class="menu-icon fa fa-sign-out"></i>Cerrar sesion</a
+          >
+        </li>
+      </ul>
+    </div>
+    <!-- /.navbar-collapse -->
+  </nav>
+</aside>
+<!-- /#left-panel -->

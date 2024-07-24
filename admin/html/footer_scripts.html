@@ -1,0 +1,17 @@
+    <link rel="stylesheet" href="{url_site}assets/css/validationEngine.jquery.css" type="text/css"/>
+    <script src="{url_site}assets/js/jquery.validationEngine-es.js" type="text/javascript" charset="utf-8"></script>
+    <script src="{url_site}assets/js/jquery.validationEngine.min.js" type="text/javascript" charset="utf-8"></script>
+    <script>
+        jQuery(document).ready(function(){
+            jQuery("form").validationEngine({
+                scroll: true,
+                promptPosition : "topLeft",
+            });
+
+            jQuery("form").on("submit", function(evt) {
+                if (!jQuery(this).validationEngine('validate')) {
+                    evt.preventDefault();
+                }
+            });
+        });
+    </script>

@@ -1,0 +1,258 @@
+<!doctype html>
+<!--[if lt IE 7]>
+<html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
+<!--[if IE 7]>
+<html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
+<!--[if IE 8]>
+<html class="no-js lt-ie9" lang=""> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="en">
+<!--<![endif]-->
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Didacticos - Admin</title>
+    <meta name="description" content="Didacticos administrator">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="{base_url}assets/images/favicon.png" type="image/x-icon" sizes="196x196"/>
+    <link rel="apple-touch-icon" href="{base_url}apple-icon.png">
+    <link rel="shortcut icon" href="{base_url}favicon.ico">
+
+    <link rel="stylesheet" href="{base_url}js/dropzone/dropzone.css" type="text/css">
+    <link rel="stylesheet" href="{base_url}vendors/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{base_url}vendors/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="{base_url}vendors/themify-icons/css/themify-icons.css">
+    <link rel="stylesheet" href="{base_url}vendors/flag-icon-css/css/flag-icon.min.css">
+    <link rel="stylesheet" href="{base_url}vendors/selectFX/css/cs-skin-elastic.css">
+
+    <link rel="stylesheet" href="{base_url}vendors/chosen/chosen.min.css">
+    <link rel="stylesheet" href="{base_url}assets/css/style.css">
+
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.6.3/css/bootstrap-select.min.css" />
+
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800' rel='stylesheet' type='text/css'>
+</head>
+
+<body>
+
+
+<!-- Left Panel -->
+
+{panel}
+
+<!-- Left Panel -->
+
+<!-- Right Panel -->
+
+<div id="right-panel" class="right-panel">
+
+    <div class="breadcrumbs">
+        <div class="col-sm-4">
+            <div class="page-header float-left">
+                <div class="page-title">
+                    <h1>Seleccione un producto</h1>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-8">
+            <div class="page-header float-right">
+                <div class="page-title">
+                    <ol class="breadcrumb text-right">
+                        <li class="active">{user}</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="content mt-3">
+        <!-- content inicio -->
+
+        <div class="col-lg-12">
+            <div class="card">
+                <div class="card-header">
+                    <strong>Datos del producto</strong>
+                </div>
+
+                    <div class="card-body card-block">
+
+                        <input name="id_pedido" id="id_pedido" value="{id_pedido}" type="hidden"/>
+
+                        <div class="row form-group">
+                            <div class="col col-md-3">
+                                <label for="select-producto" class=" form-control-label">
+                                    Producto
+                                </label>
+                            </div>
+                            <div class="col-12 col-md-9">
+                                <select name="producto" id="select-producto" class="selectpicker form-control" aria-placeholder="Seleccione una opcion" data-show-subtext="true" data-live-search="true" data-size="7">
+                                    
+                                    <!-- BEGIN producto -->
+                                    <option id="{id_producto}" data-tokens="{nombre_producto}" value="{id_producto}" data-precio="{precio}" data-descuento="{descuento}" {seleccionado}>{nombre_producto}</option>
+                                    <!-- END producto -->
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="row form-group">
+                            <div class="col col-md-3">
+                                <label for="text-input-precio" class=" form-control-label">
+                                    Precio
+                                </label>
+                            </div>
+                            <div class="col-12 col-md-9">
+                                <input type="text" id="text-input-precio" name="precio" value="0" class="form-control" disabled/>
+                            </div>
+                        </div>
+
+                        <div class="row form-group">
+                            <div class="col col-md-3">
+                                <label for="text-input-descuento" class=" form-control-label">
+                                    Descuento
+                                </label>
+                            </div>
+                           
+                            <div class="col-12 col-md-9">
+                                <input type="text" id="text-input-descuento" name="descuento" value="0" class="form-control" disabled/>
+                            </div>
+                        </div>
+
+                        <div class="row form-group">
+                            <div class="col col-md-3">
+                                <label for="text-input-cantidad" class=" form-control-label">
+                                    Cantidad del producto
+                                </label>
+                            </div>
+                            <div class="col-12 col-md-9">
+                                <input type="number" min="1" value="1" id="text-input-cantidad" name="cantidad_producto"
+                                       value="{cantidad_producto}" placeholder="Escriba aquí la cantidad"
+                                       class="form-control" required/>
+                            </div>
+                        </div>
+
+
+                        <div class="row form-group">
+                            <div class="col col-md-3">
+                                <label for="text-input-total-precio" class=" form-control-label">
+                                    Total
+                                </label>
+                            </div>
+                            <div class="col-12 col-md-9">
+                                <input type="text" id="text-input-total-precio" name="total-precio" value="{total-precio}" class="form-control" disabled/>
+                            </div>
+                        </div>
+
+                        <div class="card-footer">
+                            <button id="submit-all" class="btn btn-primary btn-sm">
+                                <i class="fa fa-dot-circle-o"></i> Agregar
+                            </button>
+                            <a type="reset" class="btn btn-danger btn-sm" href="{base_url}editar_pedido/{id_pedido}">
+                                <i class="fa fa-ban"></i> Cancelar </a>
+                        </div>
+                        
+                    </div>
+                    
+
+            </div>
+            <strong style="margin: 15px;color: red;" id="error"></strong>
+
+        </div>
+    </div> <!-- .content -->
+</div>
+
+<!-- Right Panel -->
+
+
+
+
+
+<script src="{base_url}vendors/jquery/dist/jquery.min.js"></script>
+<script src="{base_url}vendors/popper.js/dist/umd/popper.min.js"></script>
+
+<script src="{base_url}vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+
+<script src="{base_url}vendors/jquery-validation/dist/jquery.validate.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validation-unobtrusive/3.2.11/jquery.validate.unobtrusive.min.js"></script>
+
+<link rel="stylesheet" href="{base_url}css/my-style-tag.css">  
+<script src="{base_url}https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
+
+<script src="{base_url}https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/css/bootstrap-select.min.css">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/js/bootstrap-select.min.js"></script>
+<script>
+
+    function round(num, decimales = 2) {
+        var signo = (num >= 0 ? 1 : -1);
+        num = num * signo;
+        if (decimales === 0) //con 0 decimales
+            return signo * Math.round(num);
+        // round(x * 10 ^ decimales)
+        num = num.toString().split('e');
+        num = Math.round(+(num[0] + 'e' + (num[1] ? (+num[1] + decimales) : decimales)));
+        // x * 10 ^ (-decimales)
+        num = num.toString().split('e');
+        return signo * (num[0] + 'e' + (num[1] ? (+num[1] - decimales) : -decimales));
+    }
+    function set_total(){
+        
+        let precio=document.querySelector('#text-input-precio').value;
+        let descuento=document.querySelector('#text-input-descuento').value;
+        let cantidad=document.querySelector('#text-input-cantidad').value;
+        document.querySelector('#text-input-total-precio').value = round((precio - (precio / 100 * descuento )) * cantidad);
+        
+    }
+    document.querySelector('#text-input-cantidad').addEventListener('change', ()=> {
+        set_total();
+    });
+    
+
+    $(document).ready(function(e) {
+        $('.selectpicker').selectpicker();
+        //cargo el descuento en el input
+        document.querySelector('#text-input-precio').value=$(this).find("option:selected").attr("data-precio");
+        document.querySelector('#text-input-descuento').value=$(this).find("option:selected").attr("data-descuento");
+        let p= document.querySelector('#text-input-precio').value;
+        let d=document.querySelector('#text-input-descuento').value;
+        let cant = document.querySelector('#text-input-cantidad').value;
+        document.querySelector('#text-input-total-precio').value = round((p - (p / 100 * d )) * cant);
+        let input=document.querySelector("div.dropdown-menu input");
+        let div=document.querySelector("div.dropdown-menu.open");
+       
+  
+        
+        $('select').on('change', function(e){
+            //obtengo valores
+            let precio=$(this).find("option:selected").attr("data-precio");
+            let cantidad=document.querySelector('#text-input-cantidad').value;
+            let descuento=$(this).find("option:selected").attr("data-descuento");
+         
+            //asigno  
+            document.querySelector('#text-input-precio').value=precio;
+            document.querySelector('#text-input-descuento').value=descuento;
+
+            document.querySelector('#text-input-total-precio').value = round((precio - (precio / 100 * descuento )) * cantidad);//redondeo los decimales a 2
+            
+        });
+
+    });
+    
+    document.querySelector('#submit-all').addEventListener('click', () => {
+        let select =  document.querySelector('#select-producto');
+        let cant = document.querySelector('#text-input-cantidad');
+
+        if (select.value != 0 && cant.value> 0){
+            ///agregar aplica descuento o no? verificar guardar producto pedido
+            window.location.href = "{base_url}guardar_producto_pedido/"+select.value +"/"+cant.value;
+        }else{
+            document.querySelector('#error').innerHTML = "No se pude agregar el producto";
+        }
+    });
+</script>
+
+</body>
+
+</html>

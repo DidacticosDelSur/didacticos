@@ -1,0 +1,671 @@
+<!DOCTYPE doctype html>
+<!--[if lt IE 7]>
+    <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
+<!--[if IE 7]>
+    <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
+<!--[if IE 8]>
+    <html class="no-js lt-ie9" lang=""> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="en">
+    <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+            <meta content="IE=edge" http-equiv="X-UA-Compatible">
+                <title>
+                    Didacticos - Admin
+                </title>
+                <meta content="Didacticos administrator" name="description">
+                    <meta content="width=device-width, initial-scale=1" name="viewport">
+                        <link href="{base_url}assets/images/favicon.png" rel="icon" sizes="196x196" type="image/x-icon"/>
+                        <link href="{base_url}apple-icon.png" rel="apple-touch-icon">
+                            <link href="{base_url}favicon.ico" rel="shortcut icon">
+                                <link href="{base_url}js/dropzone/dropzone.css" rel="stylesheet" type="text/css"/>
+                                <link href="{base_url}vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet"/>
+                                <link href="{base_url}vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet"/>
+                                <link href="{base_url}vendors/themify-icons/css/themify-icons.css" rel="stylesheet"/>
+                                <link href="{base_url}vendors/flag-icon-css/css/flag-icon.min.css" rel="stylesheet"/>
+                                <link href="{base_url}vendors/selectFX/css/cs-skin-elastic.css" rel="stylesheet"/>
+                                <link href="{base_url}vendors/chosen/chosen.min.css" rel="stylesheet"/>
+                                <link href="{base_url}assets/css/style.css" rel="stylesheet"/>
+                                <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800" rel="stylesheet" type="text/css"/>
+                                <style>
+                                    .input-file-container {
+                                        position: relative;
+                                        width: 225px;
+                                    }
+
+                                    .js .input-file-trigger {
+                                        display: block;
+                                        padding: 14px 45px;
+                                        background: #39D2B4;
+                                        color: #fff;
+                                        font-size: 1em;
+                                        transition: all .4s;
+                                        cursor: pointer;
+                                    }
+
+                                    .js .input-file {
+                                        position: absolute;
+                                        top: 0;
+                                        left: 0;
+                                        width: 225px;
+                                        opacity: 0;
+                                        padding: 14px 0;
+                                        cursor: pointer;
+                                    }
+
+                                    .js .input-file:hover + .input-file-trigger,
+                                    .js .input-file:focus + .input-file-trigger,
+                                    .js .input-file-trigger:hover,
+                                    .js .input-file-trigger:focus {
+                                        background: #34495E;
+                                        color: #39D2B4;
+                                    }
+
+                                    .file-return {
+                                        margin: 0;
+                                    }
+
+                                    .file-return:not(:empty) {
+                                        margin: 1em 0;
+                                    }
+
+                                    .js .file-return {
+                                        font-style: italic;
+                                        font-size: .9em;
+                                        font-weight: bold;
+                                    }
+
+                                    .js .file-return:not(:empty):before {
+                                        content: "Selected file: ";
+                                        font-style: normal;
+                                        font-weight: normal;
+                                    }
+
+                                    .quote-imgs-thumbs {
+                                        background: #eee;
+                                        border: 1px solid #ccc;
+                                        border-radius: 0.25rem;
+                                        margin: 1.5rem 0;
+                                        padding: 0.75rem;
+                                    }
+
+                                    .quote-imgs-thumbs--hidden {
+                                        display: none;
+                                    }
+
+                                    .img-preview-thumb {
+                                        background: #fff;
+                                        border: 1px solid #777;
+                                        border-radius: 0.25rem;
+                                        box-shadow: 0.125rem 0.125rem 0.0625rem rgba(0, 0, 0, 0.12);
+                                        margin-right: 1rem;
+                                        max-width: 140px;
+                                        padding: 0.25rem;
+                                    }
+
+                                    .show-for-sr {
+                                        visibility: hidden;
+                                    }
+
+                                    .button.hollow {
+                                        border: 1px solid #1779ba;
+                                        color: #1779ba;
+                                        display: inline-block;
+                                        vertical-align: middle;
+                                        margin: 1rem 0;
+                                        font-family: inherit;
+                                        padding: 0.85em 1em;
+                                        width: 100%;
+                                    }
+
+                                    .button.hollow:hover, .button.hollow:focus {
+                                        border-color: #0c3d5d;
+                                        color: #0c3d5d;
+                                    }
+
+                                    .img-thumbnail {
+                                        width: 100%;
+                                    }
+                                </style>
+                            </link>
+                        </link>
+                    </meta>
+                </meta>
+            </meta>
+        </meta>
+    </head>
+    <body>
+        <!-- Left Panel -->
+        {panel}
+        <!-- Left Panel -->
+        <!-- Right Panel -->
+        <div class="right-panel" id="right-panel">
+            <div class="breadcrumbs">
+                <div class="col-sm-4">
+                    <div class="page-header float-left">
+                        <div class="page-title">
+                            <h1>
+                                Producto
+                            </h1>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-8">
+                    <div class="page-header float-right">
+                        <div class="page-title">
+                            <ol class="breadcrumb text-right">
+                                <li class="active">
+                                    {user}
+                                </li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="content mt-3">
+                <!-- content inicio -->
+                <div class="col-lg-12">
+                    <form action="{base_url}guardar_producto" class="form-horizontal" enctype="multipart/form-data" id="myform" method="POST">
+                        <div class="alert alert-danger" id="show_error" style="visibility: hidden;">Existe otro producto con el mismo sku</div>
+                        <div class="card">
+                            <div class="card-header">
+                                <strong>
+                                    Datos Producto
+                                </strong>
+                            </div>
+                                <div class="card-body card-block">
+                                    <input id="id_producto" name="id" type="hidden" value="{id_producto}"/>
+                                    <div class="row form-group">
+                                        <div class="col col-md-3">
+                                            <label class=" form-control-label" for="text-input-sku">
+                                                SKU del producto <span class="small">(Ejemplo: 01ABCD1234)</span>
+                                            </label>
+                                        </div>
+                                        <div class="col-12 col-md-9">
+                                            <input class="form-control validate[required, minSize[10], maxSize[10], custom[sku]]" id="text-input-sku" name="sku" placeholder="Escriba aquí el SKU del producto" type="text" value="{sku}" size="10" />
+                                        </div>
+                                    </div>
+                                    <div class="row form-group">
+                                        <div class="col col-md-3">
+                                            <label class=" form-control-label" for="text-input-nombre">
+                                                Nombre del producto
+                                            </label>
+                                        </div>
+                                        <div class="col-12 col-md-9">
+                                            <input class="form-control validate[required]" id="text-input-nombre" name="nombre_producto" placeholder="Escriba aquí el nombre del producto" type="text" value="{nombre_producto}" />
+                                        </div>
+                                    </div>
+                                    <div class="row form-group">
+                                        <div class="col col-md-3">
+                                            <label class=" form-control-label" for="text-input-descripcion">
+                                                Descripción del producto
+                                            </label>
+                                        </div>
+                                        <div class="col-12 col-md-9">
+                                            <textarea class="form-control validate[required]" id="text-input-descripcion" name="descripcion_producto" placeholder="Escriba aquí la descripción del producto..." rows="5">{descripcion_producto}</textarea>
+                                        </div>
+                                    </div>
+                                    <div class="row form-group">
+                                        <div class="col col-md-3">
+                                            <label class=" form-control-label" for="text-input-nombre">
+                                                Video (embed) del producto
+                                                <div class="small">Ejemplo: &lt;iframe width="560" height="315" src="https://www.youtube.com/embed/dQw4w9WgXcQ?controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen&gt;&lt;/iframe&gt;</div>
+                                            </label>
+                                        </div>
+                                        <div class="col-12 col-md-9">
+                                            <textarea class="form-control" id="text-input-video" name="video_producto" placeholder="Escriba aquí el video embed del producto" rows="5">{video_producto}</textarea>
+                                        </div>
+                                    </div>
+                                    <div class="row form-group">
+                                        <div class="col col-md-3">
+                                            <label class="form-control-label" for="select-tipo">
+                                                Tipo de producto
+                                            </label>
+                                        </div>
+                                        <div class="col-12 col-md-9">
+                                            <select class="form-control validate[required]" id="select-tipo" name="tipo_producto">
+                                                <option value="">Seleccione un tipo...</option>
+                                                <!-- BEGIN tipos_categorias -->
+                                                <option value="{id}" {seleccionado}="">
+                                                    {nombre_tipo}
+                                                </option>
+                                                <!-- END tipos_categorias -->
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="row form-group">
+                                        <div class="col col-md-3">
+                                            <label class=" form-control-label" for="select-categoria">
+                                                Categoría
+                                            </label>
+                                        </div>
+                                        <div class="col-12 col-md-9">
+                                            <select class="form-control validate[required]" id="select-categoria" name="categoria">
+                                                <option value="">
+                                                    Seleccione una categoría
+                                                </option>
+                                                <!-- BEGIN categorias -->
+                                                <option value="{id}" {seleccionado}="">
+                                                    {nombre_categoria}
+                                                </option>
+                                                <!-- END categorias -->
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="row form-group">
+                                        <div class="col col-md-3">
+                                            <label class=" form-control-label" for="select-categoria">
+                                                Marca
+                                            </label>
+                                        </div>
+                                        <div class="col-12 col-md-9">
+                                            <select class="form-control validate[required]" id="select-marca" name="marca">
+                                                <option value="">
+                                                    Seleccione una marca
+                                                </option>
+                                                <!-- BEGIN marcas -->
+                                                <option value="{id}" {seleccionado}="">
+                                                    {nombre_marca}
+                                                </option>
+                                                <!-- END marcas -->
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="row form-group">
+                                        <div class="col col-md-3">
+                                            <label class=" form-control-label" for="tags-input">
+                                                Etiqueta
+                                            </label>
+                                        </div>
+                                        <div class="col-12 col-md-9" id="tag-section">
+                                            <select class="custom-select show-tick" id="tags-input" multiple="multiple">
+                                                <option value=""></option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="row form-group">
+                                        <div class="col col-md-3">
+                                            <label class=" form-control-label" for="text-input-precio">
+                                                PvP / P.Neto
+                                            </label>
+                                        </div>
+                                        <div class="col-12 col-md-9">
+                                            <input class="form-control validate[required, custom[number]]" id="text-input-precio" name="precio" placeholder="Escriba aquí el precio del producto" type="text" value="{precio_producto}" />
+                                        </div>
+                                    </div>
+                                    <div class="row form-group">
+                                        <div class="col col-md-3">
+                                            <label class=" form-control-label" for="text-input-descuento">
+                                                Descuento
+                                            </label>
+                                        </div>
+                                        <div class="col-12 col-md-9">
+                                            <input class="form-control validate[required, custom[onlyNumberSp]]" id="text-input-descuento" name="descuento" placeholder="Escriba aquí el descuento del producto" type="text" value="{descuento_producto}" />
+                                        </div>
+                                    </div>
+                                    <div class="row form-group">
+                                        <div class="col col-md-3">
+                                            <label class=" form-control-label" for="select-estado">
+                                                Estado
+                                            </label>
+                                        </div>
+                                        <div class="col-12 col-md-9">
+                                            <select class="form-control validate[required]" id="select-estado" name="estado">
+                                                <option value="Disponible" {estado1}="">Disponible</option>
+                                                <option value="No disponible" {estado2}="">No disponible</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <!-- <div class="row form-group">
+                                        <div class="col col-md-3">
+                                            <label class=" form-control-label" for="text-input-edad">
+                                                Rango Edad
+                                                <div class="small">Ejemplos: 0-12 meses<br>
+                                                +6 años</div>
+                                            </label>
+                                        </div>
+                                        <div class="col-12 col-md-9">
+                                            <input class="form-control" id="text-input-edad" name="rango_edad" placeholder="Edad minima para el juego " type="text" value="{rango_edad}" />
+                                        </div>
+                                        
+                                    </div> -->
+                                    <div class="row form-group">
+                                        <div class="col col-md-3">
+                                            <label class="form-control-label" for="select-rango">
+                                                Rango Edad
+                                            </label>
+                                        </div>
+                                        <div class="col-12 col-md-9">
+                                            <select class="form-control" id="select-rango" name="rango_id">
+                                                <option value="">Seleccione un rango...</option>
+                                                <!-- BEGIN rangos -->
+                                                <option value="{id}" {seleccionado}="">
+                                                    {rango}
+                                                </option>
+                                                <!-- END rangos -->
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="row form-group">
+                                        <div class="col col-md-3">
+                                            <label class=" form-control-label" for="text-input-en-tv">
+                                                Ribbon "En TV"
+                                            </label>
+                                        </div>
+                                        <div class="col-12 col-md-9">
+                                            <input id="text-input-en-tv" name="en_tv" type="checkbox" value="1" {en_tv} />
+                                        </div>
+                                    </div>
+
+                                    <div class="row form-group">
+                                        <div class="col col-md-3">
+                                            <label class=" form-control-label" for="myDrop">
+                                                Cargar imágenes del Producto
+                                            </label>
+                                        </div>
+                                        <div class="col-12 col-md-9">
+                                            <div class="dropzone dz-clickable" id="myDrop">
+                                                <div class="dz-default dz-message" data-dz-message="">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card-footer">
+                                        <a class="btn btn-outline-secondary btn-sm ml-2" formnovalidate="" href="{base_url}productos" type="reset">
+                                            <i class="fa fa-arrow-left">
+                                            </i>
+                                            Volver
+                                        </a>
+                                        <input id="accion" name="accion" type="hidden" value="{nuevo_editar}"/>
+                                        <button class="btn btn-primary btn-sm" id="submit-all" type="submit">
+                                            <i class="fa fa-dot-circle-o">
+                                            </i>
+                                            Guardar
+                                        </button>
+                                        <a class="btn btn-danger btn-sm" formnovalidate="" href="{base_url}productos" type="reset">
+                                            <i class="fa fa-ban">
+                                            </i>
+                                            Cancelar
+                                        </a>
+                                    </div>
+                                </div>
+                        </div>
+                        <div id="msg">
+                        </div>
+                        <div class="card">
+                            <div class="card-header">
+                                <strong>
+                                    Imágenes del Producto
+                                </strong>
+                            </div>
+                            <div class="card-body" style="overflow-y: scroll">
+                                <div class="card-columns">
+                                    <!-- BEGIN pictures -->
+                                    <div class="card">
+                                        <div style="text-align: center; margin-bottom: 10px;">
+                                            <input class="portada" style="zoom: 1.5; margin-top: 10px;" type="radio" rel="portada" name="portada" value="{id_media}" {checked}> <label style="position: relative; top: -4px;" for="portada">Elegir como foto de portada</label>
+                                        </div>
+                                        <img class="img-thumbnail" src="{path}" />
+                                        <div class="card-body">
+                                            <a class="btn btn-block btn-danger" href="javascript:void(0);" onclick="javascript:eliminar_foto({id_media})">
+                                                <i class="fa fa-trash">
+                                                </i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <!-- END pictures -->
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <!-- .content -->
+        </div>
+        <!-- Right Panel -->
+        <script src="{base_url}vendors/jquery/dist/jquery.min.js">
+        </script>
+        <script src="{base_url}vendors/popper.js/dist/umd/popper.min.js">
+        </script>
+        <script src="{base_url}vendors/bootstrap/dist/js/bootstrap.min.js">
+        </script>
+        <script src="{base_url}vendors/jquery-validation/dist/jquery.validate.min.js">
+        </script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validation-unobtrusive/3.2.11/jquery.validate.unobtrusive.min.js">
+        </script>
+        <!-- TBC bootstrap input-tag -->
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.13/css/bootstrap-multiselect.css" rel="stylesheet"/>
+        <link href="{base_url}css/my-style-tag.css" rel="stylesheet"/>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js" type="text/javascript">
+        </script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.13/js/bootstrap-multiselect.js">
+        </script>
+        <!--Only these JS files are necessary-->
+        <!-- <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script> -->
+        <script type="text/javascript">
+            let tipo=document.querySelector("#select-tipo");
+
+            function getMarcas() {
+                $('#select-marca option').remove();
+                $('#select-marca').append("<option id='cargando2'>Cargando...</option>");
+                $('#select-marca').append('<option value="">Seleccione una marca</option>');
+                $.get("{base_url}get_allmarcas/"+ $('#select-tipo option:selected').attr('value'), function (data) {
+                    $('#cargando2').remove();
+
+                    let datos = JSON.parse(data);
+
+                    for (let i = 0; i < datos.length; i++) {
+                        $('#select-marca').append("<option value='" + datos[i]['id'] + "'>" + datos[i]['nombre'] + "</option>");
+                    }
+                });
+            }
+            function getCategories() {
+                $('#select-categoria option').remove();
+                $('#select-categoria').append("<option id='cargando'>Cargando...</option>");
+                $('#select-categoria').append('<option value="">Seleccione una categoría</option>');
+                $.get("{base_url}get_allcategories/"+ $('#select-tipo option:selected').attr('value'), function (data) {
+                    $('#cargando').remove();
+
+                    let datos = JSON.parse(data);
+
+                    for (let i = 0; i < datos.length; i++) {
+                        $('#select-categoria').append("<option value='" + datos[i]['id'] + "'>" + datos[i]['nombre'] + "</option>");
+                    }
+                });
+            }
+
+            tipo.addEventListener('change', (event) => {
+                getMarcas();
+                getCategories();
+            });
+
+            if ($('#id_producto').val() == '') {
+                getMarcas();
+                getCategories();
+            }
+
+            $(document).ready(function(){
+                $("#myform").on('submit', function(){
+
+                    if (formIsValid()) {
+
+                        $.ajax({
+                            url: "{base_url}guardar_producto",
+                            type: 'post',
+                            data: $('#myform').serialize(),
+                        });
+                    }
+                });
+            });
+            function getTags() {
+                $('#tags-input option').remove();
+                let selected;
+                $('#tags-input').append("<option id='cargando-tags'>Cargando...</option>");
+                //load tags of a product in table productos_tags
+                $.get("{base_url}get_tag_producto/" + $('#id_producto').attr('value'), function (data) {
+                    selected = JSON.parse(data);
+                });
+                 //load all tags of type selected, if not have one get all
+                 $.get("{base_url}get_alltags/"+ $('#select-tipo option:selected').attr('value'), function (data) {
+                    $('#cargando-tags').remove();
+
+                    let datos = JSON.parse(data);
+                    for (let i = 0; i < datos.length; i++) {
+                        $('#tags-input').append("<option value='" + datos[i]['id'] + "'>" + datos[i]['nombre'] + "</option>");
+                    }
+                    $(document).ready(function() {
+                        // $('#tags-input').multiselect("refresh").multiselect("rebuild");
+                        $('#tags-input').multiselect({nonSelectedText: 'Seleccionar alguna/s etiqueta/s',allSelectedText: 'Todos Seleccionados'});
+                        $('#tags-input').multiselect("refresh");
+                        $('#tags-input').multiselect("rebuild");
+                        if(selected){
+                            for(let i = 0; i < selected.length;i++){
+                                $('#tags-input').multiselect('select',selected[i]["id"]);
+                            }
+                        }
+                    });
+
+                });
+             }
+
+             getTags();
+        </script>
+        <script src="{base_url}js/dropzone/dropzone.js">
+        </script>
+        <script type="text/javascript">
+            const queryString = window.location.search;
+            const urlParams = new URLSearchParams(queryString);
+            const estado = urlParams.get('estado');
+
+            //Dropzone script
+            Dropzone.autoDiscover = false;
+            $(document).ready(function () {
+                let myDropzone = new Dropzone("div#myDrop",
+                {
+                    paramName: "files", // The name that will be used to transfer the file
+                    addRemoveLinks: true,
+                    uploadMultiple: true,
+                    autoProcessQueue: false,
+                    parallelUploads: 50,
+                    maxFilesize: 30, // MB
+                    acceptedFiles: ".png, .jpeg, .jpg, .gif",
+                    url: '{base_url}guardar_producto',
+                });
+
+                /* Add Files Script*/
+                myDropzone.on("success", function (file, message) {
+                    window.location.href = "{base_url}productos" + (estado?"?estado="+estado:"");
+                });
+
+                myDropzone.on("error", function (data, message) {
+                    console.log(data);
+                    console.log(message);
+                    if (message == 'SKU') {
+                        $('#show_error').css('visibility', 'visible');
+                    } else {
+                        $("#msg").html('<div class="alert alert-danger">Algo anda mal. Vuelve a intentarlo.</div>');
+                    }
+                });
+
+                myDropzone.on("complete", function (file) {
+                    myDropzone.removeFile(file);
+                });
+
+                $("#submit-all").on("click", function (e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    if (myDropzone.getAcceptedFiles().length > 0) {
+                        myDropzone.processQueue();
+                    } else {
+                        submitMyFormWithData();
+                    }
+                });
+
+                myDropzone.on("sendingmultiple", function (data, xhr, formData) {
+                    formData.append("id", jQuery("#id_producto").val());
+                    formData.append("sku", jQuery("#text-input-sku").val());
+                    formData.append("nombre_producto", jQuery("#text-input-nombre").val());
+                    formData.append("video_producto", jQuery("#text-input-video").val());
+                    formData.append("descripcion_producto", jQuery("#text-input-descripcion").val());
+                    formData.append("tipo_producto", jQuery("#select-tipo").val());
+                    formData.append("categoria", jQuery("#select-categoria").val());
+                    formData.append("marca", jQuery("#select-marca").val());
+                    formData.append("tags",$('#tags-input').multiselect().val());
+                    formData.append("precio", jQuery("#text-input-precio").val());
+                    formData.append("descuento", jQuery("#text-input-descuento").val());
+                    formData.append("rango_id", jQuery("#select-rango").val());
+                    //formData.append("rango_edad", jQuery("#text-input-edad").val());
+                    formData.append("en_tv", jQuery("#text-input-en-tv").is(':checked'));
+                    formData.append("estado", jQuery("#select-estado").val());
+                    formData.append("accion", jQuery("#accion").val());
+                    formData.append("portada", jQuery(".portada:checked").val());
+
+                });
+
+            });
+
+            function submitMyFormWithData() {
+                let formData = new FormData();
+                formData.append("id", jQuery("#id_producto").val());
+                formData.append("sku", jQuery("#text-input-sku").val());
+                formData.append("nombre_producto", jQuery("#text-input-nombre").val());
+                formData.append("video_producto", jQuery("#text-input-video").val());
+                formData.append("descripcion_producto", jQuery("#text-input-descripcion").val());
+                formData.append("tipo_producto", jQuery("#select-tipo").val());
+                formData.append("categoria", jQuery("#select-categoria").val());
+                formData.append("marca", jQuery("#select-marca").val());
+                formData.append("tags", $('#tags-input').multiselect().val());
+                formData.append("precio", jQuery("#text-input-precio").val());
+                formData.append("descuento", jQuery("#text-input-descuento").val());
+                formData.append("rango_id", jQuery("#select-rango").val());
+                //formData.append("rango_edad", jQuery("#text-input-edad").val());
+                formData.append("en_tv", jQuery("#text-input-en-tv").is(':checked'));
+                formData.append("estado", jQuery("#select-estado").val());
+                formData.append("accion", jQuery("#accion").val());
+                formData.append("portada", jQuery(".portada:checked").val());
+
+                if (formIsValid()) {
+                    $.ajax({
+                        url: "{base_url}guardar_producto",
+                        data: formData,
+                        processData: false,
+                        contentType: false,
+                        type: 'POST',
+                        success: function (data) {
+                            window.location.href = "{base_url}productos" + (estado?"?estado="+estado:"");
+                        },
+                        error: function(data){
+                            $('#show_error').css('visibility', 'visible');
+                        }
+                    });
+                }
+            }
+
+            function eliminar_foto(id) {
+                var eliminar = "";
+                // AJAX request
+                $.ajax({
+                    type: "POST",
+                    url: '{base_url}eliminar_imagen/' + document.getElementById("id_producto").value + '/' + id,
+                    success: function (data) {
+                        window.location.reload();
+                    }
+                });
+            }
+
+            function formIsValid() {
+
+                return ($('#myform').validationEngine('validate'));
+
+                /*const formIsValid =  document.querySelector('#myform').reportValidity();
+                const marcaIsValid =  document.querySelector('#select-marca').reportValidity();
+                const categoriaIsValid =  document.querySelector('#select-categoria').reportValidity();
+                return formIsValid && marcaIsValid && categoriaIsValid;*/
+            }
+        </script>
+
+        {footer_scripts}
+    </body>
+</html>
