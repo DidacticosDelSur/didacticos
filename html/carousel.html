@@ -1,0 +1,36 @@
+<section id="container-slider" class="container-slider">
+  <div class="three-kings"></div>
+  <div class="shooting-star"></div>
+
+  <a href="javascript: fntExecuteSlide('prev');" class="arrow arrowPrev"
+    ><span class="icon-arrow_back"></span>
+  </a>
+  <a href="javascript: fntExecuteSlide('next');" class="arrow arrowNext"
+    ><span class="icon-arrow_forward"></span
+  ></a>
+  <ul class="listslider">
+    <!-- BEGIN banner_links -->
+    <li>
+      <a itlist="itList_{id_link}" href="#" {item_selected}></a>
+    </li>
+    <!-- END banner_links -->
+  </ul>
+  <ul id="slider" class="slider">
+    <div class="bells-left"></div>
+    <div class="bells-right"></div>
+    <!-- BEGIN banners -->
+    <li {show}>
+      <a href="{base_url}{url}">
+        <img
+          src="{base_url}assets/images/banners/{id_banner}/{img_desk}"
+          class="mobile-hide"
+        />
+        <img
+          src="{base_url}assets/images/banners/{id_banner}/{img_mobile}"
+          class="mobile-img"
+        />
+      </a>
+    </li>
+    <!-- END banners -->
+  </ul>
+</section>

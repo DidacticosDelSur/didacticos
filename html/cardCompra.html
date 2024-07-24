@@ -1,0 +1,150 @@
+<!-- BEGIN elementos -->
+<div class="item-content">
+  <div class="item flexBlock">
+    <input value="{id}" type="hidden" />
+    <input id="cant_prod_cart{id}" value="{cant}" type="hidden" />
+    <span class="name_product">{nombre}</span>
+    <div class="quantBox">
+      <div class="quantity">
+        <div class="input">
+          <input
+            type="number"
+            min="1"
+            step="1"
+            value="{cant_prod}"
+            id="change_cant{id}"
+            disabled
+          />
+        </div>
+      </div>
+    </div>
+    <span id="costo{id}" class="costo"> {costo}</span>
+    <a href="{base_url}eliminarCarrito/{id}">
+      <button>
+        <img
+          loading="lazy"
+          src="{base_url}assets/images/trashIcon.png"
+          alt=""
+        />
+      </button>
+    </a>
+  </div>
+  <div class="obs">{observaciones}</div>
+  <hr />
+</div>
+<!-- <textarea
+  placeholder="Observaciones del producto"
+  style="
+    display: block;
+    border: 1px solid #ccc;
+    margin-top: 20px;
+    width: 100%;
+    padding: 10px;
+  "
+  name=""
+  id="observaciones-{id}"
+  cols="30"
+  rows="3"
+>
+{observaciones}</textarea
+>-->
+
+<script>
+  var sku = `change_cant{id}`;
+  document.getElementById(sku).onchange = () => {
+    var sku = `change_cant{id}`;
+    var sku_ = `cant_prod_cart{id}`;
+    document.getElementById(sku_).value = document.getElementById(sku).value;
+    $.ajax({
+      url:
+        "{base_url}actualizarCarrito/{id}/" +
+        document.getElementById(sku_).value,
+      success: (data) => {
+        const dataParse = JSON.parse(data);
+        document.getElementById("costo{id}").innerHTML = "$" + dataParse.costo;
+        document.getElementById("total-precio").innerHTML =
+          "$" + dataParse.total_precio_iva;
+        document.getElementById("price").innerHTML =
+          "$" + dataParse.total_precio;
+        console.log(dataParse.totales);
+        let claves = Object.keys(dataParse.totales);
+        console.log(claves);
+        for (let i = 0; i < claves.length; i++) {
+          let clave = claves[i];
+          document.getElementById("subtotal_" + clave).innerHTML =
+            "$" + dataParse.totales[clave]["subtotal"];
+          document.getElementById("descuento_precio_" + clave).innerHTML =
+            "$" + dataParse.totales[clave]["subtotal_descuento"];
+          document.getElementById("subtotal_iva_" + clave).innerHTML =
+            "$" + dataParse.totales[clave]["iva"];
+        }
+
+        checkMinimum(parseInt(dataParse.total_precio.replace(".", "")));
+        checkDiscount(claves);
+      },
+    });
+  };
+
+  function checkDiscount(claves) {
+    for (let i = 0; i < claves.length; i++) {
+      let clave = claves[i];
+      if (clave != "libro") {
+        if (
+          $("#subtotal_" + clave).html() ==
+          $("#descuento_precio_" + clave).html()
+        ) {
+          $("#descuento-" + clave + "-wrapper").hide();
+        } else {
+          $("#descuento-" + clave + "-wrapper").show();
+        }
+      }
+    }
+  }
+
+  function checkMinimum(price) {
+    var minimum = $("#price").data("minimum");
+
+    if (price < minimum) {
+      $("#minimum-msg").show();
+    } else {
+      $("#minimum-msg").hide();
+    }
+  }
+
+  function throttle(f, delay) {
+    var timer = null;
+    return function () {
+      var context = this,
+        args = arguments;
+      clearTimeout(timer);
+      timer = window.setTimeout(function () {
+        f.apply(context, args);
+      }, delay || 500);
+    };
+  }
+
+  /* $("#observaciones-{id}").on(
+    "keyup",
+    throttle(function (evt) {
+      $.ajax({
+        url: "{base_url}actualizarObservaciones/{id}/" + $(this).val(),
+        success: (data) => {
+          const dataParse = JSON.parse(data);
+          console.log(dataParse);
+        },
+      });
+    })
+  );
+ */
+  $(document).ready(function () {
+    //refactor catregorias
+    $.ajax({
+      url: "{base_url}obtenerCategorias/",
+      success: (data) => {
+        const dataParse = JSON.parse(data);
+        checkDiscount(dataParse);
+      },
+    });
+  });
+</script>
+<!-- END elementos -->

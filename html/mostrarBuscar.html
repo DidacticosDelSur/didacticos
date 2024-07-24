@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
+    />
+    <title>Resultados de búsqueda | Didácticos del Sur</title>
+
+    <meta content="" name="keywords" />
+    <meta content="Resultados de búsqueda" name="description" />
+
+    <meta name="revisit-after" content="1 days" />
+    <meta name="Language" content="es" />
+    <meta name="distribution" content="global" />
+
+    <meta name="Robots" content="all,index,follow" />
+    <meta name="Googlebot" content="index, follow" />
+    <meta name="FastCrawler" content="index, follow" />
+    <meta name="Scooter" content="index, follow" />
+    <meta name="Yahoo! Slurp" content="index, follow" />
+    <meta name="InfoSeek Robot 1.0" content="index, follow" />
+    <meta name="InfoSeek Sidewinder" content="index, follow" />
+    <meta name="MSNBot" content="index, follow" />
+    <meta name="Inktomi Slurp" content="index, follow" />
+    <meta name="identifier-url" content="" />
+    <meta name="searchtitle" content="" />
+    <meta name="Author" content="" />
+    <meta name="Copyright" content="" />
+
+    <!-- Twitter Card data -->
+    <meta name="twitter:card" content="" />
+    <meta name="twitter:title" content="" />
+    <meta name="twitter:url" content="" />
+    <meta name="twitter:description" content="" />
+    <!-- Twitter Summary card images No puede superar los 200x200px -->
+    <meta name="twitter:image:src" content="" />
+
+    <!-- Open Graph data -->
+    <meta property="og:title" content="" />
+    <meta property="og:type" content="" />
+    <meta property="og:url" content="" />
+    <meta property="og:image" content="" />
+    <meta property="og:description" content="" />
+
+    <link
+      rel="icon"
+      href="{base_url}assets/images/favicon.png"
+      type="image/x-icon"
+      sizes="196x196"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{base_url}assets/css/style.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{base_url}assets/css/newStyle.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{base_url}assets/css/categories.css"
+    />
+    {gtm}
+  </head>
+
+  <body>
+    <!-- header -->
+    {header}
+
+    <div class="content-wrap">
+      <div class="category-content">
+        <div class="no-results results-{cant_resultados}">
+          <div class="text-center position-relative">
+            <img
+              src="{base_url}assets/images/no-results.svg"
+              alt="No hay resultados"
+            />
+            <h1>Ups!</h1>
+            <h3>
+              No hemos encontrado ningún resultado para la búsqueda que
+              ingresaste.
+            </h3>
+            <div class="arrow-down"></div>
+          </div>
+
+          <div
+            class="categoriesSect"
+            style="
+              background-color: #fff;
+              padding-top: 60px;
+              margin-bottom: -20px;
+            "
+          >
+            <div class="wide-content">
+              <div class="text-center">
+                <h3 class="with-border">Quizá te interesen estos productos:</h3>
+              </div>
+              <div class="flexBlock" style="justify-content: center">
+                <section
+                  class="productsItems flexBlock"
+                  style="justify-content: space-evenly"
+                >
+                  {product}
+                </section>
+              </div>
+            </div>
+            <hr style="border: 1px solid #dfdfdf; margin-top: 60px" />
+            <div class="info-home">
+              <div class="content">
+                <div class="flexBlock">
+                  <div class="module icon-1">
+                    <img
+                      loading="lazy"
+                      src="{base_url}assets/images/envios.svg"
+                      alt="ENVÍOS A TODO EL PAÍS"
+                    />
+                    <h5>ENVÍOS A TODO EL PAÍS</h5>
+                    <p>Gratis en Bahía Blanca y zona de influencia.</p>
+                  </div>
+
+                  <div class="module icon-2">
+                    <img
+                      loading="lazy"
+                      src="{base_url}assets/images/seguro.svg"
+                      alt="SITIO 100% SEGURO"
+                    />
+                    <h5>SITIO 100% SEGURO</h5>
+                    <p>Realiza tu pedido de forma segura.</p>
+                  </div>
+
+                  <div class="module icon-3">
+                    <img
+                      loading="lazy"
+                      src="{base_url}assets/images/precio.svg"
+                      alt="EL MEJOR PRECIO"
+                    />
+                    <h5>EL MEJOR PRECIO</h5>
+                    <p>
+                      Los productos más vendidos al mejor precio del mercado.
+                    </p>
+                  </div>
+
+                  <div class="module icon-4">
+                    <img
+                      loading="lazy"
+                      src="{base_url}assets/images/atencion.svg"
+                      alt="ATENCIÓN PERSONALIZADA"
+                    />
+                    <h5>ATENCIÓN PERSONALIZADA</h5>
+                    <p>Te esperamos en nuestro showroom de 9 a 18hs.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="wide-content">
+          <!-- busqueda -->
+
+          <div class="categoriesSect results-{cant_resultados}">
+            <h2>
+              Resultados: {title_busqueda}<small> ({cant_resultados})</small>
+            </h2>
+
+            <section class="productsItems flexBlock">
+              <!-- <h2 style="margin-bottom: 20px">{message}</h2> -->
+              {product}
+            </section>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- footer -->
+    {footer}
+
+    <script>
+      //document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')
+    </script>
+    <script
+      src="https://code.jquery.com/jquery-2.2.0.min.js"
+      type="text/javascript"
+    ></script>
+    <script
+      src="{base_url}assets/js/main.js"
+      type="text/javascript"
+      charset="utf-8"
+    ></script>
+
+    {footer_scripts}
+  </body>
+</html>

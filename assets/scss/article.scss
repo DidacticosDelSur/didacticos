@@ -1,0 +1,186 @@
+.categories {
+  article {
+    width: 32%;
+    height: 446px;
+    position: relative;
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+      -moz-box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+      -webkit-box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+      transition: .5s;
+      -moz-transition: .5s;
+      -webkit-transition: .5s;
+    a {
+      color: #FFFFFF;
+      font-size: 16px;
+      height: 100%;
+    }
+    .frame {
+      /* position: absolute; */
+      width: calc(100% - 40px);
+      height: calc(100% - 60px);
+      padding: 30px 20px;
+      z-index: 1;
+      
+      h2 {
+        position: absolute;
+        border-radius: 18px;
+        font-size: 11px;
+        text-align: left;
+        font-weight: 400;
+        text-transform: uppercase;
+        display: block;
+        background: #FAF1CF;
+        color: #0F2650;
+        padding: 10px;
+      }
+      .title {
+        font-weight: 800;
+        font-size: 50px;
+        line-height: 52px;
+        text-transform: uppercase;
+        /* position: absolute; */
+        color: #ffffff;
+        margin-top: 70px;
+      }
+      .productos {
+        border: 1px solid;
+        margin-top: 30px;
+        position: absolute;
+        border-radius: 18px;
+        font-size: 13px;
+        text-align: left;
+        font-weight: 400;
+        display: block;
+        padding: 10px;
+      }
+      .textos {
+        font-size: 14px;
+        margin-top: 110px;
+      }
+      
+      &.blue-color {
+        background: #5E8CF0;
+      }
+      &.red-color {
+        background: #EB4F5C;
+      }
+    }
+    img {
+      object-fit: cover;
+      position: absolute;
+      z-index: 1;
+      right: 30px;
+      top: 37px;
+      transition: 1s;
+      display: block;
+      &.bottom-img {
+        bottom: 20px;
+        top: auto;
+      }
+      
+    }
+    .box {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: 1s;
+      flex-direction: column;
+      border-radius: 18px;
+      h2 {
+        position: absolute;
+        border-radius: 18px;
+        font-size: 11px;
+        text-align: left;
+        font-weight: 400;
+        text-transform: uppercase;
+        display: block;
+        background: #FAF1CF;
+        color: #0F2650;
+        padding: 10px;
+        left: 20px;
+        top: 20px;
+      }
+      .title {
+        font-weight: bold;
+        font-size: 52px;
+        line-height: 52px;
+        text-transform: uppercase;
+        /* position: absolute; */
+        color: #ffffff;
+        margin-top: 70px;
+        color: #0F2650;
+        text-align: center;
+        .edad {
+          font-size: 28px;
+          text-transform: lowercase;
+          font-weight: 300;
+          line-height: 30px;
+        }
+      }
+      .productos {
+        border: 1px solid;
+        margin: 15px;
+        border-radius: 18px;
+        font-size: 13px;
+        text-align: left;
+        font-weight: 400;
+        display: block;
+        padding: 10px;
+      }
+      &.pastel-blue {
+        background-color: #D1DBF7;
+        .title {
+          color:#0F2650;
+        }
+      }
+      &.pastel-yellow {
+        background-color: #FCF1CB;
+        color: #19254A;
+        h2 {
+          background: #688BE9;
+          color: #FFFFFF;
+        }
+      }
+    }
+    
+    &:hover {
+      transition: all 0.2s ease-in-out;
+        box-shadow: 0 0 12px 0px rgba(0, 0, 0, .3);
+      -moz-box-shadow: 0 0 12px 0px rgba(0, 0, 0, .3);
+      -webkit-box-shadow: 0 0 12px 0px rgba(0, 0, 0, .3);
+
+      img {
+        transform: scale(1.2);
+      }
+    }
+    @media(max-width:980px) {
+      width: 60%;
+    }
+    @media(max-width:560px) {
+      width: 100%;
+    }
+  }
+  .multiple{
+    display: flex;
+    flex-direction: column;
+    width: 32%;
+    justify-content: space-between;
+    height: 446px;
+    article {
+      width: 100%;
+      height: fit-content;
+    }
+    @media(max-width:980px) {
+      width: 60%;
+    }
+    @media(max-width:560px) {
+      width: 100%;
+    }
+  }
+  @media(max-width:980px) {
+    flex-direction: column;
+    gap: 10px
+  }
+}

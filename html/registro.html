@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
+    />
+    <title>Registro | Didácticos del Sur</title>
+
+    <meta content="" name="keywords" />
+    <meta content="" name="description" />
+
+    <!-- Twitter Card data -->
+    <meta name="twitter:card" content="" />
+    <meta name="twitter:title" content="" />
+    <meta name="twitter:url" content="" />
+    <meta name="twitter:description" content="" />
+    <!-- Twitter Summary card images No puede superar los 200x200px -->
+    <meta name="twitter:image:src" content="" />
+
+    <!-- Open Graph data -->
+    <meta property="og:title" content="" />
+    <meta property="og:type" content="" />
+    <meta property="og:url" content="" />
+    <meta property="og:image" content="" />
+    <meta property="og:description" content="" />
+
+    <link
+      rel="icon"
+      href="{base_url}assets/images/favicon.png"
+      type="image/x-icon"
+      sizes="196x196"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{base_url}assets/css/style.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{base_url}assets/css/newStyle.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{base_url}assets/css/login.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{base_url}assets/css/theme.css"
+    />
+
+    <script src="https://www.google.com/recaptcha/api.js?render=6LcNpAsdAAAAAPEtkG6mT65ncQyKWxUH92LzFjj6"></script>
+
+    {gtm}
+  </head>
+
+  <body>
+    <div id="theme" class="{temeticaClass}">
+      <!-- header -->
+      {header}
+      <div class="content-wrap">
+        <div class="container register-content">
+          <div class="three-kings"></div>
+          <div class="shooting-star"></div>
+          <div class="content register">
+            <!-- wide-content shop-wrap modal-user register-modal -->
+            <div class="container-shop">
+              <div class="bells"></div>
+              <div class="presents"></div>
+              <div class="title">
+                <h1>Registrate</h1>
+                <span
+                  >Registrate para poder realizar las compras que quieras</span
+                ><br />
+                <span class="message">
+                  Solo ventas mayoristas a comercios, empresas o instituciones.
+                </span>
+              </div>
+
+              <form
+                method="post"
+                action="{base_url}registroCliente"
+                id="form-register"
+                enctype="multipart/form-data"
+              >
+                <div class="row">
+                  <div class="input-content">
+                    <label>Nombre</label>
+                    <input
+                      type="text"
+                      id="nombre"
+                      name="nombre"
+                      value="{nombre}"
+                      class="validate[required]"
+                    />
+                  </div>
+                  <div class="input-content">
+                    <label>Apellido</label>
+                    <input
+                      type="text"
+                      id="apellido"
+                      name="apellido"
+                      value="{apellido}"
+                      class="validate[required]"
+                    />
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="input-content">
+                    <label>Teléfono/WhatsApp</label>
+                    <input
+                      type="text"
+                      id="telefono"
+                      name="telefono"
+                      value="{telefono}"
+                      autocomplete="on"
+                      class="validate[required,custom[phone]]"
+                      maxlength="16"
+                    />
+                    <small>Formato: 291-123-4567</small>
+                  </div>
+                  <div class="input-content">
+                    <label>E-mail</label>
+                    <input
+                      type="email"
+                      id="email"
+                      name="email"
+                      value="{email}"
+                      autocomplete="on"
+                      class="validate[required,custom[email]]"
+                    />
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="input-content">
+                    <label>Contraseña</label>
+                    <input
+                      type="password"
+                      id="password"
+                      name="password"
+                      minlength="8"
+                      autocomplete="on"
+                      class="validate[required, minSize[8]]"
+                    />
+                  </div>
+                  <div class="input-content">
+                    <label>Confirmar contraseña</label>
+                    <input
+                      type="password"
+                      id="password-confirm"
+                      name="password-confirm"
+                      minlength="8"
+                      autocomplete="on"
+                      class="validate[required, minSize[8], equals[password]]"
+                    />
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="input-content">
+                    <label>Provincia...</label>
+                    <select
+                      id="provincia"
+                      name="provincia"
+                      class="select-provincia validate[required]"
+                    >
+                      <option value=""></option>
+                      <!-- BEGIN provincia -->
+                      <option value="{id}">{nombre_provincia}</option>
+                      <!-- END provincia -->
+                    </select>
+                  </div>
+                  <div class="input-content">
+                    <label>Ciudad...</label>
+                    <select
+                      id="ciudad"
+                      name="ciudad"
+                      class="select-ciudad validate[required]"
+                    >
+                      <option value=""></option>
+                    </select>
+                  </div>
+                </div>
+                <div class="row">
+                  <p>
+                    <!--                   style="margin-top: 40px; text-align: center" -->
+                    Una vez completado el formulario recibirá un correo
+                    electrónico en su casilla de mail para confirmar su
+                    registración. Si el mismo no llega, como primer paso busque
+                    en Correo no deseado o SPAM. De no encontrarlo, comuníquese
+                    con nosotros a
+                    <a href="mailto:info@didacticosdelsur.com" target="_blank"
+                      >info@didacticosdelsur.com</a
+                    >
+                    y nos ocuparemos de activar la cuenta.
+                  </p>
+                </div>
+                <div class="row checkLabel">
+                  <label>
+                    <input type="checkbox" name="newsletter" checked />
+                    <p>Deseo suscribirme a la newsletter</p>
+                  </label>
+                </div>
+                <div class="row checkLabel">
+                  <label>
+                    <input
+                      type="checkbox"
+                      name="terms"
+                      class="validate[required]"
+                      value="accepted"
+                    />
+                    <p>
+                      He leido y acepto los
+                      <a href="{base_url}terminos-condiciones" target="_blank"
+                        >términos y condiciones</a
+                      >
+                    </p>
+                  </label>
+                </div>
+                <!-- <div class="boxInputs">
+                <p style="margin-top: 40px; text-align: center">
+                  Una vez completado el formulario recibirá un correo
+                  electrónico en su casilla de mail para confirmar su
+                  registración. Si el mismo no llega, como primer paso busque en
+                  Correo no deseado o SPAM. De no encontrarlo, comuníquese con
+                  nosotros a
+                  <a
+                    href="mailto:info@didacticosdelsur.com"
+                    style="
+                      display: inline;
+                      font-size: inherit;
+                      text-decoration: underline;
+                    "
+                    target="_blank"
+                    >info@didacticosdelsur.com</a
+                  >
+                  y nos ocuparemos de activar la cuenta.
+                </p>
+              </div>
+              <div
+                style="
+                  text-align: center;
+                  color: red;
+                  justify-content: center;
+                  margin: 10px;
+                "
+              >
+                <strong id="error">{error}</strong>
+              </div>
+              <div class="flexBlock checkLabel">
+                <label>
+                  <input type="checkbox" name="newsletter" checked />
+                  <p>Deseo suscribirme a la newsletter</p>
+                </label>
+              </div>
+              <div class="flexBlock checkLabel">
+                <label>
+                  <input
+                    type="checkbox"
+                    name="terms"
+                    class="validate[required]"
+                    value="accepted"
+                  />
+                  <p>
+                    He leido y acepto los
+                    <a href="{base_url}terminos-condiciones" target="_blank"
+                      >términos y condiciones</a
+                    >
+                  </p>
+                </label>
+              </div> -->
+                <div class="button-row">
+                  <button
+                    id="submit_button"
+                    class="button-rounded"
+                    type="submit"
+                  >
+                    Crear cuenta
+                  </button>
+                  <!-- <p>
+                  Registrate para poder realizar<br />las compras que quieras
+                </p> -->
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- footer -->
+    {footer}
+
+    <script>
+      let provincia = document.querySelector("#provincia");
+
+      provincia.addEventListener("change", function () {
+        if (this.value != null) {
+          setCiudad();
+        }
+      });
+      function setCiudad() {
+        if ($("#provincia option:selected") != null) {
+          $("#ciudad").empty();
+          $("#ciudad").append(
+            "<option id='cargando' selected>Cargando...</option>"
+          );
+          $("#ciudad").prop("disabled", "disabled");
+          let get = "{base_url}ciudades/" + provincia.value;
+          let url = encodeURI(get);
+          fetch(url)
+            .then((response) => response.json())
+            .then((data) => {
+              $("#ciudad").append('<option value="">Ciudad...</option>');
+              for (let i = 0; i < data.length; i++) {
+                $("#ciudad").append(
+                  "<option value='" +
+                    data[i]["id"] +
+                    "'>" +
+                    data[i]["nombre"] +
+                    "</option>"
+                );
+              }
+              $("#ciudad option:selected").remove();
+              $("#ciudad").prop("disabled", false);
+            });
+        }
+      }
+    </script>
+    <script
+      src="https://code.jquery.com/jquery-2.2.0.min.js"
+      type="text/javascript"
+    ></script>
+    <script
+      src="{base_url}assets/js/main.js"
+      type="text/javascript"
+      charset="utf-8"
+    ></script>
+
+    <script>
+      $("#form-register").submit(function (e) {
+        if ($(this).validationEngine("validate")) {
+          e.preventDefault();
+
+          $("#submit_button").prop("disabled", true);
+
+          try {
+            grecaptcha.ready(function () {
+              grecaptcha
+                .execute("6LcNpAsdAAAAAPEtkG6mT65ncQyKWxUH92LzFjj6", {
+                  action: "submit",
+                })
+                .then(function (token) {
+                  $("#form-register").prepend(
+                    '<input type="hidden" name="token" value="' + token + '">'
+                  );
+                  $("#form-register").prepend(
+                    '<input type="hidden" name="action" value="submit">'
+                  );
+                  $("#form-register").unbind("submit").submit();
+                });
+            });
+          } catch (e) {
+            $("#submit_button").prop("disabled", false);
+            $("#error").html(
+              "Error de comunicación. Por favor, intentá nuevamente."
+            );
+          }
+        }
+      });
+    </script>
+
+    {footer_scripts}
+  </body>
+</html>

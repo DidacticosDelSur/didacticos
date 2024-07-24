@@ -1,0 +1,17 @@
+.container-shop{
+  h2,
+  p {
+    &.title-resumen-libro{
+      color: #ff3d57;
+    }
+    &.title-resumen-juego {
+      color: #3390ff;
+    }
+    &.title-resumen-juguete{
+      color: #27ae60;
+    }
+    &.title-resumen-escolar{
+      color: #663399;
+    }
+  }
+}

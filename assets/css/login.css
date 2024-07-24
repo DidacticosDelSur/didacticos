@@ -1,0 +1,381 @@
+.login {
+  padding: 20px 0 40px;
+}
+.login .container-shop {
+  text-align: center;
+  border-radius: 10px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.5);
+  position: relative;
+  max-width: 420px; /* calc(580px - 160px) */
+  margin: 0 auto 30px;
+  padding: 60px 80px 80px;
+}
+.login .container-shop .title {
+  margin: 0 0 60px;
+}
+.login .container-shop .title h1 {
+  font-weight: 500;
+  font-size: 41px;
+}
+.login .container-shop .title span {
+  font-size: 24px;
+  line-height: 32px;
+}
+.login .container-shop form {
+  text-align: start;
+  max-width: 250px;
+  margin: 0 auto;
+  position: relative;
+}
+.login .container-shop form label {
+  font-size: 14px;
+  line-height: 29px;
+}
+.login .container-shop form input {
+  border: 1px solid #8099DE;
+  border-radius: 7px;
+  padding: 10px 5px;
+  font-size: 16px;
+  color: #979797;
+  margin-bottom: 30px;
+  max-width: 238px;
+  width: 100%;
+}
+.login .container-shop .button-rounded {
+  width: 100%;
+  border-radius: 30px;
+  background-color: #4E8EF7;
+  font-size: 18px;
+  font-weight: 500;
+  padding: 15px 0;
+  max-width: 250px;
+  margin: 0 auto;
+  color: #FFFFFF;
+}
+.login .container-shop .button-rounded:hover {
+  background-color: #FF3D57;
+}
+.login .container-shop .only-text {
+  font-size: 16px;
+}
+.login .container-shop .only-text:hover {
+  text-decoration: underline;
+}
+
+.message {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.register .container-shop {
+  text-align: center;
+  border-radius: 10px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.5);
+  position: relative;
+  max-width: 580px;
+  margin: 0 auto 30px;
+  padding: 60px 80px 80px;
+}
+.register .container-shop .title {
+  margin-bottom: 30px;
+}
+.register .container-shop .title p {
+  color: #FFFFFF;
+}
+.register .container-shop form {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+  margin: 0 auto;
+}
+.register .container-shop form .row {
+  width: 100%;
+  display: flex;
+  /* justify-content: space-between; */
+  gap: 50px;
+}
+.register .container-shop form .row .input-content {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: start;
+}
+.register .container-shop form .row .input-content label {
+  font-size: 14px;
+  line-height: 29px;
+}
+.register .container-shop form .row .input-content input,
+.register .container-shop form .row .input-content select {
+  border: 1px solid #8099DE;
+  border-radius: 7px;
+  padding: 10px 5px;
+  font-size: 16px;
+  color: #979797;
+  margin-bottom: 30px;
+  max-width: 254px;
+  width: 100%;
+}
+@media (max-width: 580px) {
+  .register .container-shop form .row .input-content input,
+  .register .container-shop form .row .input-content select {
+    max-width: calc(100% - 12px);
+  }
+}
+.register .container-shop form .row .input-content small {
+  position: absolute;
+  margin-top: 74px;
+  font-size: 10px;
+  line-height: 14px;
+}
+.register .container-shop form .row p {
+  color: #87A2E0;
+  font-size: 12px;
+  margin-bottom: 30px;
+}
+.register .container-shop form .row a {
+  color: #FFFFFF;
+  display: inline;
+  text-decoration: underline;
+}
+.register .container-shop form .row.checkLabel {
+  max-width: 295px;
+}
+.register .container-shop form .row.checkLabel label {
+  display: flex;
+}
+.register .container-shop form .row.checkLabel label input {
+  height: 20px;
+  width: 20px;
+  border-radius: 7px;
+  padding: 0;
+  margin: 0 10px 0 0 !important;
+  border: 1px solid #979797;
+  -webkit-appearance: none;
+  position: relative;
+}
+.register .container-shop form .row.checkLabel label input:checked::after {
+  content: "";
+  position: absolute;
+  border-radius: 7px;
+  height: 14px;
+  width: 14px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  background: #3390ff;
+}
+.register .container-shop form .row.checkLabel label p {
+  color: #87A2E0;
+  font-size: 14px;
+}
+.register .container-shop form .row.checkLabel label a {
+  color: #FFFFFF;
+  font-size: 14px;
+  display: inline;
+  text-decoration: underline;
+}
+@media (max-width: 580px) {
+  .register .container-shop form .row {
+    flex-direction: column;
+    gap: 0;
+  }
+}
+.register .container-shop .button-row {
+  width: 100%;
+}
+.register .container-shop .button-row .button-rounded {
+  width: 100%;
+  border-radius: 30px;
+  background-color: #4E8EF7;
+  font-size: 18px;
+  font-weight: 500;
+  padding: 15px 0;
+  margin: 0 auto;
+  color: #FFFFFF;
+}
+.register .container-shop .button-row .button-rounded:hover {
+  background-color: #FF3D57;
+}
+
+.brand-theme .login .container-shop,
+.brand-theme .register .container-shop {
+  background-color: #1841B1;
+  color: #FFFFFF;
+}
+.brand-theme .login .container-shop h1,
+.brand-theme .login .container-shop .only-text,
+.brand-theme .login .container-shop .message,
+.brand-theme .register .container-shop h1,
+.brand-theme .register .container-shop .only-text,
+.brand-theme .register .container-shop .message {
+  color: #FBE8B5;
+}
+
+.christmas .login .container-shop,
+.christmas .register .container-shop {
+  background-color: #ffffff;
+  color: #19402B;
+}
+.christmas .login .container-shop h1,
+.christmas .login .container-shop .only-text,
+.christmas .register .container-shop h1,
+.christmas .register .container-shop .only-text {
+  color: #19402B;
+}
+.christmas .login .container-shop form input,
+.christmas .register .container-shop form input {
+  border-color: #991F16;
+}
+.christmas .login .container-shop form .button-rounded,
+.christmas .register .container-shop form .button-rounded {
+  background-color: #C82B1E;
+}
+.christmas .login .container-shop form .button-rounded:hover,
+.christmas .register .container-shop form .button-rounded:hover {
+  border-color: #C82B1E;
+  background-color: #FFFFFF;
+  color: #C82B1E;
+}
+.christmas .login .container-shop.forgot-password .button-rounded,
+.christmas .register .container-shop.forgot-password .button-rounded {
+  background-color: #C82B1E;
+}
+.christmas .login .container-shop.forgot-password .button-rounded:hover,
+.christmas .register .container-shop.forgot-password .button-rounded:hover {
+  border-color: #C82B1E;
+  background-color: #FFFFFF;
+  color: #C82B1E;
+}
+.christmas .register .container-shop {
+  padding: 60px 150px 80px;
+}
+@media (max-width: 960px) {
+  .christmas .register .container-shop {
+    padding: 60px 80px 80px;
+  }
+}
+@media (max-width: 580px) {
+  .christmas .register .container-shop {
+    padding: 60px 20px 80px;
+  }
+}
+.christmas .register .container-shop form .input-content input,
+.christmas .register .container-shop form .input-content select {
+  border: 1px solid #991F16;
+}
+.christmas .register .container-shop form .row p {
+  color: #19402B;
+}
+.christmas .register .container-shop form .row a {
+  color: #991F16;
+}
+.christmas .register .container-shop form .row.checkLabel label p {
+  color: #19402B;
+}
+.christmas .register .container-shop form .row.checkLabel input:checked::after {
+  background: #991F16;
+}
+@media (max-width: 960px) {
+  .christmas .register .container-shop .presents {
+    background-image: url(../images/Presents_1.png);
+    bottom: 53px;
+    height: 63px;
+    left: 15px;
+    width: 62px;
+  }
+}
+@media (max-width: 580px) {
+  .christmas .register .container-shop .presents {
+    bottom: 5px;
+  }
+}
+@media (max-width: 580px) {
+  .christmas .register .container-shop .bells {
+    right: 15px;
+    top: 5px;
+  }
+}
+
+.three-wise-men .login .container-shop,
+.three-wise-men .register .container-shop {
+  background-color: #ffffff;
+  color: #322C62;
+}
+.three-wise-men .login .container-shop h1,
+.three-wise-men .login .container-shop .only-text,
+.three-wise-men .register .container-shop h1,
+.three-wise-men .register .container-shop .only-text {
+  color: #322C62;
+}
+.three-wise-men .login .container-shop form input,
+.three-wise-men .register .container-shop form input {
+  border-color: #322C62;
+}
+.three-wise-men .login .container-shop form a,
+.three-wise-men .register .container-shop form a {
+  color: #322C62;
+}
+.three-wise-men .login .container-shop form .button-rounded,
+.three-wise-men .register .container-shop form .button-rounded {
+  background-color: #322C62;
+}
+.three-wise-men .login .container-shop form .button-rounded:hover,
+.three-wise-men .register .container-shop form .button-rounded:hover {
+  border-color: #322C62;
+  background-color: #FFFFFF;
+  color: #322C62;
+}
+.three-wise-men .login .container-shop.forgot-password .button-rounded,
+.three-wise-men .register .container-shop.forgot-password .button-rounded {
+  background-color: #322C62;
+}
+.three-wise-men .login .container-shop.forgot-password .button-rounded:hover,
+.three-wise-men .register .container-shop.forgot-password .button-rounded:hover {
+  border-color: #322C62;
+  background-color: #FFFFFF;
+  color: #322C62;
+}
+@media screen and (max-width: 1650px) {
+  .three-wise-men .three-kings {
+    left: 50px;
+  }
+}
+@media screen and (max-width: 1120px) {
+  .three-wise-men .three-kings {
+    left: 0;
+  }
+}
+.three-wise-men .register-content .three-kings {
+  /*bottom: -420px;*/
+}
+@media (max-width: 580px) {
+  .three-wise-men .register-content .three-kings {
+    bottom: -880px;
+  }
+}
+
+.toys .login .container-shop,
+.toys .register .container-shop {
+  background-color: #1841B1;
+  color: #FFFFFF;
+}
+.toys .login .container-shop h1,
+.toys .login .container-shop .only-text,
+.toys .register .container-shop h1,
+.toys .register .container-shop .only-text {
+  color: #FFFFFF;
+}
+.toys .login .container-shop .button-rounded,
+.toys .register .container-shop .button-rounded {
+  background-color: #FF3D57;
+}
+.toys .login .container-shop .button-rounded:hover,
+.toys .register .container-shop .button-rounded:hover {
+  border-color: #FF3D57;
+  background-color: #FFFFFF;
+  color: #FF3D57;
+}
+
+/*# sourceMappingURL=login.css.map */

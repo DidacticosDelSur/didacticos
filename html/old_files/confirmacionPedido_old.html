@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="gb18030">
+	
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+	<title>Confirmación del pedido | Didácticos del Sur</title>
+
+	<meta content="" name="keywords" />
+	<meta content="" name="description" />
+    
+    <!-- Twitter Card data -->
+    <meta name="twitter:card" content="">
+    <meta name="twitter:title" content="">
+    <meta name="twitter:url" content="">
+    <meta name="twitter:description" content="">
+    <!-- Twitter Summary card images No puede superar los 200x200px -->
+    <meta name="twitter:image:src" content="" />
+    
+    <!-- Open Graph data -->
+    <meta property="og:title" content="" />
+    <meta property="og:type" content="" />
+    <meta property="og:url" content="" />
+    <meta property="og:image" content="" />
+    <meta property="og:description" content="" />
+
+	
+	<link rel="icon" href="{base_url}assets/images/favicon.png" type="image/x-icon" sizes="196x196" />
+	<!-- <link rel="icon" href="http://www.yoursite.com/favicon.ico?v=2" /> -->
+
+
+	<!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous"> -->
+	<!-- <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"> -->
+	<link rel="stylesheet" type="text/css" href="{base_url}assets/css/style.css">
+	<link rel="stylesheet" type="text/css" href="{base_url}assets/css/newStyle.css">
+
+
+
+    {gtm}
+</head>
+<body class="whiteB">
+
+{header}
+
+	<div class="head-confirmation">
+		<div class="conf"><img loading="lazy" src="{base_url}assets/images/checked.svg" alt=""><span>Confirmación del pedido</span></div>
+		<p>¡Felicitaciones {user}! Su pedido se ha completado con éxito.</p>
+		<p class="small">Su Número de Pedido es #{pedido}</p>
+		<p class="" style="font-weight: bold; color: #1f9b37;">{mensaje}</p>
+		<p class="" style="font-weight: bold; color: red;">{error}</p>
+		<p class="" style="font-weight: bold; color: red;">Atención: no debe abonar nada hasta que el pedido sea confirmado por un representante.</p>
+	</div>
+
+
+
+	<div class="wide-content">
+
+		<div class="confirmation-block">
+			
+
+			<div class="flexBlock detail-buy">
+
+				<div class="blocks">
+					<h3>Mis datos</h3>
+					<div class="intern">
+
+						<div class="flexBlock">
+
+							<div class="block">
+								<div class="title">Datos del pedido</div>
+								<p>Mi número de pedido: #{pedido}</p>
+							</div>
+
+							<div class="block">
+								<p>Fecha del pedido: {fecha}</p>
+							</div>
+							
+						</div>
+
+						<div class="block">
+							<div class="title">Datos personales</div>
+							<p>{user}</p>
+							<p>{email}</p>
+							<p><span> Dirección: {direccion}</span></p>
+							<p style="display: flex"><span>{cp},&nbsp;</span><span style="text-transform: capitalize">{ciudad},&nbsp;</span><span>Prov. de {provincia}</span>&nbsp;</span></p>
+						</div>
+
+
+					</div>
+					
+				</div>
+
+				<div class="blocks sec">
+					<h3>Resumen del pedido</h3>
+					<div class="intern">
+						<div class="title">Resumen de compra</div>
+						<div class="flexBlock align-bottom border-space container-shop quantity-{cant_libros}">
+							<div>
+								<p class="red">Libros ({cant_libros})</p>
+								<p>Subtotal</p>
+								<p>Con descuentos</p>
+							</div>
+							<div>
+								<p class="green" {classDescuentoLibros}>Descuento mayorista {descuento_libros}%</p>
+								<p>${subtotal_libros}</p>
+								<p>${descuento_precio}</p>
+							</div>
+						</div>
+						<div class="flexBlock endF container-shop quantity-{cant_juegos}">
+							<div>
+								<p class="blue">Didácticos ({cant_juegos})</p>
+								<p>Subtotal</p>
+								<p>Iva</p>
+							</div>
+							<div>
+								<p class="green" {classDescuentoDidacticos}>Descuento mayorista {descuento_didacticos}%</p>
+								<p>${subtotal_juegos}</p>
+								<p>${iva}</p>
+							</div>
+						</div>
+
+						<div class="flexBlock endF container-shop quantity-{cant_juguetes}">
+							<div>
+								<p class="green">Juguetes ({cant_juguetes})</p>
+								<p>Subtotal</p>
+								<p>Iva</p>
+							</div>
+							<div>
+								<p class="green" {classDescuentoJuguetes}>Descuento mayorista {descuento_juguetes}%</p>
+								<p>${subtotal_juguetes}</p>
+								<p>${iva_juguetes}</p>
+							</div>
+						</div>
+
+						<div class="flexBlock endF container-shop quantity-{cant_escolares}">
+							<div>
+								<p class="purple">Escolar ({cant_escolares})</p>
+								<p>Subtotal</p>
+								<p>Iva</p>
+							</div>
+							<div>
+								<p class="purple" {classDescuentoEscolares}>Descuento mayorista {descuento_escolares}%</p>
+								<p>${subtotal_escolares}</p>
+								<p>${iva_escolares}</p>
+							</div>
+						</div>
+
+						<div class="flexBlock border-down">
+							<p class="tot">Total estimativo*</p>
+							<p>${total_precio}</p>
+						</div>
+						<div style="font-size:12px; font-style: italic;">* Los precios y el stock pueden variar sin previo aviso y están sujetos a cambios inflacionarios.</div>
+					</div>
+					
+				</div>
+			
+
+
+			</div>
+
+
+
+		</div>
+
+
+	</div>
+
+
+	<!-- footer -->
+{footer}
+
+<!-- <script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script> -->
+<script src="https://code.jquery.com/jquery-2.2.0.min.js" type="text/javascript"></script>
+<!-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script> -->
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+
+<script src="{base_url}assets/js/main.js" type="text/javascript" charset="utf-8"></script>
+
+<script>
+	$(function() {
+	    $("#tabs").tabs();
+	});
+
+	jQuery('<div class="quantity-nav"><div class="quantity-button quantity-up">+</div><div class="quantity-button quantity-down">-</div></div>').insertAfter('.quantity .input');
+    jQuery('.quantity').each(function() {
+		var spinner = jQuery(this),
+			input = spinner.find('input[type="number"]'),
+			btnUp = spinner.find('.quantity-up'),
+			btnDown = spinner.find('.quantity-down'),
+			min = input.attr('min'),
+			max = input.attr('max');
+
+		btnUp.click(function() {
+			var oldValue = parseFloat(input.val());
+			if (oldValue >= max) {
+			 var newVal = oldValue;
+			} else {
+		  	var newVal = oldValue + 1;
+			}
+
+			spinner.find("input").val(newVal);
+			spinner.find("input").trigger("change");
+		});
+
+		btnDown.click(function() {
+			var oldValue = parseFloat(input.val());
+			if (oldValue <= min) {
+			  var newVal = oldValue;
+			} else {
+			  var newVal = oldValue - 1;
+			}
+			spinner.find("input").val(newVal);
+			spinner.find("input").trigger("change");
+		});
+
+    });
+
+    $('.block-detail .title').bind('click', function(){  
+	   $('.slideDetail').slideToggle('');
+	   $(this).toggleClass('up');
+	});
+</script>
+
+
+
+
+
+
+
+       {footer_scripts}
+    </body>
+
+</html>

@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="IE=edge" http-equiv="X-UA-Compatible" />
+    <meta
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
+      name="viewport"
+    />
+    <title>Contacto | Didácticos del Sur</title>
+    <meta content="" name="keywords" />
+    <meta content="" name="description" />
+
+    <meta name="revisit-after" content="1 days" />
+    <meta name="Language" content="es" />
+    <meta name="distribution" content="global" />
+
+    <meta name="Robots" content="all,index,follow" />
+    <meta name="Googlebot" content="index, follow" />
+    <meta name="FastCrawler" content="index, follow" />
+    <meta name="Scooter" content="index, follow" />
+    <meta name="Yahoo! Slurp" content="index, follow" />
+    <meta name="InfoSeek Robot 1.0" content="index, follow" />
+    <meta name="InfoSeek Sidewinder" content="index, follow" />
+    <meta name="MSNBot" content="index, follow" />
+    <meta name="Inktomi Slurp" content="index, follow" />
+    <meta name="identifier-url" content="" />
+    <meta name="searchtitle" content="" />
+    <meta name="Author" content="" />
+    <meta name="Copyright" content="" />
+
+    <!-- Twitter Card data -->
+    <meta content="" name="twitter:card" />
+    <meta content="" name="twitter:title" />
+    <meta content="" name="twitter:url" />
+    <meta content="Didácticos del Sur - Contacto" name="twitter:description" />
+    <!-- Twitter Summary card images No puede superar los 200x200px -->
+    <meta content="" name="twitter:image:src" />
+    <!-- Open Graph data -->
+    <meta content="" property="og:title" />
+    <meta content="" property="og:type" />
+    <meta content="" property="og:url" />
+    <meta content="" property="og:image" />
+    <meta content="Didácticos del Sur - Contacto" property="og:description" />
+    <link
+      href="{base_url}assets/images/favicon.png"
+      rel="icon"
+      sizes="196x196"
+      type="image/x-icon"
+    />
+    <link
+      href="{base_url}assets/css/style.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{base_url}assets/css/newStyle.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{base_url}assets/css/contact.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{base_url}assets/css/forms.css"
+    />
+    <script src="https://www.google.com/recaptcha/api.js?render=6LcNpAsdAAAAAPEtkG6mT65ncQyKWxUH92LzFjj6"></script>
+    {gtm}
+  </head>
+  <body>
+    <!-- header -->
+    {header}
+    <div class="content-wrap">
+      <div class="contact-wrapper position-relative">
+        <div class="content shop-wrap modal-user register-modal">
+          <div class="container-shop contact">
+            <div class="contact-header">
+              <h1 class="text-center">Contactanos</h1>
+              <h3 class="text-center">
+                Escribinos y responderemos a la brevedad.
+              </h3>
+              <div class="button-row flexBlock" style="width: 100%">
+                <div class="message success {successClass}">
+                  <img
+                    src="{base_url}assets/images/check.svg"
+                    alt=""
+                    style="position: absolute; left: 75px; top: 12px"
+                  />
+                  {mensaje}
+                </div>
+                <div class="message error {errorClass}">{error}</div>
+              </div>
+              <img
+                class="position-absolute img-header"
+                src="{base_url}assets/images/contacto.webp"
+                alt="Contactanos"
+              />
+            </div>
+            <form
+              action="{base_url}contactSend"
+              id="form-contact"
+              method="post"
+            >
+              <div class="formControl">
+                <div class="contactDiv contactFirstDiv">
+                  <h3>Escribinos</h3>
+                  <input
+                    id="nombre"
+                    name="nombre"
+                    placeholder="Nombre"
+                    class="validate[required]"
+                    type="text"
+                  />
+                  <input
+                    id="apellido"
+                    name="apellido"
+                    placeholder="Apellido"
+                    class="validate[required]"
+                    type="text"
+                  />
+                  <input
+                    autocomplete="on"
+                    id="email"
+                    name="email"
+                    placeholder="E-mail"
+                    class="validate[required,custom[email]]"
+                    type="text"
+                  />
+                  <input
+                    id="telefono"
+                    name="telefono"
+                    placeholder="Teléfono"
+                    type="phone"
+                    class="validate[required,custom[phone]]"
+                  />
+                  <input
+                    id="localidad"
+                    name="localidad"
+                    placeholder="Localidad"
+                    type="text"
+                    style="margin-bottom: 40px"
+                  />
+                  <textarea
+                    class="form-control rounded-0 validate[required]"
+                    form="form-contact"
+                    name="comentario"
+                    placeholder="Mensaje"
+                  ></textarea>
+                  <div class="button-row btnContact">
+                    <button
+                      class="button-rounded"
+                      id="submit_button"
+                      type="submit"
+                    >
+                      Enviar
+                    </button>
+                  </div>
+                </div>
+                <div class="contactDiv contactSecondDiv">
+                  <h3>Datos de contacto</h3>
+                  <div class="flexBlock text-start">
+                    <div class="col">
+                      <h5>Dirección</h5>
+                      <p>
+                        11 de Abril 388 - Bahía Blanca, Buenos Aires, Argentina.
+                      </p>
+
+                      <h5>Teléfono</h5>
+                      <p>
+                        <a href="tel://+542915726443" target="_blank"
+                          >+54 291 572 6443</a
+                        >
+                      </p>
+                    </div>
+                    <div class="col">
+                      <h5>Email</h5>
+                      <p>info@didacticosdelsur.com<br />&nbsp;</p>
+                      <h5>Redes Sociales</h5>
+                      <a
+                        href="https://www.instagram.com/didacticosdelsur/"
+                        target="_blank"
+                        ><img
+                          src="{base_url}assets/images/ig-icon.svg"
+                          alt="Instagram"
+                      /></a>
+                      <a
+                        href="https://www.facebook.com/didacticosdelsurbahia/"
+                        target="_blank"
+                        ><img
+                          src="{base_url}assets/images/fb-icon.svg"
+                          alt="Facebook"
+                      /></a>
+                    </div>
+                  </div>
+                  <div class="map">
+                    <iframe
+                      allowfullscreen=""
+                      height="360"
+                      loading="lazy"
+                      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d49812.79613217628!2d-62.30088134085064!3d-38.71092632757597!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95edbcaba6b8bc01%3A0xbd00a7dc03c85033!2s11%20de%20Abril%20388%2C%20B8000LMH%20Bah%C3%ADa%20Blanca%2C%20Provincia%20de%20Buenos%20Aires!5e0!3m2!1ses-419!2sar!4v1637210257824!5m2!1ses-419!2sar"
+                      style="border: 0"
+                      width="400"
+                    >
+                    </iframe>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- footer -->
+    {footer}
+    <script
+      src="https://code.jquery.com/jquery-2.2.0.min.js"
+      type="text/javascript"
+    ></script>
+    <script
+      charset="utf-8"
+      src="{base_url}assets/js/main.js"
+      type="text/javascript"
+    ></script>
+    <script>
+      $("#form-contact").submit(function (e) {
+        if ($(this).validationEngine("validate")) {
+          e.preventDefault();
+
+          $("#submit_button").prop("disabled", true);
+
+          try {
+            grecaptcha.ready(function () {
+              grecaptcha
+                .execute("6LcNpAsdAAAAAPEtkG6mT65ncQyKWxUH92LzFjj6", {
+                  action: "submit",
+                })
+                .then(function (token) {
+                  $("#form-contact").prepend(
+                    '<input type="hidden" name="token" value="' + token + '">'
+                  );
+                  $("#form-contact").prepend(
+                    '<input type="hidden" name="action" value="submit">'
+                  );
+                  $("#form-contact").unbind("submit").submit();
+                });
+            });
+          } catch (e) {
+            $("#submit_button").prop("disabled", false);
+            $("#error").html(
+              "Error de comunicación. Por favor, intentá nuevamente."
+            );
+          }
+        }
+      });
+    </script>
+    {footer_scripts}
+  </body>
+</html>

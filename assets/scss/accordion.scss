@@ -1,0 +1,192 @@
+.accordion {
+  position: relative;
+  padding: 10px 0;
+  font-size: 14px;
+  color: #19254A;
+  text-transform: uppercase;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #DFDFDF;
+  width: 100%;
+  .icon-expand_more {
+    display: none;
+  }
+  .icon-expand_less {
+    display: block;
+  }
+  &.active {
+    .icon-expand_less {
+      display: none;
+    }
+    .icon-expand_more {
+      display: block;
+    }
+  }
+}
+
+.contenido {
+  padding: 10px 0;
+  display: none;
+  overflow: hidden;
+  color: #9399A8;
+  font-size: 13px;
+  text-align: justify;
+  overflow: hidden;
+  transition: 0.5s; 
+  p {
+    white-space: pre-wrap;
+    overflow-wrap: break-word;
+    font-size: 13px;
+    line-height: 1.4;
+    font-weight: 500;
+    margin-bottom: 10px;
+  }
+  .price-box {
+    padding: 15px 0;
+    border-top: 1px solid #e5e5e5;
+    border-bottom: 1px solid #e5e5e5;
+    display: flex;
+    align-items: center;
+    margin-top: -1px;
+    + .price-box {
+      margin-top: -1px;
+    }
+    .pvp-wrapper{
+      display: flex;
+      align-items: center;
+      width: 100%;
+    }
+    .price_suggest {
+      font-size: 14px;
+      color: #19254A;
+      font-weight: 500;
+      text-transform: capitalize;
+      margin-right: 10px;
+      position: relative;
+      cursor: pointer;
+      display: flex;
+      align-content: center;
+      line-height: 1.5;
+      .icon {
+        font-size: 21px;
+        color: #688BE9;
+        margin-right: 5px;
+      }
+      &::before{
+        content: "El PVP es el precio de venta sugerido al público.";
+        Position: absolute;
+        font-size: 10px;
+        font-weight: 500;
+        color: #707070;
+        min-width: 102px;
+        text-align: center;
+        background: #fff;
+        box-shadow: 0 3px 6px rgba(0,0,0,0.16);
+        border-radius: 9px;
+        text-transform: none;
+        right: -100px;
+        top: 20px;
+        padding: 12px;
+        opacity: 0;
+        transition: 0.4s;
+        z-index: 1000;
+        visibility: hidden;
+      }
+      &:hover{
+        &::before {
+          opacity: 1;
+          visibility: visible;
+        }
+      }
+    }
+    .pvp-price {
+      font-size: 14px;
+      font-weight: 500;
+      color: #19254A;
+    }
+  }
+  .final-price {
+    font-size: 12px;
+    text-transform: uppercase;
+    color: #19254A;
+    font-weight: 500;
+    width: 57%;
+    .price {
+      font-size: 36px;
+    }
+    .iva {
+      font-size: 14px;
+    }
+  }
+  .cant-box {
+    .quantBox {
+      margin-top: 10px;
+      .quantity {
+        padding: 10px 0;
+        position: relative;
+        margin: 0;
+        width: 130px;
+        font-weight: 500;
+        .input {
+          input {
+            text-align: center;
+            width: 100%;
+            font-size: 16px;
+            background-color: #FFFFFF;
+          }
+        }
+        .quantity-button {
+          position: absolute;
+          top: 50%;
+          transform: translateY(-50%);
+          width: 36px;
+          height: 36px;
+          cursor: pointer;
+          color: #688BE9;
+          border: 1px solid #688BE9;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          line-height: 1;
+          border-radius: 12px;
+          transition: 0.4s;
+          font-size: 15px;
+          &.quantity-up{
+            right: 0;
+          }
+          &:hover{
+            background-color: #EFF3FD;
+          }
+        }
+      }
+    }
+  }
+  .mayorist {
+    font-size: 13px;
+    border-radius: 6px;
+    padding: 11px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    &.descuento-30 {
+      background-color: #DEFFED;
+      color: #86B091;
+    }
+    &.descuento-0 {
+      display: none;
+    }
+  }
+  textarea {
+    display: block;
+    border: 1px solid #e4e4e4;
+    margin-bottom: 20px;
+    width: 94%;
+    padding: 10px;
+    resize: none;
+    border-radius: 5px;
+    margin-top: 20px;
+  }
+}
+

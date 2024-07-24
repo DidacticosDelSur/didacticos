@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
+    />
+    <title>{nombre} marca {marca} | Didácticos del Sur</title>
+
+    <meta content="{nombre}, {marca}, {categoria_tipo}" name="keywords" />
+    <meta content="{nombre}, {marca}, {categoria_tipo}" name="description" />
+
+    <meta name="revisit-after" content="1 days" />
+    <meta name="Language" content="es" />
+    <meta name="distribution" content="global" />
+
+    <meta name="Robots" content="all,index,follow" />
+    <meta name="Googlebot" content="index, follow" />
+    <meta name="FastCrawler" content="index, follow" />
+    <meta name="Scooter" content="index, follow" />
+    <meta name="Yahoo! Slurp" content="index, follow" />
+    <meta name="InfoSeek Robot 1.0" content="index, follow" />
+    <meta name="InfoSeek Sidewinder" content="index, follow" />
+    <meta name="MSNBot" content="index, follow" />
+    <meta name="Inktomi Slurp" content="index, follow" />
+    <meta name="identifier-url" content="" />
+    <meta name="searchtitle" content="" />
+    <meta name="Author" content="" />
+    <meta name="Copyright" content="" />
+
+    <!-- Twitter Card data -->
+    <meta name="twitter:card" content="" />
+    <meta name="twitter:title" content="{nombre}" />
+    <meta name="twitter:url" content="" />
+    <meta
+      name="twitter:description"
+      content="{nombre}, {marca}, {categoria_tipo}"
+    />
+    <!-- Twitter Summary card images No puede superar los 200x200px -->
+    <meta name="twitter:image:src" content="{imagen}" />
+
+    <!-- Open Graph data -->
+    <meta property="og:title" content="{nombre}" />
+    <meta property="og:type" content="" />
+    <meta property="og:url" content="" />
+    <meta property="og:image" content="{imagen}" />
+    <meta
+      property="og:description"
+      content="{nombre}, {marca}, {categoria_tipo}"
+    />
+
+    <link
+      rel="icon"
+      href="{base_url}assets/images/favicon.png"
+      type="image/x-icon"
+      sizes="196x196"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{base_url}assets/css/style.css"
+    />
+
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{base_url}assets/css/newStyle.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{base_url}assets/css/carousel.css"
+    />
+    <!-- <link
+      rel="stylesheet"
+      type="text/css"
+      href="{base_url}assets/css/accordion.css"
+    /> -->
+    {gtm}
+  </head>
+
+  <body>
+    <!-- header -->
+    {header}
+
+    <div class="content-wrap">
+      <div class="wide-content shop-wrap">
+        <div class="container-shop shopDetail">
+          <!-- slider -->
+          <div class="box {en_tv}">
+            <section class="regular slider">
+              <!-- BEGIN imagenesProducto -->
+
+              <div class="flexBlock izoom">
+                <img
+                  data-fancybox="gallery"
+                  data-src="{imagen}"
+                  src="{imagen}"
+                  alt="{nombre}"
+                  style="max-width: 80%"
+                />
+              </div>
+
+              <!-- END imagenesProducto -->
+
+              {video}
+            </section>
+
+            <section class="slider-nav slider">
+              <!-- BEGIN imagenesThumb -->
+
+              <div class="flexBlock">
+                <img
+                  data-src="{imagen}"
+                  src="{imagen}"
+                  alt="{nombre}"
+                  style="max-width: 80%"
+                />
+              </div>
+
+              <!-- END imagenesThumb -->
+
+              {videoThumb}
+            </section>
+          </div>
+
+          <!-- description -->
+
+          <div class="box description {new}">
+            <!-- TBC <div class="breadcrumb">
+                <a href="#">{categoria} ></a>
+                <span></span>
+            </div>-->
+            <h2>{nombre}</h2>
+            <a href="{base_url}marca/{marca_id}-{nombre_marca}">
+              <h3 class="marca">{marca}</h3>
+            </a>
+
+            <div class="tags-group">{tag_list}</div>
+            <div class="contenido" style="display: block">
+              <p>{descripcion}</p>
+              <div {visible} class="size">{edad}</div>
+              <div class="price-box type-{tipo} descuento-{descuento}">
+                <div class="pvp-wrapper">
+                  <span class="price_suggest" {hidden_pvp}
+                    ><span class="icon icon-help"></span>PVP:</span
+                  >
+                  <div>
+                    <div class="final-price type-{tipo}">PRECIO ORIGINAL</div>
+                    <span {tiene_descuento} class="discount">${pvp}</span>
+                    <div {hidden_pvp} class="pvp-price">${p}</div>
+                  </div>
+                </div>
+                <div {tiene_descuento_producto} class="lh-1">
+                  <span class="discount-amount"
+                    >{descuento}% OFF 🔥<br /><span
+                      >PRODUCTO SELECCIONADO</span
+                    ></span
+                  >
+                </div>
+              </div>
+              <div {logueado} class="price-box type-{tipo}">
+                <div class="final-price">
+                  <span {hidden_pvp}>PRECIO FINAL</span>
+                  <span {aplica_iva}>PRECIO</span> <br />
+                  <span class="price">${precio_final}</span>
+                  <span class="iva" {aplica_iva}>+IVA </span>
+                </div>
+                <span class="mayorist descuento descuento-{descuento_cliente}">
+                  <span class="icon-discount"></span>
+                  Descuento {descuento_cliente}%</span
+                >
+              </div>
+              <div class="cant-box type-{logged}">
+                <div class="quantBox">
+                  <div class="quantity">
+                    <div class="input">
+                      <input
+                        name="cant_prod"
+                        id="cant_prod"
+                        type="number"
+                        min="{min_prod}"
+                        step="1"
+                        value="{min_prod}"
+                        disabled
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="contenido">
+              <textarea
+                class="type-{logged}"
+                placeholder="Observaciones del producto"
+                name="observaciones"
+                id="observaciones"
+                cols="30"
+                rows="3"
+              >
+{obs}</textarea
+              >
+            </div>
+            <div class="buttons type-{logged}">
+              <button id="submit" class="button-rounded">
+                Agregar al carrito
+              </button>
+              <button id="submit-now" class="button-rounded outlined">
+                Comprar ahora
+              </button>
+            </div>
+
+            <div class="login-buttons type-{logged}" style="display: none">
+              <h3 style="margin-bottom: 1rem">Inicie sesión para operar</h3>
+              <div class="buttons">
+                <a
+                  {logeado_sesion}
+                  href="{base_url}login"
+                  class="button-rounded"
+                  >Iniciar sesión</a
+                >
+                <a
+                  {logeado_sesion}
+                  href="{base_url}registro"
+                  class="button-rounded outlined"
+                  >Registrate</a
+                >
+              </div>
+            </div>
+
+            <div class="updated type-{logged}">
+              <span class="icon-schedule"></span>
+              Actualizado el {actualizacion}
+            </div>
+          </div>
+        </div>
+
+        <!-- productosMasComprados -->
+        <div class="content-carousels">
+          <div class="header">
+            <h4>También te puede interesar</h4>
+            <!-- <a href="#">Ver Todos</a> -->
+          </div>
+          <div class="moreBuy productsItems">{product}</div>
+        </div>
+        <br />
+
+        <!-- <div class="content-carousels">
+        <div class="header">
+          <h4>{titlecarousel1}</h4>
+          <a href="#">Ver Todos</a>
+        </div>
+      </div>
+      <div class="content-carousels">
+        <div class="moreBuy productsItems">{carousel1}</div>
+      </div> -->
+      </div>
+    </div>
+    <!-- footer -->
+    {footer}
+
+    <script
+      src="{base_url}assets/js/main.js"
+      type="text/javascript"
+      charset="utf-8"
+    ></script>
+    <script
+      src="https://code.jquery.com/jquery-2.2.0.min.js"
+      type="text/javascript"
+    ></script>
+    <script
+      src="{base_url}assets/js/slick.js"
+      type="text/javascript"
+      charset="utf-8"
+    ></script>
+    <script src="{base_url}assets/js/jquery.izoomify.js"></script>
+    <script
+      src="{base_url}assets/js/productoAmpliado.js"
+      type="text/javascript"
+      charset="utf-8"
+    ></script>
+
+    <!-- Fancybox -->
+    <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.css"
+    />
+
+    <script type="text/javascript">
+      $("#submit").click(function (e) {
+        e.preventDefault();
+        let cant_prod = parseInt(document.getElementById("cant_prod").value);
+        let observaciones = document.getElementById("observaciones").value;
+
+        $.ajax({
+          type: "POST",
+          url:
+            "{base_url}agregarCarrito/{id}/" + cant_prod + "/" + observaciones,
+          success: () => {
+            window.location.href = "{base_url}productoAgregado/{id}";
+          },
+        });
+      });
+      $("#submit-now").click(function (e) {
+        e.preventDefault();
+        let cant_prod = parseInt(document.getElementById("cant_prod").value);
+        let observaciones = document.getElementById("observaciones").value;
+
+        $.ajax({
+          type: "POST",
+          url:
+            "{base_url}agregarCarrito/{id}/" + cant_prod + "/" + observaciones,
+          success: () => {
+            window.location.href = "{base_url}carritoCompras";
+          },
+        });
+      });
+    </script>
+    <script>
+      jQuery(
+        '<div class="quantity-nav"><div class="quantity-button quantity-up"><span>+</span></div><div class="quantity-button quantity-down"><span>-</span></div></div>'
+      ).insertAfter(".quantity .input");
+      jQuery(".quantity").each(function () {
+        var spinner = jQuery(this),
+          input = spinner.find('input[type="number"]'),
+          btnUp = spinner.find(".quantity-up"),
+          btnDown = spinner.find(".quantity-down"),
+          min = input.attr("min"),
+          max = input.attr("max");
+        btnUp.click(function () {
+          var oldValue = parseFloat(input.val());
+          if (oldValue >= max) {
+            var newVal = oldValue;
+          } else {
+            var newVal = oldValue + 1;
+          }
+          spinner.find("input").val(newVal);
+          spinner.find("input").trigger("change");
+        });
+        btnDown.click(function () {
+          var oldValue = parseFloat(input.val());
+          if (oldValue <= min) {
+            var newVal = oldValue;
+          } else {
+            var newVal = oldValue - 1;
+          }
+          spinner.find("input").val(newVal);
+          spinner.find("input").trigger("change");
+        });
+      });
+      $(".block-detail .title").bind("click", function () {
+        $(".slideDetail").slideToggle("");
+        $(this).toggleClass("up");
+      });
+
+      $(function () {
+        $(".izoom").izoomify({
+          magnify: 2.5,
+          touch: false,
+        });
+      });
+      /* 
+      var acc = document.getElementsByClassName("accordion");
+      var i;
+
+      for (i = 0; i < acc.length; i++) {
+        acc[i].addEventListener("click", function () {
+          this.classList.toggle("active");
+          var panel = this.nextElementSibling;
+          if (panel.style.display === "block") {
+            panel.style.display = "none";
+          } else {
+            panel.style.display = "block";
+          }
+        });
+      } */
+    </script>
+
+    {footer_scripts}
+  </body>
+</html>

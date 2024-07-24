@@ -1,0 +1,252 @@
+.primary {
+  background-color: #446EC9;
+  color: #ffffff;
+}
+.primary .secondary-font {
+  color: #F8E9BB;
+}
+
+.complementary {
+  background-color: #FBE8B5;
+  color: #15254D;
+}
+.complementary .secondary-font {
+  color: #5E8CF0;
+}
+
+.christmas {
+  position: relative;
+}
+.christmas::before {
+  content: "";
+  background-image: url(../images/Christmas.png);
+  background-image: url(../images/Christmas_1.png);
+  background-image: url(../images/Christmas_2.png);
+  background-image: url(../images/Christmas_3.png);
+  background-image: url(../images/Christmas_4.png);
+  background-color: #991F16;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.7;
+}
+.christmas .bells,
+.christmas .presents {
+  display: block;
+}
+.christmas.home .bells-left {
+  display: block;
+}
+.christmas.home .bells-right {
+  display: block;
+}
+
+.three-wise-men {
+  background-image: url(../images/stars.png);
+  background-color: #322C62;
+}
+.three-wise-men .three-kings {
+  display: block;
+}
+.three-wise-men .shooting-star {
+  display: block;
+}
+
+.three-kings {
+  background-image: url(../images/ThreeKings.png);
+  background-image: url(../images/ThreeKings_250.png);
+  bottom: 0;
+  display: none;
+  height: 281px;
+  height: 208px;
+  left: 15%;
+  position: absolute;
+  width: 337px;
+  width: 250px;
+  z-index: 2;
+}
+@media screen and (max-width: 1120px) {
+  .three-kings {
+    background-image: url(../images/ThreeKings_200.png);
+    height: 167px;
+    width: 200px;
+  }
+}
+@media screen and (max-width: 700px) {
+  .three-kings {
+    background-image: url(../images/ThreeKings_150.png);
+    height: 125px;
+    width: 150px;
+  }
+}
+
+.home .three-kings {
+  left: 100px;
+  bottom: -130px;
+}
+@media screen and (max-width: 1660px) {
+  .home .three-kings {
+    background-image: url(../images/ThreeKings_150.png);
+    height: 125px;
+    width: 150px;
+    left: 0;
+  }
+}
+@media screen and (max-width: 1120px) {
+  .home .three-kings {
+    bottom: -75px;
+  }
+}
+.home .shooting-star {
+  left: 70%;
+  top: 0;
+}
+.home.christmas {
+  background-image: url(../images/lights.png);
+  background-color: #952119;
+}
+.home.christmas::before {
+  background-image: url(../images/lights.png);
+}
+
+.bells-left {
+  background-image: url(../images/bells-left.png);
+  display: none;
+  width: 123px;
+  height: 221px;
+  left: -60px;
+  position: absolute;
+  z-index: 2;
+  bottom: -50px;
+}
+@media screen and (max-width: 1660px) {
+  .bells-left {
+    background-image: url(../images/bells-left_80.png);
+    width: 80px;
+    height: 146px;
+    left: -14px;
+  }
+}
+@media screen and (max-width: 1120px) {
+  .bells-left {
+    background-image: url(../images/bells-left_40.png);
+    width: 40px;
+    height: 73px;
+    left: -10px;
+    bottom: -15px;
+  }
+}
+
+.bells-right {
+  background-image: url(../images/bells-right.png);
+  display: none;
+  width: 113px;
+  height: 216px;
+  right: -33px;
+  position: absolute;
+  z-index: 2;
+  top: -30px;
+}
+@media screen and (max-width: 1660px) {
+  .bells-right {
+    background-image: url(../images/bells-right_75.png);
+    width: 75px;
+    height: 143px;
+    right: -14px;
+  }
+}
+@media screen and (max-width: 1120px) {
+  .bells-right {
+    background-image: url(../images/bells-right_35.png);
+    width: 35px;
+    height: 67px;
+    right: -10px;
+    top: -10px;
+  }
+}
+
+.theme-background {
+  width: 100%;
+  height: 130px;
+}
+
+.shooting-star {
+  background-image: url(../images/ShootingStar.png);
+  display: none;
+  height: 191px;
+  left: 50%;
+  position: absolute;
+  width: 588px;
+  top: 40%;
+}
+@media screen and (max-width: 1120px) {
+  .shooting-star {
+    background-image: url(../images/ShootingStar_450.png);
+    height: 147px;
+    width: 450px;
+    left: auto;
+    right: 0;
+  }
+}
+@media screen and (max-width: 700px) {
+  .shooting-star {
+    background-image: url(../images/ShootingStar_300.png);
+    height: 98px;
+    width: 300px;
+  }
+}
+
+.toys {
+  position: relative;
+}
+.toys::before {
+  content: "";
+  background-image: url(../images/toys.png);
+  background-image: url(../images/Juguetes.png);
+  background-image: url(../images/Juguetes1.png);
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  opacity: 0.6;
+}
+
+.brand-theme {
+  background-image: url(../images/D.png);
+  background-image: url(../images/D_1.png);
+  background-color: #1841B1;
+}
+.brand-theme.home {
+  background-color: #F2F1F1;
+  background-image: none;
+}
+
+.presents {
+  background-image: url(../images/Presents.png);
+  background-image: url(../images/Presents_1.png);
+  background-image: url(../images/Presents_2.png);
+  bottom: 35px;
+  display: none;
+  height: 123px;
+  height: 63px;
+  height: 98px;
+  left: 50px;
+  position: absolute;
+  width: 126px;
+  width: 62px;
+  width: 100px;
+  z-index: 1;
+}
+
+.bells {
+  background-image: url(../images/Bells.png);
+  display: none;
+  height: 94px;
+  right: 40px;
+  position: absolute;
+  width: 97px;
+  top: 10px;
+}
+
+/*# sourceMappingURL=theme.css.map */

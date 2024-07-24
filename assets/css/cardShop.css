@@ -1,0 +1,18 @@
+.container-shop h2.title-resumen-libro,
+.container-shop p.title-resumen-libro {
+  color: #ff3d57;
+}
+.container-shop h2.title-resumen-juego,
+.container-shop p.title-resumen-juego {
+  color: #3390ff;
+}
+.container-shop h2.title-resumen-juguete,
+.container-shop p.title-resumen-juguete {
+  color: #27ae60;
+}
+.container-shop h2.title-resumen-escolar,
+.container-shop p.title-resumen-escolar {
+  color: #663399;
+}
+
+/*# sourceMappingURL=cardShop.css.map */

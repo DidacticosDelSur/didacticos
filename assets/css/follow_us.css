@@ -1,0 +1,119 @@
+.follow-us {
+  display: flex;
+  justify-content: space-between;
+  gap: 4px;
+  margin: 40px 0;
+}
+.follow-us .follow-wrapper {
+  width: 50%;
+  border-radius: 10px;
+  padding: 20px 30px;
+  position: relative;
+}
+.follow-us .follow-wrapper .hashtag {
+  font-size: 10px;
+  line-height: 20px;
+  text-transform: uppercase;
+}
+.follow-us .follow-wrapper .text {
+  font-size: 14px;
+  line-height: 28px;
+}
+.follow-us .follow-wrapper .title {
+  font-size: 34px;
+  line-height: 28px;
+  font-weight: 500;
+  margin-top: 20px;
+}
+.follow-us .follow-wrapper .title.bigger {
+  font-size: 74px;
+  line-height: 56px;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+@media (max-width: 520px) {
+  .follow-us .follow-wrapper .title.bigger {
+    font-size: 56px;
+  }
+}
+@media (max-width: 420px) {
+  .follow-us .follow-wrapper .title.bigger {
+    font-size: 50px;
+  }
+}
+.follow-us .follow-wrapper .button-follow {
+  background-color: #4E8EF7;
+  color: #ffffff;
+  margin-top: 38px;
+  max-width: 120px;
+  border-radius: 24px;
+  font-size: 13px;
+  padding: 12px 0;
+  text-align: center;
+}
+.follow-us .follow-wrapper img {
+  object-fit: cover;
+  position: absolute;
+  z-index: 1;
+  right: 0px;
+  bottom: 0px;
+  transition: 1s;
+  display: block;
+}
+.follow-us .follow-wrapper img.novelty {
+  right: 150px;
+}
+@media (max-width: 520px) {
+  .follow-us .follow-wrapper img {
+    width: 280px;
+  }
+  .follow-us .follow-wrapper img.novelty {
+    width: 160px;
+    right: 50px;
+  }
+}
+@media (max-width: 420px) {
+  .follow-us .follow-wrapper img {
+    width: 235px;
+  }
+}
+.follow-us .follow-wrapper:hover {
+  transition: all 0.2s ease-in-out;
+  box-shadow: 0 0 12px 0px rgba(0, 0, 0, 0.3);
+  -moz-box-shadow: 0 0 12px 0px rgba(0, 0, 0, 0.3);
+  -webkit-box-shadow: 0 0 12px 0px rgba(0, 0, 0, 0.3);
+}
+.follow-us .follow-wrapper:hover img {
+  transform: scale(1.2);
+}
+.follow-us .follow-wrapper:hover img.seguinos {
+  right: 56px;
+  top: -24px;
+}
+.follow-us .follow-wrapper:hover img.novelty {
+  top: 17px;
+}
+@media (max-width: 980px) {
+  .follow-us .follow-wrapper {
+    width: 60%;
+    margin: 0 auto;
+  }
+}
+@media (max-width: 768px) {
+  .follow-us .follow-wrapper {
+    width: 91%;
+  }
+}
+@media (max-width: 560px) {
+  .follow-us .follow-wrapper {
+    width: calc(100% - 60px);
+  }
+}
+@media (max-width: 980px) {
+  .follow-us {
+    flex-direction: column;
+    gap: 10px;
+  }
+}
+
+/*# sourceMappingURL=follow_us.css.map */

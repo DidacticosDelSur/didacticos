@@ -1,0 +1,35 @@
+.content-pagination{
+  margin-top: 30px;
+  text-align: right;
+  flex-direction: column;
+  align-items: center;
+  .pagination {
+    display: inline;
+    padding: 0;
+    a {
+      color: black;
+      float: left;
+      padding: 8px 16px;
+      border: 1px solid #ddd; 
+      text-decoration: none;
+      &.active {
+        background-color: #5E8CF0;
+        color: #FFFFFF;
+      }
+      &:hover {
+        &:not(.active){
+          background-color: #EB4E5C;
+          color: #FFFFFF;
+        }
+      }
+      &:first-child {
+        border-top-left-radius: 5px;
+        border-bottom-left-radius: 5px;
+      }
+      &:last-child {
+        border-top-right-radius: 5px;
+        border-bottom-right-radius: 5px;
+      }
+    }
+  }
+}

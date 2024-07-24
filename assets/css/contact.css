@@ -1,0 +1,81 @@
+.contact-wrapper {
+  background-image: url(../images/bg-contacto.svg);
+  background-position: top center;
+  background-repeat: repeat-x;
+  padding-top: 100px;
+}
+.contact-wrapper .container-shop {
+  background-color: inherit;
+}
+.contact-wrapper .container-shop.contact {
+  max-width: 1000px !important;
+  padding: 20px !important;
+}
+.contact-wrapper .container-shop .contact-header {
+  margin-bottom: 55px;
+}
+.contact-wrapper .container-shop .contact-header h1 {
+  color: #fff;
+  font-weight: 700;
+  font-size: 45px;
+  margin-bottom: 10px;
+}
+.contact-wrapper .container-shop .contact-header h3 {
+  color: #fff;
+  font-weight: 600;
+  font-size: 17px;
+  max-width: 250px;
+  margin: 0 auto 30px;
+}
+.contact-wrapper .container-shop .contact-header .button-row {
+  width: 100%;
+}
+.contact-wrapper .container-shop .contact-header .button-row .message {
+  text-align: center;
+  color: #fff;
+  justify-content: center;
+  max-width: 420px;
+  margin: 0 auto;
+  padding: 16px 10px 16px 80px;
+  position: absolute;
+  left: 0;
+  right: 0;
+  display: none;
+  font-weight: 600;
+  width: 100%;
+}
+.contact-wrapper .container-shop .contact-header .button-row .message.success {
+  background: #72BB27;
+}
+.contact-wrapper .container-shop .contact-header .button-row .message.error {
+  background: #ef5958;
+}
+@media (max-width: 920px) {
+  .contact-wrapper .container-shop .contact-header h1, .contact-wrapper .container-shop .contact-header h3 {
+    position: relative;
+    z-index: 1;
+  }
+}
+.contact-wrapper .container-shop .img-header {
+  top: 0;
+}
+@media (max-width: 920px) {
+  .contact-wrapper .container-shop .img-header {
+    top: -99px;
+    opacity: 0.3;
+  }
+}
+@media (max-width: 920px) {
+  .contact-wrapper .container-shop {
+    padding-top: 0px;
+    position: relative;
+  }
+}
+@media (max-width: 920px) {
+  .contact-wrapper {
+    padding-top: 0px;
+    margin-top: 88px;
+  }
+}
+
+/*# sourceMappingURL=contact.css.map */

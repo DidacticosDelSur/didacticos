@@ -1,0 +1,102 @@
+.follow-us{
+  display: flex;
+  justify-content: space-between;
+  gap: 4px;
+  margin: 40px 0;
+  .follow-wrapper {
+    width: 50%;
+    border-radius: 10px;
+    padding: 20px 30px;
+    position: relative;
+    .hashtag {
+      font-size: 10px;
+      line-height: 20px;
+      text-transform: uppercase;
+    }
+    .text {
+      font-size: 14px;
+      line-height: 28px;
+    }
+    .title {
+      font-size: 34px;
+      line-height: 28px;
+      font-weight: 500;
+      margin-top: 20px;
+      &.bigger {
+        font-size: 74px;
+        line-height: 56px;
+        text-transform: uppercase;
+        font-weight: bold;
+        @media(max-width:520px) {
+          font-size: 56px;
+        }
+        @media(max-width:420px) {
+          font-size: 50px;
+        }
+      }
+    }
+    .button-follow {
+      background-color: #4E8EF7;
+      color: #ffffff;
+      margin-top: 38px;
+      max-width: 120px;
+      border-radius: 24px;
+      font-size: 13px;
+      padding: 12px 0;
+      text-align: center;
+    }
+    img {
+      object-fit: cover;
+      position: absolute;
+      z-index: 1;
+      right: 0px;
+      bottom: 0px;
+      transition: 1s;
+      display: block;
+      &.novelty{
+        // top: 37px;
+        right: 150px;
+      }
+      @media(max-width:520px) {
+        width: 280px;
+        &.novelty {
+          width: 160px;
+          right: 50px;
+        }
+      }
+      @media(max-width:420px) {
+        width: 235px;
+      }
+    }
+    &:hover {
+      transition: all 0.2s ease-in-out;
+      box-shadow: 0 0 12px 0px rgba(0, 0, 0, 0.3);
+      -moz-box-shadow: 0 0 12px 0px rgba(0, 0, 0, 0.3);
+      -webkit-box-shadow: 0 0 12px 0px rgba(0, 0, 0, 0.3);
+      img {
+        transform: scale(1.2) ;
+        &.seguinos {
+          right: 56px;
+          top: -24px;
+        }
+        &.novelty {
+          top: 17px;
+        }
+      }
+    }
+    @media(max-width:980px) {
+      width: 60%;
+      margin: 0 auto;
+    }
+    @media(max-width:768px) {
+      width: 91%;
+    }
+    @media(max-width: 560px) {
+      width: calc(100% - 60px);
+    }
+  }
+  @media(max-width:980px) {
+    flex-direction: column;
+    gap: 10px;
+  }
+}

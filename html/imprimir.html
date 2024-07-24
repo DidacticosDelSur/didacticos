@@ -1,0 +1,84 @@
+<!doctype html>
+<!--[if lt IE 7]>
+<html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
+<!--[if IE 7]>
+<html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
+<!--[if IE 8]>
+<html class="no-js lt-ie9" lang=""> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="en">
+<!--<![endif]-->
+
+<head><meta charset="gb18030">
+    
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Imprimir | Didacticos del Sur</title>
+    <meta name="description" content="Didacticos administrator">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="{base_url}assets/images/favicon.png" type="image/x-icon" sizes="196x196"/>
+    <link rel="apple-touch-icon" href="{base_url}apple-icon.png">
+    <link rel="shortcut icon" href="{base_url}favicon.ico">
+
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800' rel='stylesheet' type='text/css'>
+
+    {gtm}
+</head>
+
+<body>
+
+
+    <span>Pedido: {id}</span><br>
+    <span>Cliente: {nombre} {apellido}</span><br>
+    <span>Localidad: {provincia} , {ciudad} , {direccion}</span><br>
+    <span>Viajante asignado: </span><br>
+    <span>Fecha: {fecha}</span>
+    <table class="default" id="tableBody">
+  <thead>
+    <tr>
+      <th>Sku</th>
+      <th>Producto</th>
+      <th>Cantidad</th>
+    </tr>
+  </thead>
+  <tbody >
+    
+  </tbody>
+    
+</table>
+
+
+       {footer_scripts}
+    </body>
+<script>
+
+    let tbodyRef = document.getElementById('tableBody').getElementsByTagName('tbody')[0];
+    let id = {id};
+    if (id != null) {
+      let url="{base_url}detalle_pedido/" +{id};
+      fetch(url)
+      .then(response => response.json())
+      .then(data => {
+     
+        let datos = JSON.parse(data['detalle']);
+        for (let i = 0; i < datos.length; i++){
+          for (let j=0;j<=2 ;j++){
+            if (datos[i][j] != null){
+              var newRow = tbodyRef.insertRow();
+              var newCell = newRow.insertCell();
+              var newid = document.createTextNode( datos[i][j]['sku'] );
+              newCell.appendChild(newid);
+              var newCellname = newRow.insertCell();
+              var newname = document.createTextNode( datos[i][j]['nombre'] );
+              newCellname .appendChild(newname);
+              var newCellcant = newRow.insertCell();
+              var newcant = document.createTextNode(datos[i][j]['cantidad']);
+              newCellcant.appendChild(newcant);
+            }
+          }
+        }
+      });
+    }
+ 
+</script>
+</html>

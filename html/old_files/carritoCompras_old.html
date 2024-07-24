@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
+    />
+    <title>Carrito de Compras | Didácticos del Sur</title>
+
+    <meta content="" name="keywords" />
+    <meta content="Carrito de Compras" name="description" />
+
+    <meta name="revisit-after" content="1 days" />
+    <meta name="Language" content="es" />
+    <meta name="distribution" content="global" />
+
+    <meta name="Robots" content="all,index,follow" />
+    <meta name="Googlebot" content="index, follow" />
+    <meta name="FastCrawler" content="index, follow" />
+    <meta name="Scooter" content="index, follow" />
+    <meta name="Yahoo! Slurp" content="index, follow" />
+    <meta name="InfoSeek Robot 1.0" content="index, follow" />
+    <meta name="InfoSeek Sidewinder" content="index, follow" />
+    <meta name="MSNBot" content="index, follow" />
+    <meta name="Inktomi Slurp" content="index, follow" />
+    <meta name="identifier-url" content="" />
+    <meta name="searchtitle" content="" />
+    <meta name="Author" content="" />
+    <meta name="Copyright" content="" />
+
+    <!-- Twitter Card data -->
+    <meta name="twitter:card" content="" />
+    <meta name="twitter:title" content="" />
+    <meta name="twitter:url" content="" />
+    <meta name="twitter:description" content="" />
+    <!-- Twitter Summary card images No puede superar los 200x200px -->
+    <meta name="twitter:image:src" content="" />
+
+    <!-- Open Graph data -->
+    <meta property="og:title" content="" />
+    <meta property="og:type" content="" />
+    <meta property="og:url" content="" />
+    <meta property="og:image" content="" />
+    <meta property="og:description" content="" />
+
+    <link
+      rel="icon"
+      href="{base_url}assets/images/favicon.png"
+      type="image/x-icon"
+      sizes="196x196"
+    />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+      integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{base_url}assets/css/style.css"
+    />
+    <link rel="stylesheet" href="{base_url}assets/css/newStyle.css" />
+
+    {gtm}
+  </head>
+
+  <body class="shopping-cart">
+    <!-- header -->
+    {header}
+
+    <div class="wide-content shop-wrap flexBlock new-shop">
+      <div class="container-shop first">
+        <div class="number-items">Carrito ({cant})</div>
+
+        <div class="number-items card-all-{cant}" style="display: none">
+          <h4 style="border-bottom: 0">
+            No hay productos agregados. Agregue productos para verlos en esta
+            sección.
+          </h4>
+        </div>
+
+        <!-- item -->
+
+        <div id="accordion">
+          <div class="card card-{cant_libros}">
+            <div class="card-header" id="headingOne">
+              <h5 class="mb-0">
+                <button
+                  class="btn btn-link"
+                  data-toggle="collapse"
+                  data-target="#collapseOne"
+                  aria-expanded="true"
+                  aria-controls="collapseOne"
+                >
+                  Libros ({cant_libros})
+                </button>
+              </h5>
+            </div>
+
+            <div
+              id="collapseOne"
+              class="collapse show"
+              aria-labelledby="headingOne"
+            >
+              <div class="card-body">
+                <!-- BEGIN libros -->
+                {item_libro}
+                <!-- END libros -->
+              </div>
+            </div>
+          </div>
+
+          <div class="card card-{cant_juegos}">
+            <div class="card-header" id="headingTwo">
+              <h5 class="mb-0">
+                <button
+                  class="btn btn-link blue"
+                  data-toggle="collapse"
+                  data-target="#collapseTwo"
+                  aria-expanded="true"
+                  aria-controls="collapseTwo"
+                >
+                  Didácticos ({cant_juegos})
+                </button>
+              </h5>
+            </div>
+            <div
+              id="collapseTwo"
+              class="collapse show"
+              aria-labelledby="headingTwo"
+            >
+              <div class="card-body">
+                <!-- BEGIN juegos -->
+                {item_juego}
+                <!-- END juegos -->
+              </div>
+            </div>
+          </div>
+
+          <div class="card card-{cant_juguetes}">
+            <div class="card-header" id="headingThree">
+              <h5 class="mb-0">
+                <button
+                  class="btn btn-link green"
+                  data-toggle="collapse"
+                  data-target="#collapseThree"
+                  aria-expanded="true"
+                  aria-controls="collapseThree"
+                >
+                  Juguetes ({cant_juguetes})
+                </button>
+              </h5>
+            </div>
+            <div
+              id="collapseThree"
+              class="collapse show"
+              aria-labelledby="headingThree"
+            >
+              <div class="card-body">
+                <!-- BEGIN juguetes -->
+                {item_juguete}
+                <!-- END juguetes -->
+              </div>
+            </div>
+          </div>
+
+          <div class="card card-{cant_escolares}">
+            <div class="card-header" id="headingFour">
+              <h5 class="mb-0">
+                <button
+                  class="btn btn-link purple"
+                  data-toggle="collapse"
+                  data-target="#collapseFour"
+                  aria-expanded="true"
+                  aria-controls="collapseThree"
+                >
+                  Escolar ({cant_escolares})
+                </button>
+              </h5>
+            </div>
+            <div
+              id="collapseFour"
+              class="collapse show"
+              aria-labelledby="headingFour"
+            >
+              <div class="card-body">
+                <!-- BEGIN escolares -->
+                {item_escolar}
+                <!-- END escolares -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="resumen card-all-{cant}">
+        <div class="container-shop flexBlock">
+          <img
+            loading="lazy"
+            src="{base_url}assets/images/shopping-cart.svg"
+            alt=""
+          /><span>Resumen de compra</span>
+        </div>
+
+        <div class="container-shop quantity-{cant_libros}">
+          <div class="item flexBlock">
+            <h2>Libros ({cant_libros})</h2>
+            <h3 {classDescuentoLibro}>Descuento {descuento_libros}%</h3>
+          </div>
+
+          <div class="item flexBlock">
+            <span>Subtotal</span>
+            <span id="subtotal_libros">${subtotal_libros}</span>
+          </div>
+          <div class="item flexBlock">
+            <span>Con descuentos</span>
+            <span id="descuento_precio_libros">${descuento_precio_libros}</span>
+          </div>
+        </div>
+
+        <div class="container-shop quantity-{cant_juegos}">
+          <div class="item flexBlock">
+            <h2>Didácticos ({cant_juegos})</h2>
+            <h3 {classDescuentoDidacticos}>
+              Descuento {descuento_didacticos}%
+            </h3>
+          </div>
+
+          <div class="item flexBlock">
+            <span>Subtotal</span>
+            <span id="subtotal_juegos">${subtotal_juegos}</span>
+          </div>
+          <div class="item flexBlock" id="descuento-juegos-wrapper">
+            <span>Con descuentos</span>
+            <span id="descuento_precio_juegos">${descuento_precio_juegos}</span>
+          </div>
+          <div class="item flexBlock">
+            <span>IVA</span>
+            <span id="subtotal_iva_juegos">${iva}</span>
+          </div>
+        </div>
+
+        <div class="container-shop quantity-{cant_juguetes}">
+          <div class="item flexBlock">
+            <h2 style="color: #27ae60">Juguetes ({cant_juguetes})</h2>
+            <h3 {classDescuentoJuguetes}>Descuento {descuento_juguetes}%</h3>
+          </div>
+
+          <div class="item flexBlock">
+            <span>Subtotal</span>
+            <span id="subtotal_juguetes">${subtotal_juguetes}</span>
+          </div>
+          <div class="item flexBlock" id="descuento-juguetes-wrapper">
+            <span>Con descuentos</span>
+            <span id="descuento_precio_juguetes"
+              >${descuento_precio_juguetes}</span
+            >
+          </div>
+          <div class="item flexBlock">
+            <span>IVA</span>
+            <span id="subtotal_iva_juguetes">${iva_juguetes}</span>
+          </div>
+        </div>
+
+        <div class="container-shop quantity-{cant_escolares}">
+          <div class="item flexBlock">
+            <h2 class="color-escolares">Escolar ({cant_escolares})</h2>
+            <h3 {classDescuentoJuguetes}>Descuento {descuento_escolares}%</h3>
+          </div>
+
+          <div class="item flexBlock">
+            <span>Subtotal</span>
+            <span id="subtotal_escolares">${subtotal_escolares}</span>
+          </div>
+          <div class="item flexBlock" id="descuento-escolares-wrapper">
+            <span>Con descuentos</span>
+            <span id="descuento_precio_escolares"
+              >${descuento_precio_escolares}</span
+            >
+          </div>
+          <div class="item flexBlock">
+            <span>IVA</span>
+            <span id="subtotal_iva_escolares">${iva_escolares}</span>
+          </div>
+        </div>
+
+        <div class="container-shop">
+          <div class="item flexBlock">
+            <span>Total estimativo*</span>
+            <span id="total-precio">${total_precio_iva}</span>
+          </div>
+          <div style="font-size: 12px; font-style: italic; margin-bottom: 10px">
+            {minimum}
+          </div>
+          <div style="font-size: 12px; font-style: italic">
+            * Los precios y el stock pueden variar sin previo aviso y están
+            sujetos a cambios inflacionarios.
+          </div>
+          <a href="{base_url}resumenCompra">Finalizar compra</a>
+        </div>
+        <a href="{base_url}home" class="follow">
+          <img loading="lazy" src="{base_url}assets/images/arrow.png" />
+          <span>Seguir comprando </span>
+        </a>
+      </div>
+    </div>
+
+    <!-- footer -->
+    {footer}
+    <!-- <script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script> -->
+    <script
+      src="https://code.jquery.com/jquery-2.2.0.min.js"
+      type="text/javascript"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+      integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="{base_url}assets/js/main.js"
+      type="text/javascript"
+      charset="utf-8"
+    ></script>
+    <script
+      src="{base_url}assets/js/slick.js"
+      type="text/javascript"
+      charset="utf-8"
+    ></script>
+
+    <script>
+      jQuery(
+        '<div class="quantity-nav"><div class="quantity-button quantity-up">+</div><div class="quantity-button quantity-down">-</div></div>'
+      ).insertAfter(".quantity .input");
+      jQuery(".quantity").each(function () {
+        var spinner = jQuery(this),
+          input = spinner.find('input[type="number"]'),
+          btnUp = spinner.find(".quantity-up"),
+          btnDown = spinner.find(".quantity-down"),
+          min = input.attr("min"),
+          max = input.attr("max");
+
+        btnUp.click(function () {
+          var oldValue = parseFloat(input.val());
+          if (oldValue >= max) {
+            var newVal = oldValue;
+          } else {
+            var newVal = oldValue + 1;
+          }
+
+          spinner.find("input").val(newVal);
+          spinner.find("input").trigger("change");
+        });
+
+        btnDown.click(function () {
+          var oldValue = parseFloat(input.val());
+          if (oldValue <= min) {
+            var newVal = oldValue;
+          } else {
+            var newVal = oldValue - 1;
+          }
+          spinner.find("input").val(newVal);
+          spinner.find("input").trigger("change");
+        });
+      });
+
+      $(".block-detail .title").bind("click", function () {
+        $(".slideDetail").slideToggle("");
+        $(this).toggleClass("up");
+      });
+    </script>
+
+    {footer_scripts}
+  </body>
+</html>

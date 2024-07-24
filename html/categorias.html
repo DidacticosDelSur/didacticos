@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
+    />
+    <title>Categoría: {categoria} | Didácticos del Sur</title>
+
+    <meta name="revisit-after" content="1 days" />
+    <meta name="Language" content="es" />
+    <meta name="distribution" content="global" />
+
+    <meta name="Robots" content="all,index,follow" />
+    <meta name="Googlebot" content="index, follow" />
+    <meta name="FastCrawler" content="index, follow" />
+    <meta name="Scooter" content="index, follow" />
+    <meta name="Yahoo! Slurp" content="index, follow" />
+    <meta name="InfoSeek Robot 1.0" content="index, follow" />
+    <meta name="InfoSeek Sidewinder" content="index, follow" />
+    <meta name="MSNBot" content="index, follow" />
+    <meta name="Inktomi Slurp" content="index, follow" />
+    <meta name="identifier-url" content="" />
+    <meta name="searchtitle" content="" />
+    <meta name="Author" content="" />
+    <meta name="Copyright" content="" />
+
+    <meta content="{categoria}" name="keywords" />
+    <meta
+      content="Didácticos del Sur - Categoría: {categoria}"
+      name="description"
+    />
+
+    <!-- Twitter Card data -->
+    <meta name="twitter:card" content="" />
+    <meta name="twitter:title" content="" />
+    <meta name="twitter:url" content="" />
+    <meta
+      name="twitter:description"
+      content="Didácticos del Sur - Categoría: {categoria}"
+    />
+    <!-- Twitter Summary card images No puede superar los 200x200px -->
+    <meta name="twitter:image:src" content="" />
+
+    <!-- Open Graph data -->
+    <meta property="og:title" content="" />
+    <meta property="og:type" content="" />
+    <meta property="og:url" content="" />
+    <meta property="og:image" content="" />
+    <meta
+      property="og:description"
+      content="Didácticos del Sur - Categoría: {categoria}"
+    />
+
+    <link
+      rel="icon"
+      href="{base_url}assets/images/favicon.png"
+      type="image/x-icon"
+      sizes="196x196"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{base_url}assets/css/style.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{base_url}assets/css/newStyle.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{base_url}assets/css/categories.css"
+    />
+    {gtm}
+  </head>
+
+  <body>
+    <!-- header -->
+    {header}
+    <div class="content-wrap">
+      <div class="wide-product-back" {producto_agregado_hidden}>
+        <div class="wide-content">
+          <div class="product-added">
+            <div class="added-div">
+              <div class="added-img">
+                <img
+                  loading="lazy"
+                  src="{photo}"
+                  alt="imagen producto agregado"
+                />
+              </div>
+              <div class="added-info">
+                <span>Agregado al carrito</span>
+                <span>{producto_agregado}</span>
+              </div>
+            </div>
+            <div class="added-button">
+              <button id="viewCart">Ver carrito</button>
+              <button id="finish">Finalizar Compra</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="category-content {page_type}">
+        <aside>
+          <input
+            type="checkbox"
+            id="abrir-cerrar"
+            name="abrir-cerrar"
+            value=""
+          />
+          <label for="abrir-cerrar" class="mobile-items"
+            ><span class="abrir">&#9776;</span
+            ><span class="cerrar">x</span></label
+          >
+
+          <!--  <label for="btn-nav" class="btn-nav"
+          ><i class="mobile-items icon icon-menu_FILL0"></i
+        ></label>
+        <input type="checkbox" id="btn-nav" />
+        <nav>
+          <div class="navigation"> -->
+          <div id="sidebar" class="sidebar">
+            <div class="menu">
+              <h3 class="{page_type}">Categoría</h3>
+              <div class="divider"></div>
+              <div class="category-menu {page_type}">
+                <div class="list-content">
+                  <!-- BEGIN cat -->
+                  <a
+                    href="{base_url}categoria/{id_category}-{nombre_categoria}"
+                  >
+                    <button>{category_name}</button>
+                  </a>
+                  <!-- END cat -->
+                </div>
+                <h3>{tipo}</h3>
+                <div class="divider"></div>
+                <div class="list-content">
+                  <!-- BEGIN marcas -->
+                  <a href="{base_url}marca/{id_marca}-{nombre_marca}">
+                    <button>{nombre}</button>
+                  </a>
+                  <!-- END marcas -->
+                </div>
+              </div>
+            </div>
+          </div>
+        </aside>
+        <div class="category-list">
+          <div class="category-title {page_type} type_{tipo_}">
+            <div class="breadcrumb">
+              <a href="{base_url}{page_type}/{tipo_}">{categoria}</a>
+              <span class="{page_type}">> </span>
+              <a class="{page_type}">{marca}</a>
+            </div>
+            <h2 class="title color-{tipo_} {page_type}">{categoria}</h2>
+            <div class="content-novedades">
+              <div class="title color-novedades">
+                <span>Los últimos lanzamientos los encontras acá!</span>
+                <h2>Novedades</h2>
+                <p>
+                  Te van a volar la cabeza
+                  <span class="icon-sentiment_excited"></span>
+                </p>
+              </div>
+              <img
+                loading="lazy"
+                src="{base_url}assets/images/Novedades_tag.png"
+                alt="Novedades"
+              />
+            </div>
+            <div class="content-diadelnino">
+              <div class="title color-novedades">
+                <span>Los últimos lanzamientos los encontras acá!</span>
+                <h2>Día Del Niño</h2>
+                <p>
+                  Te van a volar la cabeza
+                  <span class="icon-sentiment_excited"></span>
+                </p>
+              </div>
+              <img
+                loading="lazy"
+                src="{base_url}assets/images/DiaDelNiño.png"
+                alt="Novedades"
+              />
+            </div>
+            <div class="content-peluches">
+              <div class="title color-novedades">
+                <span>La colección de peluches la encontras acá!</span>
+                <h2>Peluches</h2>
+                <p>
+                  Te van a volar la cabeza
+                  <span class="icon-sentiment_excited"></span>
+                </p>
+              </div>
+              <img
+                loading="lazy"
+                src="{base_url}assets/images/Peluche.png"
+                alt="Novedades"
+              />
+            </div>
+          </div>
+          <small {mostrar_azar}
+            >Mostrando {a_mostrar} productos al azar de {cant_resultados}
+            posibles</small
+          >
+          <small {mostrar_totalxpag}
+            >Mostrando {total_por_pagina} productos por página</small
+          >
+          <small {mostrar_cero_result}>Mostrando 60 productos al azar </small>
+          <section class="productsItems flexBlock">{banner} {product}</section>
+          <nav class="content-pagination" {mostrar_paginator}>
+            <div class="row">
+              <div class="col-xs-12 col-sm-6">
+                <p>Página {pagina} de {cant_paginas}</p>
+              </div>
+            </div>
+            <ul class="pagination">
+              <!-- Si la página actual es mayor a uno, mostramos el botón para ir una página atrás -->
+              <a {mostrar_atras} href="{base_url}{url_section}/{pagina-ant}">
+                <span aria-hidden="true">&laquo;</span>
+              </a>
+              <!-- BEGIN pag -->
+              <!-- Mostramos enlaces para ir a todas las páginas. Es un simple ciclo for-->
+              <a href="{base_url}{url}/{id_page}" class="{active}"
+                >{id_page}
+              </a>
+              <!-- END pag  -->
+              <!-- Si la página actual es menor al total de páginas, mostramos un botón para ir una página adelante -->
+              <a
+                {mostrar_siguiente}
+                href="{base_url}{url_section}/{pagina-sig}"
+              >
+                <span aria-hidden="true">&raquo;</span>
+              </a>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </div>
+
+    <!-- footer -->
+    {footer}
+
+    <script>
+      //document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')
+    </script>
+    <script
+      src="https://code.jquery.com/jquery-2.2.0.min.js"
+      type="text/javascript"
+    ></script>
+    <script
+      src="{base_url}assets/js/slick.js"
+      type="text/javascript"
+      charset="utf-8"
+    ></script>
+    <script
+      src="{base_url}assets/js/main.js"
+      type="text/javascript"
+      charset="utf-8"
+    ></script>
+    <script type="text/javascript">
+      $("#viewCart").click(function (e) {
+        e.preventDefault();
+        window.location.href = "{base_url}carritoCompras";
+      });
+      $("#finish").click(function (e) {
+        e.preventDefault();
+        window.location.href = "{base_url}resumenCompra";
+      });
+    </script>
+    {footer_scripts}
+  </body>
+</html>

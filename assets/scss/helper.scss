@@ -1,0 +1,102 @@
+.confetti {
+  background-image: url(../images/confetti.png);
+  width: 100%;
+  height: 388px;
+  position: absolute;
+}
+.desierto {
+  background-image: url(../images/Desierto.png);
+  width: 100%;
+  height: 388px;
+  position: absolute;
+}
+.luces {
+  background-image: url(../images/Luces.png);
+  width: 100%;
+  height: 303px;
+  position: absolute;
+}
+.whatsApp{
+  background-color: #ffffff;
+  border-radius: 8px;
+  bottom: 10px;
+  box-shadow: 0 0 12px 0px rgba(0, 0, 0, 0.3);
+  color: #596383;
+  display: flex;
+  font-size: 12px;
+  gap: 10px;
+  padding: 20px;
+  position: fixed;
+  right: 10px;
+  z-index: 1;
+  -moz-box-shadow: 0 0 12px 0px rgba(0, 0, 0, 0.3);
+  -webkit-box-shadow: 0 0 12px 0px rgba(0, 0, 0, 0.3);
+  .title{
+    font-weight: 500;
+    text-transform: uppercase;
+  }
+  &:hover {
+    transition: all 0.2s ease-in-out;
+    background-color: #25D366;
+    color: #FFFFFF;
+    .icon-whatsapp{
+      &::before{
+        color: #ffffff;
+      }
+    }
+  }
+}
+.mt-30 {
+  margin-top: 30px;
+}
+.mt-20 {
+  margin-top: 20px;
+}
+.stilo-selector{
+  background-color: #ffffff;
+  border-radius: 8px;
+  top: 100px;
+  box-shadow: 0 0 12px 0px rgba(0, 0, 0, 0.3);
+  color: #596383;
+  display: flex;
+  font-size: 12px;
+  gap: 10px;
+  padding: 20px;
+  position: fixed;
+  right: 10px;
+  z-index: 1111;
+  -moz-box-shadow: 0 0 12px 0px rgba(0, 0, 0, 0.3);
+  -webkit-box-shadow: 0 0 12px 0px rgba(0, 0, 0, 0.3);
+  .title{
+    font-weight: 500;
+    text-transform: uppercase;
+  }
+  select {
+    border: 1px solid;
+    -webkit-appearance: auto;
+  }
+}
+.color-libro, .color-libros {
+  color: #EB4E5C !important;
+}
+.color-juguetes, .color-juguete  {
+  color: #1f9b37 !important;
+}
+.color-escolares, .color-escolar  {
+  color: #663399 !important;
+}
+.color-didacticos, .color-juego {
+  color: #3390ff !important;
+}
+.color-bazar {
+  color: #E9DD96 !important;
+}
+.lh-1 {
+  line-height: 1;
+}
+.position-relative {
+  position: relative;
+}
+.text-center {
+  text-align: center;
+}

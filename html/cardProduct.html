@@ -1,0 +1,23 @@
+<!-- BEGIN productos -->
+<a href="{base_url}producto/{id_producto}" class="frame">
+  <div class="image flexBlock">
+    <img loading="lazy" src="{img}" alt="{nombre_producto}" />
+  </div>
+  <div class="description {new} {en_tv}">
+    <div class="categ">{marca}</div>
+    <div class="name">{nombre_producto}</div>
+    <div class="price price-wrapper {tipo}">
+      <div>
+        <span class="price price-discount-{descuento} price-discount-{tipo}">
+          <span class="tipo tipo-{tipo}">PVP </span
+          ><span class="original-price tipo-{tipo}">$ {pvp}</span>
+          <span class="discount" style="text-decoration: none"
+            >{descuento}% off</span
+          >
+        </span>
+      </div>
+      <div><span class="price-symbol {tipo}">$</span>{precio}</div>
+    </div>
+  </div>
+</a>
+<!-- END productos -->
