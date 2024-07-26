@@ -27,9 +27,15 @@ modules/*/config*.xml
 #/admin/vendors/*
 Dockerfile
 docker-compose.yml
+images/*
 images/productos/*
 images/categorias/*
 images/marcas/*
 catalogo/*
 catalogos-archivos/*
 .htaccess
+includes/config.php
+admin/includes/config.php
+error_log
+includes/config.php
+/logs
