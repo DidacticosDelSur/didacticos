@@ -437,9 +437,17 @@ function buscar_producto($db, $t, $entrada,$desdeAdmin = false)
     }
 
     if (!$desdeAdmin) {
-        $usuario = $_SESSION['id_cliente'] == '' ? 0 : $_SESSION['id_cliente'];
-        $sqlBusq = "INSERT INTO busquedas_clientes (cliente_id, busqueda, resultado, link) 
+        if ($_SESSION['id_vendedor'] == ''){
+            //El usuario logueado es cliente
+            $usuario = $_SESSION['id_cliente'] == '' ? 0 : $_SESSION['id_cliente'];
+            $sqlBusq = "INSERT INTO busquedas_clientes (cliente_id, busqueda, resultado, link) 
                     VALUES ($usuario, '$busqueda', $res_cant, '/buscaDesdeAdmin/$entrada')";
+        } else {
+            //el usuario logueado es vendedor
+            $usuario = $_SESSION['id_vendedor'];
+            $sqlBusq = "INSERT INTO busquedas_clientes (cliente_id, busqueda, resultado, es_vendedor, link) 
+                    VALUES ($usuario, '$busqueda', $res_cant, 1, '/buscaDesdeAdmin/$entrada')";
+        }
         error_log($sqlBusq);
         mysqli_query($db, $sqlBusq);
     }    
@@ -1908,7 +1916,7 @@ function setLastLoginToSellersNow($id)
 
 function validateCaptcha($token, $action)
 {
-    return true;
+    //return true;
     // call curl to POST request
     $ch = curl_init();
     curl_setopt($ch, CURLOPT_URL, "https://www.google.com/recaptcha/api/siteverify");

@@ -4,9 +4,11 @@ function listar_busquedas($db,$t,$url_site){
   error_log('Listando busquedas');
   $t->set_var('base_url', HOST);
   $t->set_file("pl", "listado_busquedas.html");
-  $sql = "SELECT bc.busqueda,IF(isNull(c.id), 'Usuario no logueado', CONCAT(c.nombre,' ',c.apellido)) as usuario, bc.resultado, bc.link, DATE_FORMAT(bc.fecha, '%d/%m/%Y %H:%i') as fecha 
+  $sql = "SELECT bc.busqueda,IF(isNull(c.id), 'Usuario no logueado', IF((bc.es_vendedor = 1), CONCAT(v.nombre,' ',v.apellido), CONCAT(c.nombre,' ',c.apellido))) as usuario, bc.resultado, bc.link, DATE_FORMAT(bc.fecha, '%d/%m/%Y %H:%i') as fecha 
           FROM busquedas_clientes bc 
-          LEFT JOIN clientes c on c.id = bc.cliente_id WHERE 1 ORDER By fecha desc";
+          LEFT JOIN clientes c on c.id = bc.cliente_id 
+          LEFT JOIN vendedores v on v.id = bc.cliente_id
+          WHERE 1 ORDER By fecha desc";
   $result = mysqli_query($db, $sql);
   $t->set_block("pl", "busquedas", "_busquedas");
 

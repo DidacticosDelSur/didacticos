@@ -9,3 +9,5 @@ ENGINE=MyISAM
 
 ALTER TABLE `busquedas_clientes`
 	ADD COLUMN `link` VARCHAR(50) NOT NULL AFTER `resultado`;
+
+ALTER TABLE `busquedas_clientes` ADD `es_vendedor` TINYINT DEFAULT 0 AFTER `link`;
