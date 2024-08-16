@@ -90,6 +90,7 @@ function formatear_pedido($pedido){
   if ($update_pedido) {
     $pedido = $aux_ped;
   }
+  error_log('Pedido formateado: '.json_encode($pedido));
   return $pedido;
 }
 function editar_pedido($db, $t, $templates, $id_pedido)
@@ -372,7 +373,7 @@ function detalle_pedido($db, $id)
   $pedido = json_decode($pedido, true);
 
   $result['detalle'] = formatear_pedido($pedido);
-
+ 
   $descuentos = [];
   $tipos = getTipos($db);
   foreach ($tipos as $tipo) {
@@ -467,55 +468,6 @@ function imprimir_pedido($db, $t, $templates, $id)
     if (next($tipos)==true) $cadena .= " - ";
   }
   $t->set_var('cadena',$cadena);
-}
-
-function imprimir_detalle($db, $id)
-{ //New Feature Imprimir ordenado por marca
-	$query  = "SELECT * FROM pedidos WHERE id = " . $id;
-	$result = mysqli_query($db, $query);
-	$result = mysqli_fetch_array($result);
-  $pedido = $result['detalle'];
-  $pedido = preg_replace('/[[:cntrl:]]/', '', $pedido);
-
-  $pedido = json_decode($pedido, true);
-  $result['detalle'] = formatear_pedido($pedido);
-
-  $descuentos = [];
-  $tipos = getTipos($db);
-  foreach ($tipos as $tipo) {
-    $trans = translateType($db,$tipo);
-    $descuentos[$tipo] = $result['client_discount_'.$trans] * 100;
-  }
-  $libros = [];
-  $otros = [];
-  foreach ($result['detalle'] as $item => $detalle) {
-    foreach ($detalle as $v) {
-      if ($v['nombre'] != '') {
-        if ($item == 'libro') {
-          array_push($libros,$v);
-        } else array_push($otros,$v);
-      }
-    }
-  }
-
-  array_multisort(array_column($libros, 'marca'), SORT_ASC,SORT_STRING, $libros);
-  array_multisort(array_column($otros, 'marca'), SORT_ASC,SORT_STRING, $otros);
-
-  $result['descuentos'] = $descuentos;
-  $result['detalle'] = [];
-  $result['detalle']['libro'] = $libros;
-  $result['detalle']['otros'] = $otros;
-
-	echo json_encode($result);
-	exit;
-}
-
-function agrupar_por_marca($pedido){
-  $arr_l = [];
-  $arr_rest = [];
-  $arr_marcar = [];
-  array_multisort(array_column($pedido, 'marca'), SORT_DESC,SORT_STRING, $pedido);
-  return $pedido;
 }
 
 function listado_pedidos($db, $t)
