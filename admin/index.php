@@ -274,6 +274,9 @@ if ($_SESSION["user_admin"] == "" or $_SESSION["user_admin"] == "user") {
             case "detalle_pedido":
                 detalle_pedido($db, $elements[1]);
                 break;
+            case "imprimir_detalle":
+                imprimir_detalle($db, $elements[1]);
+                break;
             case "eliminar_pedido":
                 deleteOrder($elements[1]);
                 break;
