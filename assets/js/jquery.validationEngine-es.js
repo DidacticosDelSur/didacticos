@@ -142,6 +142,11 @@
           regex: /^([0-9]{3}\-[0-9]{3}\-[0-9]{4})$/,
           alertText: "* Número de teléfono inválido. Formato: 291-123-4567",
         },
+        nameProduct: {
+          // credit: jquery.h5validate.js / orefalo
+          regex: /^[^"']*$/,
+          alertText: "* Nombre inválido. Formato: No ingrese comillas simples ni dobles",
+        },
         sku: {
           // credit: jquery.h5validate.js / orefalo
           regex: /^([0][1-9][A-ZÑ][A-ZÑ][A-ZÑ][A-ZÑ][0-9][0-9][0-9][0-9])$/,
