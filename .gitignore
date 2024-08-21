@@ -39,3 +39,8 @@ admin/includes/config.php
 error_log
 includes/config.php
 /logs
+error_log
+includes/config.php
+/admin/logs
+/admin/html/CaracteresEspeciales.js
+/admin/includes/config.php
