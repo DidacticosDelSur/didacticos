@@ -111,7 +111,7 @@ function editar_pedido($db, $t, $templates, $id_pedido)
 
   $pedido = json_decode($pedido, true);
   $_SESSION['PEDIDO_ACTUAL']['datos']['detalle'] = formatear_pedido($pedido);
-  
+
   $cliente = get_datos_cliente($db, $_SESSION['PEDIDO_ACTUAL']['datos']['cliente_id']);
   if ($cliente['vendedor_id'] == $_SESSION["admin_id"]) { // si el usuario logueado es el vendedor
       $t->set_var("clases", 'vendedor');
@@ -556,10 +556,11 @@ function guardar_pedido($db)
 	$direccion = $_POST["direccion"];
 	$estado    = $_POST["estado"];
 	$total     = $_POST["total"];
-	$detalle   = json_encode($_SESSION['PEDIDO_ACTUAL']["datos"]["detalle"]);
+	$detalle   = json_encode($_SESSION['PEDIDO_ACTUAL']["datos"]["detalle"],JSON_UNESCAPED_UNICODE);
 	$query     = "UPDATE pedidos SET estado ='$estado', direccion_envio = '$direccion', detalle = '$detalle', total = '$total' WHERE id = $id_pedido";
+  error_log(date('h:i:s'). ' Editando Pedido [Sql: '.$query."]\n",3,"./logs/logs_ADMIN_".date("Y-m-d ").".log");
 
-	mysqli_query($db, $query);
+  mysqli_query($db, $query);
 	$_SESSION['PEDIDO_ACTUAL'] = [];
 	header("Location: " . HOST . "listar_pedidos");
 }
