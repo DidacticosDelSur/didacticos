@@ -79,6 +79,29 @@
     {header}
 
     <div class="content-wrap">
+      <div class="wide-product-back" {producto_agregado_hidden}>
+        <div class="wide-content">
+          <div class="product-added">
+            <div class="added-div">
+              <div class="added-img">
+                <img
+                  loading="lazy"
+                  src="{photo}"
+                  alt="imagen producto agregado"
+                />
+              </div>
+              <div class="added-info">
+                <span>Agregado al carrito</span>
+                <span>{producto_agregado}</span>
+              </div>
+            </div>
+            <div class="added-button">
+              <button id="viewCart">Ver carrito</button>
+              <button id="finish">Finalizar Compra</button>
+            </div>
+          </div>
+        </div>
+      </div>
       <div class="category-content">
         <div class="no-results results-{cant_resultados}">
           <div class="text-center position-relative">
@@ -197,7 +220,16 @@
       type="text/javascript"
       charset="utf-8"
     ></script>
-
+    <script type="text/javascript">
+      $("#viewCart").click(function (e) {
+        e.preventDefault();
+        window.location.href = "{base_url}carritoCompras";
+      });
+      $("#finish").click(function (e) {
+        e.preventDefault();
+        window.location.href = "{base_url}resumenCompra";
+      });
+    </script>
     {footer_scripts}
   </body>
 </html>

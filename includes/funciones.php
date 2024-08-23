@@ -392,7 +392,7 @@ function mostrar_micuenta_password($db, $t)
     }
 }
 
-function buscar_producto($db, $t, $entrada,$desdeAdmin = false)
+function buscar_producto($db, $t, $entrada, $producto_add = null, $desdeAdmin = false)
 {
     $t->set_var('base_url', HOST);
     $t->set_file("pl", "mostrarBuscar.html");
@@ -405,7 +405,17 @@ function buscar_producto($db, $t, $entrada,$desdeAdmin = false)
     $_SESSION['filter'] = "/buscar/$entrada";
     $t->set_var("title_busqueda", $busqueda);
 
-    $query = "SELECT DISTINCT p.*, m.nombre AS marca
+    error_log('Producto: '.json_encode($producto_add));
+
+  if ($producto_add != null) {
+    $t->set_var("photo", $producto_add['path']);
+    $t->set_var("producto_agregado", $producto_add['nombre']);
+    // $t->set_var("producto_agregado", utf8_encode($producto_add['nombre']));
+  } else {
+    $t->set_var("producto_agregado_hidden", "style='display:none;'");
+  }
+
+  $query = "SELECT DISTINCT p.*, m.nombre AS marca
     FROM productos p
     INNER JOIN marcas m ON m.id = p.marca_id
     INNER JOIN categorias c ON c.id = p.categoria_id
@@ -467,10 +477,18 @@ function buscar_producto($db, $t, $entrada,$desdeAdmin = false)
     }
 }
 
-function mostrar_por_edad($db, $t, $rango_id){
+function mostrar_por_edad($db, $t, $rango_id, $producto_add = null){
     $t->set_var('base_url', HOST);
     $t->set_file("pl", "mostrarBuscar.html");
     $_SESSION['filter'] = "/edad/$rango_id";
+
+  if ($producto_add != null) {
+    $t->set_var("photo", $producto_add['path']);
+    $t->set_var("producto_agregado", $producto_add['nombre']);
+    // $t->set_var("producto_agregado", utf8_encode($producto_add['nombre']));
+  } else {
+    $t->set_var("producto_agregado_hidden", "style='display:none;'");
+  }
 
     $query = "SELECT p.*, m.nombre AS marca
         FROM productos p
@@ -943,10 +961,10 @@ function productoAgregado($db, $t, $id_producto)
             showTag($filter_type[2], $filter_type[3], $row);
             break;
         case "buscar":
-            buscar_producto($db, $t, $filter_type[2]);
+            buscar_producto($db, $t, $filter_type[2], $row);
             break;
         case "edad": 
-            mostrar_por_edad($db, $t, $filter_type[2]);
+            mostrar_por_edad($db, $t, $filter_type[2], $row);
             break;
         case "categorias":
         default:

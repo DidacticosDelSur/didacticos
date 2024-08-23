@@ -161,7 +161,7 @@ if (empty($elements[0])) {
             }
             break;
         case "buscaDesdeAdmin":
-            buscar_producto($db, $t, urldecode($elements[1]), true);
+            buscar_producto($db, $t, urldecode($elements[1]),null, true);
             break;
         case "resumenCompra":
             mostrar_resumen_compra($db, $t);
