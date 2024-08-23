@@ -445,8 +445,9 @@ function buscar_producto($db, $t, $entrada,$desdeAdmin = false)
         } else {
             //el usuario logueado es vendedor
             $usuario = $_SESSION['id_vendedor'];
-            $sqlBusq = "INSERT INTO busquedas_clientes (cliente_id, busqueda, resultado, es_vendedor, link) 
-                    VALUES ($usuario, '$busqueda', $res_cant, 1, '/buscaDesdeAdmin/$entrada')";
+            $cliente = $_SESSION['id_cliente'];
+            $sqlBusq = "INSERT INTO busquedas_clientes (cliente_id, vendedor_id, busqueda, resultado, es_vendedor, link) 
+                    VALUES ($cliente, $usuario, '$busqueda', $res_cant, 1, '/buscaDesdeAdmin/$entrada')";
         }
         error_log($sqlBusq);
         mysqli_query($db, $sqlBusq);
