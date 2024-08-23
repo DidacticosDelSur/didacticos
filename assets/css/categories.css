@@ -60,6 +60,11 @@
     padding-top: 0px;
   }
 }
+.category-content.tags .category-list small,
+.category-content.tags .category-list section {
+  width: 1122px;
+  margin: 0 auto;
+}
 .category-content .category-list {
   padding: 20px 30px;
   width: 100%;
@@ -229,7 +234,7 @@
   position: relative;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.05);
   margin-bottom: 6px;
-  width: 225px;
+  width: 214px;
   border-radius: 10px;
 }
 .category-content section .frame .image {
