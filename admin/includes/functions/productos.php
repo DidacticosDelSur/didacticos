@@ -44,14 +44,14 @@ function mostrar_producto($db, $t)
 	while ($row = mysqli_fetch_array($result)) {
 		$t->set_var("id_producto", $row['id']);
 		$t->set_var("sku", $row['sku']);
-		$t->set_var("nombre_producto", $row['nombre']);
+    $t->set_var("codigo_barras", $row['codigo_barras']);
+    $t->set_var("nombre_producto", $row['nombre']);
 		$tipo = getCategoria($db,$row['tipo']);
 		$t->set_var("tipo_producto", $tipo);
 
 		$t->set_var("categoria", getNombreCategoria($row['categoria_id'], $db));
 		$t->set_var("marca", getNombreMarca($row['marca_id'], $db));
-		/* error_log('tag: '.$row['tag_id']);
-		$t->set_var("tag", getNombreTag($row['tag_id'], $db)); */
+		/*$t->set_var("tag", getNombreTag($row['tag_id'], $db)); */
 		$precio = $row['precio_pvp'];
 		$t->set_var("pvp", $precio);
 		$t->set_var("descuento", $row['descuento']);
@@ -80,6 +80,7 @@ function editar_producto($db, $t, $id_producto)
 	$t->set_var("nombre_producto", $row['nombre']);
 	$t->set_var("video_producto", $row['video']);
 	$t->set_var("sku", $row['sku']);
+  $t->set_var("codigo_barras", $row['codigo_barras']);
 	$t->set_var("descripcion_producto", $row['descripcion']);
 	/*tipo seleccionado*/
 
@@ -115,7 +116,8 @@ function guardar_producto($db, $directorio_destino, $path_fotos)
 {
 	$id_producto   = $_POST["id"];
 	$sku           = $_POST["sku"];
-	$nombre        = $_POST["nombre_producto"];
+	$codigo_barras = isset($_POST["codigo_barras"]) ? $_POST["codigo_barras"] === '' ? "NULL" : $_POST["codigo_barras"] : "NULL";
+  $nombre        = $_POST["nombre_producto"];
 	$video         = $_POST["video_producto"];
 	$categoria     = $_POST["categoria"];
 	$marca         = $_POST["marca"];
@@ -129,13 +131,23 @@ function guardar_producto($db, $directorio_destino, $path_fotos)
 	//$edad          = $_POST["rango_edad"];
 	$en_tv         = ($_POST["en_tv"] == 'true')?"1":"0";
 	$portada       = ($_POST['portada'] != 'undefined')?$_POST['portada']:"NULL";
-	error_log('edad: ' .$edad );
 
-  $sql = "SELECT 1 FROM productos WHERE sku = '$sku' AND borrado IS NULL ";
-    
+  $sqlSKU = "SELECT 1 FROM productos WHERE sku = '$sku' AND borrado IS NULL ";
+  if ($codigo_barras != 'NULL') $sqlCb = "SELECT 1 FROM productos WHERE codigo_barras = '$codigo_barras' AND borrado IS NULL ";
+
 	if ($_POST['accion'] == "editar") {
-    $sql .= " AND id <> '$id_producto'";
-    $r = mysqli_query($db,$sql);
+    $sqlSKU .= " AND id <> '$id_producto'";
+    if ($codigo_barras != 'NULL') {
+      $sqlCb .= " AND id <> '$id_producto'";
+      $r = mysqli_query($db,$sqlCb);
+      $result = mysqli_fetch_array($r);
+      if (isset($result[1])) {
+        http_response_code(400);
+        echo 	'cod_bar';
+        exit;
+      }
+    }
+    $r = mysqli_query($db,$sqlSKU);
     $result = mysqli_fetch_array($r);
     if (isset($result[1])) {
 			http_response_code(400);
@@ -143,21 +155,30 @@ function guardar_producto($db, $directorio_destino, $path_fotos)
       exit;
     }
 		$query = "UPDATE productos SET nombre = '$nombre', categoria_id = '$categoria', marca_id = '$marca',
-		precio_pvp = '$precio', descuento = '$descuento', estado = '$estado', sku = '$sku',
+		precio_pvp = '$precio', descuento = '$descuento', estado = '$estado', sku = '$sku', codigo_barras = '$codigo_barras',
 		tipo = '$tipo_producto', descripcion = '$descripcion', rango_edad = $edad, video = '$video', en_tv = $en_tv, portada = $portada, fecha_actualizacion = now() WHERE id = '$id_producto'";
 } else {
-    $r = mysqli_query($db,$sql);
+    $r = mysqli_query($db,$sqlSKU);
     $result = mysqli_fetch_array($r);
     if (isset($result[1])) {
 			http_response_code(400);
 			echo 	'SKU';
       exit;
     }
-		$query = "INSERT INTO productos (sku, nombre, descripcion, tipo, precio_pvp, descuento, estado, rango_edad, categoria_id, marca_id, video, en_tv) VALUES
-	('$sku','$nombre','$descripcion', '$tipo_producto', '$precio', '$descuento', '$estado', $edad, '$categoria', '$marca', '$video', $en_tv)";
+    if ($codigo_barras != 'NULL') {
+      $r = mysqli_query($db,$sqlCb);
+      $result = mysqli_fetch_array($r);
+      if (isset($result[1])) {
+        http_response_code(400);
+        echo 	'cod_bar';
+        exit;
+      }
+    }
+
+		$query = "INSERT INTO productos (sku, codigo_barras, nombre, descripcion, tipo, precio_pvp, descuento, estado, rango_edad, categoria_id, marca_id, video, en_tv) VALUES
+	('$sku','$codigo_barras','$nombre','$descripcion', '$tipo_producto', '$precio', '$descuento', '$estado', $edad, '$categoria', '$marca', '$video', $en_tv)";
 	}
 
-	error_log($query);
 
 	mysqli_query($db, $query);
 

@@ -424,6 +424,7 @@ function buscar_producto($db, $t, $entrada, $producto_add = null, $desdeAdmin = 
     WHERE p.borrado IS NULL AND
     p.estado = 'Disponible' AND
     (p.nombre LIKE '%$resultado%' OR p.tipo LIKE '%$resultado%' OR p.descripcion LIKE '%$resultado%'
+      OR p.sku LIKE '%$resultado%' OR p.codigo_barras LIKE '%$resultado%'
       OR m.nombre LIKE '%$resultado%' OR m.descripcion LIKE '%$resultado%'
       OR c.nombre LIKE '%$resultado%' OR c.descripcion LIKE '%$resultado%'
       OR t.nombre LIKE '%$resultado%' OR t.descripcion LIKE '%$resultado%'
