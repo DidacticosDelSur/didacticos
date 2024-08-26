@@ -100,9 +100,9 @@
                                     <td>{fecha}</td>
                                      <td {admin}><a href="{link}"
                                                    class="btn btn-primary btn-sm small" title="Ver" target="_blank">Ver</a>
-                                        <!--<a id={id_categoria} data-toggle="modal" data-target="#modal-categoria" onclick="setCategoria(event);"
-                                           class="btn btn-danger btn-sm text-white small" title="Eliminar Categoría"><i
-                                                class="fa fa-trash-o"></i> Eliminar Categoría</a>--></td> 
+                                        <a id={id_busqueda} data-toggle="modal" data-target="#modal-busquedaId" onclick="setBusqueda(event);"
+                                           class="btn btn-danger btn-sm text-white small" title="Eliminar Búsqueda"><i
+                                                class="fa fa-trash-o"></i> Eliminar Búsqueda</a><!----></td>
                                 </tr>
                                 <!-- END busquedas -->
                                 </tbody>
@@ -112,7 +112,30 @@
                 </div>
             </div>
         </div>
+
     </div><!-- .content -->
+    <div class="modal" id="modal-busquedaId" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Eliminar búsqueda</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="removeError(event);">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>¿Está seguro que desea eliminar la búsqueda?</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" id="eliminar-id">
+                        Continuar
+                    </button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="removeError(event);">Salir</button>
+                </div>
+                <strong style="margin: 15px;color: red;" id="error-id"></strong>
+            </div>
+        </div>
+    </div>
     <div class="modal" id="modal-busqueda" tabindex="-1" role="dialog">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -161,11 +184,28 @@
         e.preventDefault();
     }
 
+    function setBusqueda(e) {
+        e.preventDefault();
+        id = e.target.id;
+    }
+
     document.querySelector('#eliminar').onclick = () => {
         $.ajax({
             url: "{base_url}vaciar_busquedas",
             success: (data) => {
                 window.location.href = "{base_url}listar_busquedas"
+            }})
+    }
+
+    document.querySelector('#eliminar-id').onclick = () => {
+        $.ajax({
+            url: "{base_url}eliminar_busqueda/" +id,
+            success: (data) => {
+                if (data == "error"){
+                    document.querySelector('#error-id').innerHTML = "No se pudo eliminar la búsqueda.";
+                }else {
+                    window.location.href = "{base_url}listar_busquedas"
+                }
             }})
     }
 </script>

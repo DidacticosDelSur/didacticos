@@ -316,6 +316,10 @@ if ($_SESSION["user_admin"] == "" or $_SESSION["user_admin"] == "user") {
             case "vaciar_busquedas":
                 vaciar_busquedas($db);
                 break;
+            case "eliminar_busqueda":
+                eliminar_busqueda($db, $elements[1]);
+                break;
+
             // OPCIONES
             case 'opciones':
                 showOptions();
