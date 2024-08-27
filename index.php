@@ -30,6 +30,7 @@ else {
 mysqli_set_charset($db,"utf8");
 
 include_once "includes/functions/categorias.php";
+include_once "includes/functions/buscador_interno.php";
 
 // initialize empty cart
 if (!isset($_SESSION['CART']) || $_SESSION['CART'] == "") {
@@ -310,6 +311,12 @@ if (empty($elements[0])) {
             break;
         case "cambiarUsuario":
             changeUserTo($_POST['user']);
+            break;
+        case "searcher":
+            mostrar_buscador_para_empleados($db, $t);
+            break;
+        case "buscar_interno":
+            buscar_producto_empleados($db, $t, urldecode($elements[1]));
             break;
         default:
             mostrar_home($db, $t);
