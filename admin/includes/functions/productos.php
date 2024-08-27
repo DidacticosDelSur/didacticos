@@ -80,7 +80,7 @@ function editar_producto($db, $t, $id_producto)
 	$t->set_var("nombre_producto", $row['nombre']);
 	$t->set_var("video_producto", $row['video']);
 	$t->set_var("sku", $row['sku']);
-  $t->set_var("codigo_barras", $row['codigo_barras']);
+  $t->set_var("codigo_barras", $row['codigo_barras'] != 'NULL' ? $row['codigo_barras'] : '');
 	$t->set_var("descripcion_producto", $row['descripcion']);
 	/*tipo seleccionado*/
 
