@@ -111,18 +111,50 @@
   background: radial-gradient(ellipse farthest-corner at 50% 50%, rgb(158, 189, 255) 0%, rgb(94, 140, 239) 100%);
 }
 .category-content .category-list .category-title.tags.type_23-dia-del-nino .content-novedades,
-.category-content .category-list .category-title.tags.type_23-dia-del-nino .content-peluches {
+.category-content .category-list .category-title.tags.type_23-dia-del-nino .content-peluches,
+.category-content .category-list .category-title.tags.type_23-dia-del-nino .content-verano {
   display: none;
 }
 .category-content .category-list .category-title.tags.type_1-novedades .content-diadelnino,
-.category-content .category-list .category-title.tags.type_1-novedades .content-peluches {
+.category-content .category-list .category-title.tags.type_1-novedades .content-peluches,
+.category-content .category-list .category-title.tags.type_1-novedades .content-verano {
   display: none;
 }
 .category-content .category-list .category-title.tags.type_15-peluches {
   background: radial-gradient(ellipse farthest-corner at 50% 50%, rgb(255, 122, 133) 0%, rgb(235, 79, 92) 100%);
 }
 .category-content .category-list .category-title.tags.type_15-peluches .content-diadelnino,
-.category-content .category-list .category-title.tags.type_15-peluches .content-novedades {
+.category-content .category-list .category-title.tags.type_15-peluches .content-novedades,
+.category-content .category-list .category-title.tags.type_15-peluches .content-verano,
+.category-content .category-list .category-title.tags.type_15-peluches .content-rodados {
+  display: none;
+}
+.category-content .category-list .category-title.tags.type_6-verano {
+  background: radial-gradient(ellipse farthest-corner at 50% 50%, rgb(250, 188, 164) 0%, rgb(255, 105, 45) 100%);
+}
+.category-content .category-list .category-title.tags.type_6-verano img {
+  width: 118px;
+  top: 15px;
+  right: 25px;
+}
+.category-content .category-list .category-title.tags.type_6-verano .content-diadelnino,
+.category-content .category-list .category-title.tags.type_6-verano .content-novedades,
+.category-content .category-list .category-title.tags.type_6-verano .content-peluches,
+.category-content .category-list .category-title.tags.type_6-verano .content-rodados {
+  display: none;
+}
+.category-content .category-list .category-title.tags.type_24-rodados {
+  background: radial-gradient(ellipse farthest-corner at 50% 50%, rgb(124, 175, 175) 0%, rgb(41, 178, 179) 100%);
+}
+.category-content .category-list .category-title.tags.type_24-rodados img {
+  top: 15px;
+  right: 25px;
+  width: 220px;
+}
+.category-content .category-list .category-title.tags.type_24-rodados .content-diadelnino,
+.category-content .category-list .category-title.tags.type_24-rodados .content-novedades,
+.category-content .category-list .category-title.tags.type_24-rodados .content-peluches,
+.category-content .category-list .category-title.tags.type_24-rodados .content-verano {
   display: none;
 }
 .category-content .category-list .category-title.tags .title.color-novedades h2 {
