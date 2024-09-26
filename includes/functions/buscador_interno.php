@@ -12,7 +12,7 @@ function buscar_producto_empleados($db, $t, $entrada)
   $resultado = str_replace("?", "/", $entrada);
   $busqueda = str_replace("-", " ", $resultado);
   $resultado = str_replace("-", "%", $resultado);
-  $_SESSION['filter'] = "/buscar/$entrada";
+  //$_SESSION['filter'] = "/buscar/$entrada";
 
   $query = "SELECT DISTINCT p.*, m.nombre AS marca
     FROM productos p
