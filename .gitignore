@@ -34,13 +34,10 @@ images/marcas/*
 catalogo/*
 catalogos-archivos/*
 .htaccess
-includes/config.php
-admin/includes/config.php
-error_log
-includes/config.php
 /logs
 error_log
-includes/config.php
 /admin/logs
 /admin/html/CaracteresEspeciales.js
-/admin/includes/config.php
+/node_modules
+/assets/.DS_Store
+assets/images/.DS_Store

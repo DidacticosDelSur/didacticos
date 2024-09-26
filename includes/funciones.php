@@ -994,7 +994,10 @@ function getDiscount($db, $type = 'libros')
 function mostrar_productoAmpliado($db, $t, $id_producto)
 {
     $t->set_var('base_url', HOST);
+    $t->set_var('base_url_sin_barra', HOST_SINGLE);
+
     $t->set_file("pl", "productoAmpliado.html");
+    $t->set_var('url_back',$_SESSION['filter']);
 
     $query = "SELECT p.*, m.nombre AS marca
     FROM productos p

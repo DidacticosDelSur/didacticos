@@ -272,18 +272,6 @@
         }
       }
     }
-    .follow {
-      display: block;
-      text-align: center;
-      margin: 20px 0 0;
-      text-decoration: none !important;
-      font-size: 0.875rem;
-      span {
-        margin-left: 10px;
-        color: #3390ff;
-        text-decoration: none !important;
-      }
-    }
     @media screen and (max-width: 921px) {
       width: 220px;
     }
@@ -341,5 +329,17 @@
   }
   @media screen and (max-width: 721px) {
     flex-direction: column;    
+  }
+}
+.follow {
+  display: block;
+  text-align: center;
+  margin: 20px 0 0;
+  text-decoration: none !important;
+  font-size: 0.875rem;
+  span {
+    margin-left: 10px;
+    color: #3390ff;
+    text-decoration: none !important;
   }
 }
