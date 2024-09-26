@@ -63,6 +63,18 @@
       &.blue-color {
         background: #5E8CF0;
       }
+      &.orange-color {
+        background: #FF692D;
+        &:hover {
+          background: #e1470a;
+        }
+      }
+      &.green-color {
+        background: #29B2B3;
+        &:hover {
+          background: #067e7f;
+        }
+      }
       &.red-color {
         background: #EB4F5C;
       }
@@ -72,7 +84,7 @@
       position: absolute;
       z-index: 1;
       right: 30px;
-      top: 37px;
+      top: 83px;
       transition: 1s;
       display: block;
       &.bottom-img {
@@ -151,9 +163,9 @@
       -moz-box-shadow: 0 0 12px 0px rgba(0, 0, 0, .3);
       -webkit-box-shadow: 0 0 12px 0px rgba(0, 0, 0, .3);
 
-      img {
+      /* img {
         transform: scale(1.2);
-      }
+      } */
     }
     @media(max-width:980px) {
       width: 60%;

@@ -3432,7 +3432,7 @@ header .wide-content .flexBlock:first-of-type .register:hover, footer .flexBlock
     display: block
 }
 .categories article:hover img {
-    transform: scale(1.2)
+    /* transform: scale(1.2) */
 }
 .categories article:last-of-type .box {
    /*  transition: 1s */

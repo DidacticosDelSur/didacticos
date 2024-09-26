@@ -123,20 +123,52 @@
         &.type_23-dia-del-nino {
           background: radial-gradient(ellipse farthest-corner at 50% 50%, rgb(158 189 255) 0%, rgb(94 140 239) 100%);
           .content-novedades,
-          .content-peluches {
+          .content-peluches,
+          .content-verano {
             display: none;
           }
         }
         &.type_1-novedades {
           .content-diadelnino,
-          .content-peluches {
+          .content-peluches,
+          .content-verano {
             display: none;
           }
         }
         &.type_15-peluches{
           background: radial-gradient(ellipse farthest-corner at 50% 50%, rgb(255 122 133) 0%, rgb(235 79 92) 100%);
           .content-diadelnino,
-          .content-novedades {
+          .content-novedades,
+          .content-verano,
+          .content-rodados {
+            display: none;
+          }
+        }
+        &.type_6-verano{
+          background: radial-gradient(ellipse farthest-corner at 50% 50%, rgb(250, 188, 164) 0%, rgb(255 105 45) 100%);
+          img {
+            width: 118px;
+            top: 15px;
+            right: 25px;        
+          }
+          .content-diadelnino,
+          .content-novedades,
+          .content-peluches,
+          .content-rodados {
+            display: none;
+          }
+        }
+        &.type_24-rodados{
+          background: radial-gradient(ellipse farthest-corner at 50% 50%, rgb(124, 175, 175) 0%, rgb(41 178 179) 100%);
+          img {
+            top: 15px;
+            right: 25px; 
+            width: 220px;       
+          }
+          .content-diadelnino,
+          .content-novedades,
+          .content-peluches,
+          .content-verano {
             display: none;
           }
         }
