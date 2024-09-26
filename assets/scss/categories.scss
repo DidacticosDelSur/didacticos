@@ -131,7 +131,8 @@
         &.type_1-novedades {
           .content-diadelnino,
           .content-peluches,
-          .content-verano {
+          .content-verano,
+          .content-rodados {
             display: none;
           }
         }
@@ -211,7 +212,7 @@
           position: absolute;
           top: 0;
           right: 0;
-          width: 272px;
+          width: 267px;
           @media screen and (max-width: 1320px) {
             width: 257px;
           }

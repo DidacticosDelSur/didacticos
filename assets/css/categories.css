@@ -117,7 +117,8 @@
 }
 .category-content .category-list .category-title.tags.type_1-novedades .content-diadelnino,
 .category-content .category-list .category-title.tags.type_1-novedades .content-peluches,
-.category-content .category-list .category-title.tags.type_1-novedades .content-verano {
+.category-content .category-list .category-title.tags.type_1-novedades .content-verano,
+.category-content .category-list .category-title.tags.type_1-novedades .content-rodados {
   display: none;
 }
 .category-content .category-list .category-title.tags.type_15-peluches {
@@ -190,7 +191,7 @@
   position: absolute;
   top: 0;
   right: 0;
-  width: 272px;
+  width: 267px;
 }
 @media screen and (max-width: 1320px) {
   .category-content .category-list .category-title.tags img {
